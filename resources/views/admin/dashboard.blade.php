@@ -1,7 +1,5 @@
 @extends('admin.layouts.app')
 @section('content')
-    <div id="app">
-        @include('admin.layouts.sidemenu')
         <div id="main">
             <header class="mb-3">
                 <a href="#" class="burger-btn d-block d-xl-none">
@@ -89,16 +87,10 @@
                 </section>
             </div>
 
-            <footer>
-                <div class="footer clearfix mb-0 text-muted">
-                    <div class="float-start">
 
-                    </div>
-                    <div class="float-end">
-
-                    </div>
-                </div>
-            </footer>
         </div>
-    </div>
+@endsection
+
+@section('js')
+    <script src="{{asset('js/pages/dashboard.js')}}"></script>
 @endsection
