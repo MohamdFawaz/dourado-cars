@@ -14,16 +14,16 @@
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
 
-                <li class="sidebar-item active ">
+                <li class="sidebar-item @if(Request::segment(2) == 'dashboard') active @endif" >
                     <a href="{{route('dashboard')}}" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li class="sidebar-item  ">
-                    <a href="application-email.html" class='sidebar-link'>
-                        <i class="bi bi-envelope-fill"></i>
-                        <span>Email Application</span>
+                <li class="sidebar-item  @if(Request::segment(2) == 'car-make') active @endif">
+                    <a href="{{route('car-make.index')}}" class='sidebar-link'>
+                        <i class="bi bi-gear-fill"></i>
+                        <span>Car Make</span>
                     </a>
                 </li>
             </ul>

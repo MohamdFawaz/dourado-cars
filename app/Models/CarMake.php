@@ -10,4 +10,13 @@ class CarMake extends Model
     use HasFactory;
 
     protected $fillable = ["name", "image", "activation"];
+
+
+    public function getImageAttribute($image)
+    {
+        if (filter_var($image, FILTER_VALIDATE_URL)){
+            return $image;
+        }
+        return asset($image);
+    }
 }

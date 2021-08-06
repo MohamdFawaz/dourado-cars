@@ -15,18 +15,22 @@
     <link rel="stylesheet" href="{{asset('vendors/perfect-scrollbar/perfect-scrollbar.css')}}">
     <link rel="stylesheet" href="{{asset('vendors/bootstrap-icons/bootstrap-icons.css')}}">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
-    {{--    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">--}}
+        <link rel="shortcut icon" href="{{asset('images/logo.png')}}" type="image/x-icon">
+    @yield('css')
 </head>
 
 <body>
-@yield('content')
+<div id="app">
+    @include('admin.layouts.sidemenu')
+    @yield('content')
+</div>
 <script src="{{asset('vendors/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
 <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-<script src="{{asset('vendors/apexcharts/apexcharts.js')}}"></script>
-<script src="{{asset('js/pages/dashboard.js')}}"></script>
 
 <script src="{{asset('js/main.js')}}"></script>
+@yield('js')
 </body>
 
 </html>
