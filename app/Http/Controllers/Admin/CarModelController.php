@@ -4,8 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\CarModel;
 use App\Services\CarModelService;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Response;
 
 
 class CarModelController extends Controller
@@ -21,39 +26,39 @@ class CarModelController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $carModels = $this->carModelService->get();
+        return view('admin.car_model.index', ['car_models' => $carModels]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        $carMakes = $this->carModelService->carMakeService->getActivated();
+        return view('admin.car_model.create', ['car_makes' => $carMakes]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
      */
     public function store(Request $request)
     {
-        //
+        $this->carModelService->store($request);
+        return redirect()->to(route('car-model.index'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\CarModel $carModel
-     * @return \Illuminate\Http\Response
+     * @param CarModel $carModel
+     * @return Response
      */
     public function show(CarModel $carModel)
     {
@@ -63,34 +68,39 @@ class CarModelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\CarModel $carModel
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return Application|Factory|View
      */
-    public function edit(CarModel $carModel)
+    public function edit($id)
     {
-        //
+        $carModel = $this->carModelService->findById($id);
+        $carMakes = $this->carModelService->carMakeService->getActivated();
+        return view('admin.car_model.edit', ['car_makes' => $carMakes, 'car_model' => $carModel]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\CarModel $carModel
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @param Request $request
+     * @return RedirectResponse
      */
-    public function update(Request $request, CarModel $carModel)
+    public function update($id, Request $request)
     {
-        //
+        $carModel = $this->carModelService->findById($id);
+        $this->carModelService->update($request, $carModel);
+        return redirect()->to(route('car-model.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\CarModel $carModel
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return RedirectResponse
      */
-    public function destroy(CarModel $carModel)
+    public function destroy($id)
     {
-        //
+        $this->carModelService->destroy($id);
+        return redirect()->to(route('car-model.index'));
     }
 }
