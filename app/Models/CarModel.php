@@ -11,8 +11,13 @@ class CarModel extends Model
 
     protected $fillable = ['name', 'car_make_id'];
 
-    public function carMake()
+    public function carMake(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(CarMake::class,'car_make_id');
+    }
+
+    public function getNameAttribute($name): string
+    {
+        return ucwords($name);
     }
 }

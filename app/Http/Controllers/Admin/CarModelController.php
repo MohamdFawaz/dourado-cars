@@ -103,4 +103,10 @@ class CarModelController extends Controller
         $this->carModelService->destroy($id);
         return redirect()->to(route('car-model.index'));
     }
+
+    public function getCarMakeModels($carMakeId)
+    {
+        $carMakeModels = $this->carModelService->getModelsByCarMake($carMakeId);
+        return \response()->json(['data' => $carMakeModels]);
+    }
 }

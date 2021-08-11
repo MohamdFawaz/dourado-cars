@@ -32,6 +32,12 @@
                         <span>Car Model</span>
                     </a>
                 </li>
+                <li class="sidebar-item  @if(Request::segment(2) == 'car') active @endif">
+                    <a href="{{route('car.index')}}" class='sidebar-link'>
+                        <i class="bi bi-truck"></i>
+                        <span>Car</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
