@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Admin;
 use Illuminate\Database\Seeder;
 
 class AdminSeeder extends Seeder
@@ -13,6 +14,14 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Admin::query()->create([
+            'name' => 'admin',
+            'email' => 'admin@mail.com',
+            'password' => bcrypt('123'),
+            'activation' => true,
+            'rest_code' => 'test123',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
     }
 }
