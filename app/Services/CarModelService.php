@@ -54,4 +54,10 @@ class CarModelService
     {
         return $this->carModelRepository->query()->where('car_make_id', $carMakeId)->get();
     }
+
+    public function count()
+    {
+        return $this->carModelRepository->query()->count();
+    }
+
 }

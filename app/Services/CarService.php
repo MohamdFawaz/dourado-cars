@@ -58,4 +58,10 @@ class CarService
         $carMake->activation = !$carMake->activation;
         $carMake->save();
     }
+
+    public function count()
+    {
+        return $this->carRepository->query()->count();
+    }
+
 }
