@@ -56,6 +56,7 @@ class CarController extends Controller
         }catch (\Exception $e) {
             reportException($e);
             \DB::rollBack();
+            reportException($e);
             return redirect()->to(route('car.index'));
         }
     }

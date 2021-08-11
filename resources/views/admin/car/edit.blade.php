@@ -177,7 +177,9 @@
                                                                 <input type="text" id="name-{{$locale}}"
                                                                        class="form-control"
                                                                        name="name[{{$locale}}]"
-                                                                       placeholder="{{ucwords($locale)}} Car Name" value="{{$car->translate($locale)->name}}">
+                                                                       placeholder="{{ucwords($locale)}} Car Name"
+                                                                       value="{{isset($car->translate($locale)->name) ? $car->translate($locale)->name : $car->name}}"
+                                                                       required>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
@@ -186,7 +188,9 @@
                                                                 <input type="text" id="title-{{$locale}}"
                                                                        class="form-control"
                                                                        name="title[{{$locale}}]"
-                                                                       placeholder="{{ucwords($locale)}} Car Title" value="{{$car->translate($locale)->title}}">
+                                                                       placeholder="{{ucwords($locale)}} Car Title"
+                                                                       value="{{isset($car->translate($locale)->title) ? $car->translate($locale)->title : $car->title}}"
+                                                                       required>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
@@ -195,7 +199,9 @@
                                                                 <input type="text" id="specs-{{$locale}}"
                                                                        class="form-control"
                                                                        name="specs[{{$locale}}]"
-                                                                       placeholder="{{ucwords($locale)}} Car Specs" value="{{$car->translate($locale)->specs}}">
+                                                                       placeholder="{{ucwords($locale)}} Car Specs"
+                                                                       value="{{isset($car->translate($locale)->specs) ? $car->translate($locale)->specs : $car->specs}}"
+                                                                       required>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
@@ -204,7 +210,9 @@
                                                                 <input type="text" id="transmission-type-{{$locale}}"
                                                                        class="form-control"
                                                                        name="transmission_type[{{$locale}}]"
-                                                                       placeholder="{{ucwords($locale)}} Car Transmission Type" value="{{$car->translate($locale)->transmission_type}}">
+                                                                       placeholder="{{ucwords($locale)}} Car Transmission Type"
+                                                                       value="{{isset($car->translate($locale)->transmission_type) ? $car->translate($locale)->transmission_type : $car->transmission_type}}"
+                                                                       required>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
@@ -213,7 +221,9 @@
                                                                 <input type="text" id="body-type-{{$locale}}"
                                                                        class="form-control"
                                                                        name="body_type[{{$locale}}]"
-                                                                       placeholder="{{ucwords($locale)}} Car Body Type" value="{{$car->translate($locale)->body_type}}">
+                                                                       placeholder="{{ucwords($locale)}} Car Body Type"
+                                                                       value="{{isset($car->translate($locale)->body_type) ? $car->translate($locale)->body_type : $car->body_type}}"
+                                                                       required>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
@@ -222,7 +232,9 @@
                                                                 <input type="text" id="fuel-type-{{$locale}}"
                                                                        class="form-control"
                                                                        name="fuel_type[{{$locale}}]"
-                                                                       placeholder="{{ucwords($locale)}} Car Fuel Type" value="{{$car->translate($locale)->fuel_type}}">
+                                                                       placeholder="{{ucwords($locale)}} Car Fuel Type"
+                                                                       value="{{isset($car->translate($locale)->fuel_type) ? $car->translate($locale)->fuel_type : $car->fuel_type}}"
+                                                                       required>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
@@ -232,7 +244,7 @@
                                                                           id="additional-information-{{$locale}}"
                                                                           name="additional_information[{{$locale}}]"
                                                                           placeholder="{{ucwords($locale)}} Car Additional Information"
-                                                                          rows="3">{{$car->translate($locale)->additional_information}}</textarea>
+                                                                          rows="3">{{isset($car->translate($locale)->additional_information) ? $car->translate($locale)->additional_information : $car->additional_information}}</textarea>
                                                             </div>
                                                         </div>
                                                     </div>

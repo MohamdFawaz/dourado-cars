@@ -170,7 +170,7 @@
                                                                 <input type="text" id="name-{{$locale}}"
                                                                        class="form-control"
                                                                        name="name[{{$locale}}]"
-                                                                       placeholder="{{ucwords($locale)}} Car Name">
+                                                                       placeholder="{{ucwords($locale)}} Car Name" required>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
@@ -179,7 +179,7 @@
                                                                 <input type="text" id="title-{{$locale}}"
                                                                        class="form-control"
                                                                        name="title[{{$locale}}]"
-                                                                       placeholder="{{ucwords($locale)}} Car Title">
+                                                                       placeholder="{{ucwords($locale)}} Car Title" required>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
@@ -188,7 +188,7 @@
                                                                 <input type="text" id="specs-{{$locale}}"
                                                                        class="form-control"
                                                                        name="specs[{{$locale}}]"
-                                                                       placeholder="{{ucwords($locale)}} Car Specs">
+                                                                       placeholder="{{ucwords($locale)}} Car Specs" required>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
@@ -197,7 +197,7 @@
                                                                 <input type="text" id="transmission-type-{{$locale}}"
                                                                        class="form-control"
                                                                        name="transmission_type[{{$locale}}]"
-                                                                       placeholder="{{ucwords($locale)}} Car Transmission Type">
+                                                                       placeholder="{{ucwords($locale)}} Car Transmission Type" required>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
@@ -206,7 +206,7 @@
                                                                 <input type="text" id="body-type-{{$locale}}"
                                                                        class="form-control"
                                                                        name="body_type[{{$locale}}]"
-                                                                       placeholder="{{ucwords($locale)}} Car Body Type">
+                                                                       placeholder="{{ucwords($locale)}} Car Body Type" required>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
@@ -215,7 +215,7 @@
                                                                 <input type="text" id="fuel-type-{{$locale}}"
                                                                        class="form-control"
                                                                        name="fuel_type[{{$locale}}]"
-                                                                       placeholder="{{ucwords($locale)}} Car Fuel Type">
+                                                                       placeholder="{{ucwords($locale)}} Car Fuel Type" required>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
