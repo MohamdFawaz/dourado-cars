@@ -5,10 +5,11 @@ namespace App\Models;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Car extends Model
 {
-    use HasFactory, Translatable;
+    use HasFactory, Translatable, SoftDeletes;
 
     protected $fillable = ['kilometers', 'year', 'price', 'activation', 'warranty', 'featured', 'image', 'color',
         'number_of_doors', 'number_of_cylinders', 'hours_power', 'car_make_id', 'car_model_id'];
