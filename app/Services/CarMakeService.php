@@ -29,6 +29,11 @@ class CarMakeService
         return $this->carMakeRepository->find($id);
     }
 
+    public function count()
+    {
+        return $this->carMakeRepository->query()->count();
+    }
+
     public function store($newMake)
     {
 
