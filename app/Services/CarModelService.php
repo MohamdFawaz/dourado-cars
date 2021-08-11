@@ -49,4 +49,9 @@ class CarModelService
     {
         $this->carModelRepository->destroy($id);
     }
+
+    public function getModelsByCarMake($carMakeId)
+    {
+        return $this->carModelRepository->query()->where('car_make_id', $carMakeId)->get();
+    }
 }

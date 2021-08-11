@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CarController;
 use App\Http\Controllers\Admin\CarMakeController;
 use App\Http\Controllers\Admin\CarModelController;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,17 @@ Route::group(['prefix' => "admin"], function (){
             Route::get('/edit/{id}',[CarModelController::class, 'edit'])->name('car-model.edit');
             Route::put('/update/{id}',[CarModelController::class, 'update'])->name('car-model.update');
             Route::delete('/delete/{id}',[CarModelController::class, 'destroy'])->name('car-model.delete');
+            Route::get('/car-make/{id}',[CarModelController::class, 'getCarMakeModels'])->name('car-model.by-car-make');
         });
+
+        Route::group(['prefix' => 'car'],function () {
+            Route::get('/',[CarController::class, 'index'])->name('car.index');
+            Route::get('/create',[CarController::class, 'create'])->name('car.create');
+            Route::post('/',[CarController::class, 'store'])->name('car.store');
+            Route::get('/edit/{id}',[CarController::class, 'edit'])->name('car.edit');
+            Route::put('/update/{id}',[CarController::class, 'update'])->name('car.update');
+            Route::delete('/delete/{id}',[CarController::class, 'destroy'])->name('car.delete');
+        });
+
     });
 });

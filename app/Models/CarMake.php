@@ -19,4 +19,9 @@ class CarMake extends Model
         }
         return asset($image);
     }
+
+    public function carModels()
+    {
+        return $this->hasMany(CarModel::class, 'car_make_id');
+    }
 }

@@ -46,7 +46,7 @@ class CarMakeController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $this->carMakeService->store($request);
-        return \request()->route('car-make.index');
+        return redirect()->to(route('car-make.index'));
     }
 
     /**

@@ -26,13 +26,11 @@ class CreateCarsTable extends Migration
             $table->integer('number_of_doors')->default(0);
             $table->string('number_of_cylinders')->nullable();
             $table->string('hours_power')->nullable();
-            $table->bigInteger('transmission_type_id')->unsigned();
-            $table->bigInteger('body_type_id')->unsigned();
-            $table->bigInteger('fuel_type_id')->unsigned();
+            $table->bigInteger('car_make_id')->unsigned();
+            $table->bigInteger('car_model_id')->unsigned();
             $table->timestamps();
-            $table->foreign('transmission_type_id')->references('id')->on('transmission_types');
-            $table->foreign('body_type_id')->references('id')->on('body_types');
-            $table->foreign('fuel_type_id')->references('id')->on('fuel_types');
+            $table->foreign('car_make_id')->references('id')->on('car_makes');
+            $table->foreign('car_model_id')->references('id')->on('car_models');
         });
 
         Schema::create('car_translations', function (Blueprint $table) {
@@ -42,6 +40,9 @@ class CreateCarsTable extends Migration
             $table->string('name');
             $table->string('title');
             $table->string('specs');
+            $table->string('transmission_type');
+            $table->string('body_type');
+            $table->string('fuel_type');
             $table->text('additional_information');
             $table->unique(['car_id','locale']);
             $table->foreign('car_id')->references('id')->on('cars')->onDelete('cascade');
@@ -55,6 +56,7 @@ class CreateCarsTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('car_translations');
         Schema::dropIfExists('cars');
     }
 }
