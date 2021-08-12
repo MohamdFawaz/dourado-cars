@@ -49,7 +49,10 @@ class CarService
 
     public function destroy($id)
     {
-        return $this->carRepository->destroy($id);
+        $car = $this->findById($id);
+        if ($car->delete()) {
+//           $car->deleteImage();
+        }
     }
 
     public function toggleActivation($carMakeId)
