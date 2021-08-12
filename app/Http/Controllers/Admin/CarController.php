@@ -100,7 +100,6 @@ class CarController extends Controller
      * Remove the specified resource from storage.
      *
      * @param \App\Models\CarMake $carMake
-     * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {

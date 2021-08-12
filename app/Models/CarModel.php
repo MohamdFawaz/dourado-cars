@@ -21,4 +21,17 @@ class CarModel extends Model
     {
         return ucwords($name);
     }
+
+    public function getImageAttribute($image)
+    {
+        return asset($image);
+
+    }
+
+    public function deleteImage()
+    {
+        if(\File::exists($this->getRawOriginal('image'))) {
+            \File::delete($this->getRawOriginal('image'));
+        }
+    }
 }

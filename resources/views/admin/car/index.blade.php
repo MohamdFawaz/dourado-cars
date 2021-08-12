@@ -48,28 +48,26 @@
                             </thead>
                             <tbody>
                             @foreach($cars as $car)
-                            <tr>
-                                <td>{{$car->name}}</td>
-                                <td><img src="{{$car->image}}" alt="{{$car->name}}-image" class="img-fluid" width="100"></td>
-                                <td>
-                                    {{$car->carMake->name}} - {{$car->carModel->name}}
-                                </td>
-                                <td>
-                                    <span class="row">
-                                        <a class="col-6" href="{{route('car.edit', $car->id)}}">
+                                <tr>
+                                    <td>{{$car->name}}</td>
+                                    <td><img src="{{$car->image}}" alt="{{$car->name}}-image" class="img-fluid"
+                                             width="100"></td>
+                                    <td>
+                                        {{$car->carMake->name}} - {{$car->carModel->name}}
+                                    </td>
+                                    <td>
+                                        <a href="{{route('car.edit', $car->id)}}" class="float-start m-2">
                                             <div class="icon dripicons-pencil"></div>
                                         <a>
-                                         <form  method="post" action="{{ route('car.delete', $car->id) }}">
-                                             @csrf
-                                             @method('delete')
-                                            <a onclick="if(confirm('Are you sure you want to delete ' + `{{$car->name}}` + '?')) { $(this).closest('form').submit()}"><div class="icon dripicons-trash"></div></a>
+                                        <form method="post" action="{{ route('car.delete', $car->id) }}">
+                                            @csrf
+                                            @method('delete')
+                                            <a class="float-start m-2" onclick="if(confirm('Are you sure you want to delete ' + `{{$car->name}}` + '?')) { $(this).closest('form').submit()}">
+                                                <div class="icon dripicons-trash"></div>
+                                            </a>
                                         </form>
-                                    </span>
-                                    <span>
-
-                                    </span>
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
                             @endforeach
                             </tbody>
                         </table>
