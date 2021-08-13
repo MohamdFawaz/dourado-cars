@@ -21,7 +21,7 @@ class CarMakeService
 
     public function getActivated()
     {
-        return $this->carMakeRepository->query()->select('id','name')->whereActivation(true)->get();
+        return $this->carMakeRepository->query()->select('id', 'name')->activated()->get();
     }
 
     public function findById($id)
@@ -51,7 +51,7 @@ class CarMakeService
     public function update($newMake, $carMake)
     {
         if ($newMake->image) {
-            if(\File::exists($carMake->getRawOriginal('image'))) {
+            if (\File::exists($carMake->getRawOriginal('image'))) {
                 \File::delete($carMake->getRawOriginal('image'));
             }
             $imageName = time() . '.' . $newMake->image->extension();
@@ -68,5 +68,10 @@ class CarMakeService
         $carMake = $this->carMakeRepository->find($carMakeId);
         $carMake->activation = !$carMake->activation;
         $carMake->save();
+    }
+
+    public function getByLimit($limit = 3)
+    {
+        return $this->carMakeRepository->query()->activated()->limit($limit)->get();
     }
 }

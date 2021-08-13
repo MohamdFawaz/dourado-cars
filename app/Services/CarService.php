@@ -24,7 +24,7 @@ class CarService
 
     public function getActivated()
     {
-        return $this->carRepository->query()->select('id', 'name')->whereActivation(true)->get();
+        return $this->carRepository->query()->select('id', 'name')->activated(true)->get();
     }
 
     public function findById($id)
@@ -67,4 +67,8 @@ class CarService
         return $this->carRepository->query()->count();
     }
 
+    public function getHomepageCars($limit = 6)
+    {
+        return $this->carRepository->query()->limit($limit)->get();
+    }
 }
