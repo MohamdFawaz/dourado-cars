@@ -13,6 +13,11 @@ class CarMake extends Model
     protected $fillable = ["name", "image", "activation"];
 
 
+    public function scopeActivated($query)
+    {
+        return $query->whereActivation(true);
+    }
+
     public function getImageAttribute($image)
     {
         if (filter_var($image, FILTER_VALIDATE_URL)){
