@@ -162,7 +162,7 @@
                     </div>
                 </div>
 
-                @foreach($carMakes as $carMake)
+                @foreach($carMakes->take(3) as $carMake)
                     <div class="col-lg-4 col-md-6">
                         <div class="service-item">
                             <a href="javascript:void(0)" class="services-item-image"><img src="{{$carMake->image}}"

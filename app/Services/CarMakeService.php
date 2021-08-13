@@ -21,7 +21,7 @@ class CarMakeService
 
     public function getActivated()
     {
-        return $this->carMakeRepository->query()->select('id', 'name')->activated()->get();
+        return $this->carMakeRepository->query()->select('id', 'name','image')->activated()->get();
     }
 
     public function findById($id)

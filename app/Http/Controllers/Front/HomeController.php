@@ -21,7 +21,7 @@ class HomeController extends Controller
 
     public function home()
     {
-        $carMakes = $this->carMakeService->getByLimit();
+        $carMakes = $this->carMakeService->getActivated();
         $featuredCars = $this->carService->getHomepageCars();
         return view('front.home', compact('carMakes','featuredCars'));
     }
