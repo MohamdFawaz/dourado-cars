@@ -293,7 +293,7 @@
         loadRelatedModels = (e) => {
             let makeId = e.value;
             if (makeId) {
-                axios.get('/admin/car-model/car-make/' + makeId).then(response => {
+                axios.get('/car-model/car-make/' + makeId).then(response => {
                     emptyCarModelOptions();
                     let data = response.data.data;
                     for (let i = 0; i < data.length; i++) {
