@@ -134,10 +134,10 @@
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label for="hours_power">Hours Power</label>
-                                                <input type="text" id="hours_power"
+                                                <label for="horse_power">Horse Power</label>
+                                                <input type="text" id="horse_power"
                                                        class="form-control"
-                                                       name="hours_power" placeholder="Hours Power" required value="{{$car->hours_power}}">
+                                                       name="horse_power" placeholder="Horse Power" required value="{{$car->horse_power}}">
                                             </div>
                                         </div>
                                         <div class="col-12">
