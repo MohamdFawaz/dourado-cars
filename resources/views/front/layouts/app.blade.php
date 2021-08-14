@@ -26,17 +26,7 @@
 
 @yield('content')
 
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="inner-content">
-                    <p>Copyright © {{date('Y')}} Qasr Al Mahaba</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+@include('front.layouts.footer')
 
 
 <!-- Bootstrap core JavaScript -->
