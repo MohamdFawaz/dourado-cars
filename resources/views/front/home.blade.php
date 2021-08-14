@@ -106,7 +106,7 @@
                                 </div>
                                 <a href="javascript:void(0)"><h4>{{$car->title}}</h4></a>
 
-                                <p>{{$car->hours_power}} &nbsp;/&nbsp; {{ucwords($car->fuel_type)}} &nbsp;/&nbsp; {{ucwords($car->color}})
+                                <p>{{$car->hours_power}} &nbsp;/&nbsp; {{ucwords($car->fuel_type)}} &nbsp;/&nbsp; {{ucwords($car->color)}}
                                     &nbsp;/&nbsp;{{$car->number_of_cylinders}}</p>
 
                                 <small class="row">
