@@ -1,8 +1,8 @@
 <header class="">
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="javascript:void(0)">
-                <img src="{{asset('images/logoWText-min.png')}}" alt="..."> <h2>Dourdo <em>Cars</em></h2>
+            <a class="navbar-brand" href="{{route('home')}}">
+                <img src="{{asset('images/logoWText-min.png')}}" alt="header-logo">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

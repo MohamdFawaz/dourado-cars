@@ -52,7 +52,7 @@
                                     <div class="selected-box">
                                         <select name="car_make_id" class="selectpicker wide"
                                                 onchange="loadRelatedModels(this)">
-                                            <option value="">--Select--</option>
+                                            <option value="">-- Select --</option>
                                             @foreach($carMakes as $carMake)
                                                 <option value="{{$carMake->id}}">{{$carMake->name}}</option>
                                             @endforeach
@@ -63,7 +63,7 @@
                                     <span>Car Model</span>
                                     <div class="selected-box">
                                         <select name="car_model_id" class="selectpicker wide" id="car_model_id">
-                                            <option value="">--Select Car Model--</option>
+                                            <option value="">-- Select --</option>
                                         </select>
                                     </div>
                                 </div>
@@ -96,18 +96,24 @@
                 @foreach($featuredCars as $car)
                     <div class="col-lg-4 col-md-6">
                         <div class="product-item">
-                            <a href="javascript:void(0)"><img src="{{$car->image}}" alt=""></a>
+                            <a href="javascript:void(0)">
+                                <img src="{{$car->image}}" alt="">
+                                <div class="price">{{$car->price}} {{trans('web.currency_name')}}</div>
+                            </a>
                             <div class="down-content">
+                                <div class="car-subtitle heading-font">
+                                    <div class="car-name">{{$car->name}}</div>
+                                </div>
                                 <a href="javascript:void(0)"><h4>{{$car->title}}</h4></a>
 
-                                <h6>{{$car->price}}</h6>
-
-                                <p>{{$car->hours_power}} &nbsp;/&nbsp; {{$car->fuel_type}} &nbsp;/&nbsp; {{$car->color}} &nbsp;/&nbsp;{{$car->number_of_cylinders}}</p>
+                                <p>{{$car->hours_power}} &nbsp;/&nbsp; {{$car->fuel_type}} &nbsp;/&nbsp; {{$car->color}}
+                                    &nbsp;/&nbsp;{{$car->number_of_cylinders}}</p>
 
                                 <small class="row">
-                                    <strong class="col-4" title="Author"><i class="fa fa-dashboard"></i> {{$car->kilometers}} km</strong>
-                                    <strong class="col-4" title="Views"><i class="fa fa-cog"></i> {{$car->transmission_type}}</strong>
-                                    <strong class="col-4" title="Views"><i class="fa fa-calendar"></i> {{$car->year}}</strong>
+                                    <strong class="col-4"><i class="fa fa-dashboard"></i> {{$car->kilometers}}
+                                        km</strong>
+                                    <strong class="col-4"><i class="fa fa-cog"></i> {{$car->transmission_type}}</strong>
+                                    <strong class="col-4"><i class="fa fa-calendar"></i> {{$car->year}}</strong>
                                 </small>
                             </div>
                         </div>
@@ -307,7 +313,7 @@
         emptyCarModelOptions = () => {
             let el = $("#car_model_id");
             el.empty();
-            el.append(new Option("-- Select Car Model --"));
+            el.append(new Option("-- Select --"));
         }
     </script>
 @endsection
