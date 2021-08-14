@@ -12,7 +12,7 @@ class Car extends Model
     use HasFactory, Translatable, SoftDeletes;
 
     protected $fillable = ['kilometers', 'year', 'price', 'activation', 'warranty', 'featured', 'image', 'color',
-        'number_of_doors', 'number_of_cylinders', 'hours_power', 'car_make_id', 'car_model_id'];
+        'number_of_doors', 'number_of_cylinders', 'horse_power', 'car_make_id', 'car_model_id'];
     public $translatedAttributes = ['name', 'title', 'specs', 'transmission_type', 'body_type', 'fuel_type', 'additional_information'];
 
 

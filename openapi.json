@@ -445,7 +445,7 @@
               "fuel_type": {
                 "type": "string"
               },
-              "hours_power": {
+              "horse_power": {
                 "type": "string"
               },
               "images": {

@@ -37,7 +37,7 @@ class CarResource extends JsonResource
         $data['warranty'] = (bool)($request->warranty);
         $data['transmission_type'] = $request->transmission_type;
         $data['fuel_type'] = $request->fuel_type;
-        $data['hours_power'] = $request->hours_power;
+        $data['horse_power'] = $request->horse_power;
         $request->gallery->prepend(self::createImageInstance($request));
         $data['images'] = CarGalleryResource::collection($request->gallery);
         return $data;

@@ -106,13 +106,12 @@
                                 </div>
                                 <a href="javascript:void(0)"><h4>{{$car->title}}</h4></a>
 
-                                <p>{{$car->hours_power}} &nbsp;/&nbsp; {{$car->fuel_type}} &nbsp;/&nbsp; {{$car->color}}
+                                <p>{{$car->hours_power}} &nbsp;/&nbsp; {{ucwords($car->fuel_type)}} &nbsp;/&nbsp; {{ucwords($car->color}})
                                     &nbsp;/&nbsp;{{$car->number_of_cylinders}}</p>
 
                                 <small class="row">
-                                    <strong class="col-4"><i class="fa fa-dashboard"></i> {{$car->kilometers}}
-                                        km</strong>
-                                    <strong class="col-4"><i class="fa fa-cog"></i> {{$car->transmission_type}}</strong>
+                                    <strong class="col-4"><i class="fa fa-dashboard"></i> {{$car->kilometers}} km</strong>
+                                    <strong class="col-4"><i class="fa fa-cog"></i> {{ucwords($car->transmission_type)}}</strong>
                                     <strong class="col-4"><i class="fa fa-calendar"></i> {{$car->year}}</strong>
                                 </small>
                             </div>
