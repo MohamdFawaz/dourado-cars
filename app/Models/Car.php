@@ -16,6 +16,11 @@ class Car extends Model
     public $translatedAttributes = ['name', 'title', 'specs', 'transmission_type', 'body_type', 'fuel_type', 'additional_information'];
 
 
+    public function scopeActivated($query)
+    {
+        return $query->whereActivation(true);
+    }
+
     public function getImageAttribute($image)
     {
 

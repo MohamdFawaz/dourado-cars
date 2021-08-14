@@ -24,12 +24,32 @@ class CarService
 
     public function getActivated()
     {
-        return $this->carRepository->query()->select('id', 'name')->activated(true)->get();
+        return $this->carRepository->query()->activated()->get();
     }
 
-    public function findById($id)
+    public function getActivatePaginated($perPage = 10)
     {
-        return $this->carRepository->find($id);
+        $filters = $this->formatGetCarFilters();
+        $query =  $this->carRepository->query()->with('carMake:id,name');
+        if (count($filters)) {
+            foreach ($filters as $filter) {
+                if ($filter[1] == 'in') {
+                    $query->whereIn($filter[0],$filter[2]);
+                }else{
+                    $query->where($filter[0],$filter[1],$filter[2]);
+                }
+            }
+        }
+        return $query->paginate($perPage);
+    }
+
+    public function findById($id, $with = [])
+    {
+        $query = $this->carRepository->query();
+        if ($with) {
+            $query->with($with);
+        }
+        return $query->find($id);
     }
 
     public function findByIdWithGallery($id)
@@ -70,5 +90,24 @@ class CarService
     public function getHomepageCars($limit = 6)
     {
         return $this->carRepository->query()->limit($limit)->get();
+    }
+
+    public function formatGetCarFilters()
+    {
+        $filters = [];
+        if (request()->get('car_make_ids')) {
+            $filters = [['car_make_id', 'in', request()->get('car_make_ids')]];
+        }
+        if (request()->route()->parameters() && request()->route()->parameter('id')) {
+            $filters = [['id', '<>', request()->route()->parameter('id')]];
+        }
+        return $filters;
+    }
+
+    public function validateCompareRequest()
+    {
+        return validator(request()->all(), [
+            'car_ids' => 'required'
+        ])->validate();
     }
 }
