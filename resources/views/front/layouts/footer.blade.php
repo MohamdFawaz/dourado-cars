@@ -31,27 +31,27 @@
             <div class="col-sm-6 col-lg-2">
                 <div class="widget3">
                     <h5>
-                        {{'web.footer.links_header'}}
+                        {{trans('web.footer.links_header')}}
                     </h5>
                     <ul>
                         <li>
                             <a href="#">
-                                {{'web.menus.home'}}
+                                {{trans('web.menus.home')}}
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                {{'web.menus.cars'}}
+                                {{trans('web.menus.cars')}}
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                {{'web.menus.about_us'}}
+                                {{trans('web.menus.about_us')}}
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                {{'web.menus.sell_a_car'}}
+                                {{trans('web.menus.sell_a_car')}}
                             </a>
                         </li>
                     </ul>
@@ -60,7 +60,7 @@
             <div class="col-sm-6 col-lg-3">
                 <div class="widget4">
                     <h5>
-                        {{'web.footer.contact_us_header'}}
+                        {{trans('web.footer.contact_us_header')}}
                     </h5>
                     <ul>
                         <li>
@@ -84,7 +84,7 @@
             <div class="col-sm-6 col-lg-2">
                 <div class="widget4">
                     <h5>
-                        {{'web.footer.sell_a_car_header'}}
+                        {{trans('web.footer.sell_a_car_header')}}
                     </h5>
                     <ul>
                         <li>
