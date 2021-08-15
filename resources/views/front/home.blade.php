@@ -48,7 +48,7 @@
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="row sort-filters-box">
                                 <div class="col-4">
-                                    <span>{{trans('web.home.filter.car_make')}}</span>
+                                    <span>{{trans('web.home.filter.car_make.label')}}</span>
                                     <div class="selected-box">
                                         <select name="car_make_id" class="selectpicker wide"
                                                 onchange="loadRelatedModels(this)">
@@ -60,7 +60,7 @@
                                     </div>
                                 </div>
                                 <div class="col-4">
-                                    <span>{{trans('web.home.filter.car_model')}}</span>
+                                    <span>{{trans('web.home.filter.car_model.label')}}</span>
                                     <div class="selected-box">
                                         <select name="car_model_id" class="selectpicker wide" id="car_model_id">
                                             <option value="">-- {{trans('web.home.filter.car_model.select')}} --</option>
