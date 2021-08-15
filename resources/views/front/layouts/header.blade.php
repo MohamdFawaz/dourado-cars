@@ -10,12 +10,12 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="javascript:void(0)">Home
+                        <a class="nav-link" href="javascript:void(0)">{{trans('web.menus.home')}}
                             <span class="sr-only"></span>
                         </a>
                     </li>
 
-                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)">Cars</a></li>
+                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)">{{trans('web.menus.cars')}}</a></li>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" role="button" aria-haspopup="true" aria-expanded="false">More</a>
@@ -28,11 +28,11 @@
                         </div>
                     </li>
 
-                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)">{{trans('web.menus.about_us')}}</a></li>
 
-                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)">Sell a Car</a></li>
+                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)">{{trans('web.menus.sell_a_car')}}</a></li>
 
-                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)">{{trans('web.menus.contact_us')}}</a></li>
                 </ul>
             </div>
         </div>

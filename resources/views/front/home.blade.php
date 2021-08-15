@@ -48,11 +48,11 @@
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="row sort-filters-box">
                                 <div class="col-4">
-                                    <span>Car Make</span>
+                                    <span>{{trans('web.home.filter.car_make')}}</span>
                                     <div class="selected-box">
                                         <select name="car_make_id" class="selectpicker wide"
                                                 onchange="loadRelatedModels(this)">
-                                            <option value="">-- Select --</option>
+                                            <option value="">-- {{trans('web.home.filter.car_make.select')}} --</option>
                                             @foreach($carMakes as $carMake)
                                                 <option value="{{$carMake->id}}">{{$carMake->name}}</option>
                                             @endforeach
@@ -60,16 +60,23 @@
                                     </div>
                                 </div>
                                 <div class="col-4">
-                                    <span>Car Model</span>
+                                    <span>{{trans('web.home.filter.car_model')}}</span>
                                     <div class="selected-box">
                                         <select name="car_model_id" class="selectpicker wide" id="car_model_id">
-                                            <option value="">-- Select --</option>
+                                            <option value="">-- {{trans('web.home.filter.car_model.select')}} --</option>
                                         </select>
                                     </div>
                                 </div>
+                                <div class="col-4">
+                                    <span>{{trans('web.home.filter.year')}}</span>
+                                    <div class="pt-1">
+                                        <input class="form-control" name="year" placeholder="{{trans('web.home.filter.year_placeholder')}}">
+                                    </div>
+                                </div>
+
                                 <div class="col-4 m-auto">
                                     <div class="selected-box">
-                                        <button class="filled-button">Search</button>
+                                        <button class="filled-button">{{trans('web.home.filter.search_button')}}</button>
                                     </div>
                                 </div>
                             </div>
