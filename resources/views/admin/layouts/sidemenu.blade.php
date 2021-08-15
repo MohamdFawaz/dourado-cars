@@ -39,7 +39,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="{{'/translations'}}" class='sidebar-link'>
+                    <a href="{{url('/translations')}}" class='sidebar-link'>
                         <i class="bi bi-wrench"></i>
                         <span>Translations</span>
                     </a>

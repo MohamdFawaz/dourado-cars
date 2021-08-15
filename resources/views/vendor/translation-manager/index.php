@@ -108,8 +108,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="<?php echo action('\Barryvdh\TranslationManager\Controller@getIndex') ?>" class="navbar-brand">
-                Translation Manager
+            <a href="<?php echo route('dashboard') ?>" class="navbar-brand float-right">
+                Dashboard
             </a>
         </div>
     </div>
@@ -288,7 +288,7 @@
                                 &times;
                             </button>
                             <?php echo $locale ?>
-                            
+
                         </div>
                     </li>
                 <?php endforeach; ?>
