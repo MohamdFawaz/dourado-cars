@@ -69,7 +69,7 @@
                                 </div>
                                 <div class="col-4">
                                     <span>{{trans('web.home.filter.year.label')}}</span>
-                                    <div class="pt-1">
+                                    <div class="selected-box">
                                         <select name="year" class="selectpicker wide" id="year">
                                             <option value="">-- {{trans('web.home.filter.year.select')}} --</option>
                                         </select>
