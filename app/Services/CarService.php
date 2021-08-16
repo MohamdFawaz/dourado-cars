@@ -110,4 +110,11 @@ class CarService
             'car_ids' => 'required'
         ])->validate();
     }
+
+    public function getCarMakeYears($carMakeId)
+    {
+        return $this->carRepository->query()->select('year')
+            ->where('car_make_id',$carMakeId)
+            ->groupBy('year')->get();
+    }
 }
