@@ -10,6 +10,7 @@ Route::get('/sell-car', [HomeController::class, 'home'])->name('sell-car');
 
 Route::group(['prefix' => 'car-model'],function () {
     Route::get('/car-make/{id}',[CarModelController::class, 'getCarMakeModels']);
+    Route::get('/years/{id}',[CarModelController::class, 'getCarModelYears']);
 });
 
 Route::group(['prefix' => 'car-make'],function () {

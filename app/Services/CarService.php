@@ -117,4 +117,11 @@ class CarService
             ->where('car_make_id',$carMakeId)
             ->groupBy('year')->get();
     }
+
+    public function getCarModelYears($carModelId)
+    {
+        return $this->carRepository->query()->select('year')
+            ->where('car_model_id',$carModelId)
+            ->groupBy('year')->get();
+    }
 }

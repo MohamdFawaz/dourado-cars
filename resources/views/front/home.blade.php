@@ -51,7 +51,7 @@
                                     <span>{{trans('web.home.filter.car_make.label')}}</span>
                                     <div class="selected-box">
                                         <select name="car_make_id" class="selectpicker wide"
-                                                onchange="loadRelatedModels(this); loadRelatedYears(this);">
+                                                onchange="loadRelatedModels(this); loadRelatedMakeYears(this);">
                                             <option value="">-- {{trans('web.home.filter.car_make.select')}} --</option>
                                             @foreach($carMakes as $carMake)
                                                 <option value="{{$carMake->id}}">{{$carMake->name}}</option>
@@ -62,7 +62,7 @@
                                 <div class="col-4">
                                     <span>{{trans('web.home.filter.car_model.label')}}</span>
                                     <div class="selected-box">
-                                        <select name="car_model_id" class="selectpicker wide" id="car_model_id">
+                                        <select name="car_model_id" class="selectpicker wide" id="car_model_id" onchange="loadRelatedModelYears(this);">
                                             <option value="">-- {{trans('web.home.filter.car_model.select')}} --</option>
                                         </select>
                                     </div>
@@ -323,10 +323,24 @@
             el.empty();
             el.append(new Option("-- {{trans(trans('web.home.filter.car_model.select'))}} --"));
         }
-        loadRelatedYears = (e) => {
+        loadRelatedMakeYears = (e) => {
             let makeId = e.value;
             if (makeId) {
                 axios.get('/car-make/years/' + makeId).then(response => {
+                    emptyYearsOptions();
+                    let data = response.data.data;
+                    for (let i = 0; i < data.length; i++) {
+                        $("#year").append(new Option(data[i].year, data[i].year));
+                    }
+                    $('#year').niceSelect('update');
+                });
+            }
+        }
+
+        loadRelatedModelYears = (e) => {
+            let modelId = e.value;
+            if (modelId) {
+                axios.get('/car-model/years/' + modelId).then(response => {
                     emptyYearsOptions();
                     let data = response.data.data;
                     for (let i = 0; i < data.length; i++) {
