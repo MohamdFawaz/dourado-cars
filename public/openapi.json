@@ -1,8 +1,8 @@
 {
     "openapi": "3.0.2",
     "info": {
-        "title": "Dourdo Cars",
-        "description": "This is a documentation for dourdo cars mobile APIs",
+        "title": "Dourado Cars",
+        "description": "This is a documentation for dourado cars mobile APIs",
         "version": "1.0.0"
     },
     "servers": [
@@ -353,7 +353,11 @@
                 "type": "object",
                 "properties": {
                     "status": {
-                        "type": "boolean"
+                        "type": "string",
+                        "enum": [
+                            0,
+                            1
+                        ]
                     },
                     "message": {
                         "type": "string"
