@@ -15,13 +15,23 @@
                     <div class="social-links">
                         <ul>
                             <li>
-                                <a href="#">
+                                <a href="{{trans('web.header.social_media.facebook')}}">
                                     <i class="fa fa-facebook-f"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{trans('web.header.social_media.instagram')}}">
+                                    <i class="fa fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{trans('web.header.social_media.twitter')}}">
                                     <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{trans('web.header.social_media.youtube')}}">
+                                    <i class="fa fa-youtube"></i>
                                 </a>
                             </li>
                         </ul>

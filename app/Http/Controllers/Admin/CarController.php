@@ -107,12 +107,36 @@ class CarController extends Controller
         return redirect()->to(route('car.index'));
     }
 
+    public function deleteImage($id)
+    {
+        try {
+            $this->carGalleryService->deleteImage($id);
+            return response()->json('success');
+        }catch (\Exception $exception) {
+            return $this->errorJsonResponse($exception);
+        }
+    }
+
     public function toggleActivation(Request $request)
     {
         try {
             $this->carService->toggleActivation($request->car_make_id);
         } catch (\Exception $e) {
             return $this->errorJsonResponse($e);
+        }
+    }
+
+    public function toggleFeatured(Request $request)
+    {
+        try {
+            $car = $this->carService->toggleFeatured($request->car_id);
+            return response()->json($car);
+        } catch (\Exception $e) {
+            $message = '';
+            if ($e->getCode() == 400) {
+                $message = $e->getMessage();
+            }
+            return $this->errorJsonResponse($e, $message);
         }
     }
 }

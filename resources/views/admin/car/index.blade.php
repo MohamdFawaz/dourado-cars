@@ -4,6 +4,8 @@
     <link rel="stylesheet" href="{{asset('vendors/simple-datatables/style.css')}}">
     <link rel="stylesheet" href="{{asset('vendors/dripicons/webfont.css')}}">
     <link rel="stylesheet" href="{{asset('css/pages/dripicons.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
 @endsection
 
 @section('content')
@@ -43,6 +45,7 @@
                                 <th>Name</th>
                                 <th>Image</th>
                                 <th>Car Make - Car Model</th>
+                                <th>Most Popular</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
@@ -56,16 +59,24 @@
                                         {{$car->carMake->name}} - {{$car->carModel->name}}
                                     </td>
                                     <td>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox"
+                                                   onchange="toggleFeatured(this,{{$car->id}})" id="flexSwitchCheckChecked"
+                                                   @if($car->featured) checked @endif/>
+                                        </div>
+                                    </td>
+                                    <td>
                                         <a href="{{route('car.edit', $car->id)}}" class="float-start m-2">
                                             <div class="icon dripicons-pencil"></div>
-                                        <a>
-                                        <form method="post" action="{{ route('car.delete', $car->id) }}">
-                                            @csrf
-                                            @method('delete')
-                                            <a class="float-start m-2" onclick="if(confirm('Are you sure you want to delete ' + `{{$car->name}}` + '?')) { $(this).closest('form').submit()}">
-                                                <div class="icon dripicons-trash"></div>
-                                            </a>
-                                        </form>
+                                            <a>
+                                                <form method="post" action="{{ route('car.delete', $car->id) }}">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <a class="float-start m-2"
+                                                       onclick="if(confirm('Are you sure you want to delete ' + `{{$car->name}}` + '?')) { $(this).closest('form').submit()}">
+                                                        <div class="icon dripicons-trash"></div>
+                                                    </a>
+                                                </form>
                                     </td>
                                 </tr>
                             @endforeach
@@ -82,9 +93,21 @@
 @section('js')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{asset('vendors/simple-datatables/simple-datatables.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
     <script>
         // Simple Datatable
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
+
+        toggleFeatured = (e,carId) => {
+            axios.put(`{{route('car.toggle-featured')}}`, {car_id: carId})
+                .then(response => console.log(response),
+                    error => {
+                        toastr.error(error.response.data.error);
+                        $(e).prop('checked', !e.checked);
+                    });
+        }
+
     </script>
 @endsection

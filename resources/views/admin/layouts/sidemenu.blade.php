@@ -38,6 +38,13 @@
                         <span>Car</span>
                     </a>
                 </li>
+                <li class="sidebar-item  @if(Request::segment(2) == 'homepage-banner') active @endif">
+                    <a href="{{route('homepage_banner.index')}}" class='sidebar-link'>
+                        <i class="bi bi-image"></i>
+                        <span>Homepage Banner</span>
+                    </a>
+                </li>
+
                 <li class="sidebar-item">
                     <a href="{{url('/translations')}}" class='sidebar-link'>
                         <i class="bi bi-wrench"></i>

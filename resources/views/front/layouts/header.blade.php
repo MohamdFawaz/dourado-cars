@@ -1,4 +1,23 @@
-<header class="">
+<header class="main-header">
+    <div class="header-top bg-orange">
+        <div class="container">
+            <div class="top-inner">
+                <ul class="top-left">
+                    <li><i class="fa fa-phone"></i> <a href="tel:{{trans('web.header.contact_number')}}">{{trans('web.header.contact_number')}}</a></li>
+                </ul>
+
+                <div class="top-right ml-auto">
+                    <div class="social-style-one">
+                        <a href="{{trans('web.header.social_media.facebook')}}"><i class="fa fa-facebook-f"></i></a>
+                        <a href="{{trans('web.header.social_media.instagram')}}"><i class="fa fa-instagram"></i></a>
+                        <a href="{{trans('web.header.social_media.twitter')}}"><i class="fa fa-twitter"></i></a>
+                        <a href="{{trans('web.header.social_media.youtube')}}"><i class="fa fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="{{route('home')}}">
@@ -9,31 +28,24 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="javascript:void(0)">{{trans('web.menus.home')}}
+                    <li class="nav-item @if(Request::segment(1) == '') active @endif">
+                        <a class="nav-link" href="{{url('/')}}">{{trans('web.menus.home')}}
                             <span class="sr-only"></span>
                         </a>
                     </li>
 
-                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)">{{trans('web.menus.cars')}}</a></li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" role="button" aria-haspopup="true" aria-expanded="false">More</a>
-
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="javascript:void(0)">Blog</a>
-                            <a class="dropdown-item" href="javascript:void(0)">Team</a>
-                            <a class="dropdown-item" href="javascript:void(0)">Testimonials</a>
-                            <a class="dropdown-item" href="javascript:void(0)">Terms</a>
-                        </div>
+                    <li class="nav-item @if(Request::segment(1) == 'cars') active @endif">
+                        <a class="nav-link" href="{{route('list-cars')}}">{{trans('web.menus.cars')}}</a>
                     </li>
 
                     <li class="nav-item"><a class="nav-link" href="javascript:void(0)">{{trans('web.menus.about_us')}}</a></li>
 
-                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)">{{trans('web.menus.sell_a_car')}}</a></li>
 
                     <li class="nav-item"><a class="nav-link" href="javascript:void(0)">{{trans('web.menus.contact_us')}}</a></li>
                 </ul>
+            </div>
+            <div class="custom-button">
+                <button class="btn draw-border">{{trans('web.menus.sell_a_car')}}</button>
             </div>
         </div>
     </nav>

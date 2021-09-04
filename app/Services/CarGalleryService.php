@@ -32,4 +32,9 @@ class CarGalleryService
             $this->carGalleryRepository->query()->insert($galleryImages);
         }
     }
+
+    public function deleteImage($imageId)
+    {
+        $this->carGalleryRepository->destroy($imageId);
+    }
 }
