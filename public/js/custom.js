@@ -67,14 +67,13 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    if ($('.owl-clients').length) {
-        $('.owl-clients').owlCarousel({
+    if ($('.car-makes-slider').length) {
+        $('.car-makes-slider').owlCarousel({
             loop: true,
             nav: false,
-            dots: true,
-            items: 1,
-            margin: 30,
-            autoplay: false,
+            dots: false,
+            items: 3,
+            autoplay: true,
             smartSpeed: 700,
             autoplayTimeout: 6000,
             responsive: {

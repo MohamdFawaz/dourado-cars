@@ -33,7 +33,7 @@ class HomeController extends Controller
     public function cars(Request $request)
     {
         $cars = $this->carService->listCars($request->all());
-        $carMakes = $this->carMakeService->getActivated();
+        $carMakes = $this->carMakeService->getHomepageCarMakes();
         $priceRange = $this->carService->getPriceRange();
         return view('front.pages.list_cars', compact('cars', 'carMakes', 'priceRange'));
     }
