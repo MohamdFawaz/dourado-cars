@@ -43,3 +43,4 @@
 {{--    </div>--}}
 {{--    <a href='' class='shareModal__submit' title=''>Send</a>--}}
 {{--</div>--}}
+<script async src="https://static.addtoany.com/menu/page.js"></script>

@@ -38,7 +38,7 @@
                         <a class="nav-link" href="{{route('list-cars')}}">{{trans('web.menus.cars')}}</a>
                     </li>
 
-                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)">{{trans('web.menus.about_us')}}</a></li>
+                    <li class="nav-item @if(Request::segment(1) == 'about') active @endif"><a class="nav-link" href="{{route('about')}}">{{trans('web.menus.about_us')}}</a></li>
 
 
                     <li class="nav-item"><a class="nav-link" href="javascript:void(0)">{{trans('web.menus.contact_us')}}</a></li>
