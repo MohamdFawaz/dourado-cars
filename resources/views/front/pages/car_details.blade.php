@@ -184,7 +184,7 @@
                         <h2>{{trans('web.car_details.additional_information')}}</h2>
                     </div>
 
-                    <div class="text-center">
+                    <div>
                         <p>{{$car->additional_information}}</p>
                     </div>
                 </div>

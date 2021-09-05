@@ -1,4 +1,3 @@
-w
 <div class="latest-car-make"
      style="background-image: url({{asset('images/front/Exotic-Car-Rental-Membership-Services.jpeg')}});">
     <div class="container">
