@@ -110,11 +110,14 @@ class CarService
         if (isset($filters['car_make_id']) && $filters['car_make_id']) {
             $query->where('car_make_id', $filters['car_make_id']);
         }
-        if (isset($filters['car_model_id']) && $filters['car_model_id']) {
+        if (isset($filters['car_model_id']) && $filters['car_model_id'] && is_numeric($filters['car_model_id'])) {
             $query->where('car_model_id', $filters['car_model_id']);
         }
-        if (isset($filters['year']) && $filters['year']) {
+        if (isset($filters['year']) && $filters['year'] && is_numeric($filters['year'])) {
             $query->where('year', $filters['year']);
+        }
+        if (isset($filters['kilometers']) && $filters['kilometers'] && is_numeric($filters['kilometers'])) {
+            $query->where('kilometers','<=', $filters['kilometers']);
         }
         if (isset($filters['price_range']) && $filters['price_range']) {
             $priceRanges = explode('-', $filters['price_range']);

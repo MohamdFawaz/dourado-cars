@@ -40,7 +40,7 @@
                             <div class="col-4">
                                 <span>{{trans('web.home.advanced_filter.mileage.label')}}</span>
                                 <div class="selected-box">
-                                    <input name="mileage" type="number" class="form-control"
+                                    <input name="kilometers" type="number" class="form-control"
                                            placeholder="{{trans('web.home.advanced_filter.mileage.placeholder')}}">
                                 </div>
                             </div>
