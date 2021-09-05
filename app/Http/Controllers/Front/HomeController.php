@@ -24,7 +24,7 @@ class HomeController extends Controller
 
     public function home()
     {
-        $carMakes = $this->carMakeService->getActivated();
+        $carMakes = $this->carMakeService->getHomepageCarMakes();
         $featuredCars = $this->carService->getHomepageCars();
         $banners = $this->homeBannerService->get();
         return view('front.pages.home', compact('carMakes','featuredCars','banners'));
@@ -33,7 +33,7 @@ class HomeController extends Controller
     public function cars(Request $request)
     {
         $cars = $this->carService->listCars($request->all());
-        $carMakes = $this->carMakeService->getHomepageCarMakes();
+        $carMakes = $this->carMakeService->getActivated();
         $priceRange = $this->carService->getPriceRange();
         return view('front.pages.list_cars', compact('cars', 'carMakes', 'priceRange'));
     }
