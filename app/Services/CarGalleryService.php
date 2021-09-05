@@ -19,7 +19,7 @@ class CarGalleryService
         if (isset($carImages) && count($carImages)) {
             $galleryImages = [];
             foreach ($carImages as $carImage) {
-                $imageName = time() . '.' . $carImage->extension();
+                $imageName = random_int(1,PHP_INT_MAX) . time() . '.' . $carImage->extension();
                 $carImage->move(public_path('images/cars'), $imageName);
 
                 $galleryImages[] = [

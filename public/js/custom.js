@@ -129,12 +129,5 @@ jQuery(document).ready(function ($) {
         });
     }
 
-    const button = document.querySelector('.shareModal');
-    const sendButton = document.querySelector('.shareModal__submit');
 
-    button.addEventListener('click',()=> {
-        button.classList.toggle('shareModal--active');
-        sendButton.classList.toggle('sharemodal__submit--active');
-
-    })
 });

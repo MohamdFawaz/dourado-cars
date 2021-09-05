@@ -43,4 +43,9 @@ class HomeController extends Controller
         $car = $this->carService->showCarById($carId);
         return view('front.pages.car_details', compact('car'));
     }
+
+    public function about()
+    {
+        return view('front.pages.about');
+    }
 }

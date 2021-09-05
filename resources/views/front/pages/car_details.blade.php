@@ -16,7 +16,7 @@
                 <div class="col-md-12">
                     <div class="text-content">
                         <h4><strong>{{$car->price}} {{trans('web.currency_name')}}</strong></h4>
-                        <h2>{{$car->name}}</h2>
+                        <h2>{{$car->title}}</h2>
                     </div>
                 </div>
             </div>
@@ -25,52 +25,6 @@
     <div class="products">
         <div class="container">
             <div class="row">
-{{--                <div class="col-md-12">--}}
-{{--                    --}}{{--            <img src="{{$car->image}}" alt="" class="img-fluid wc-image">--}}
-{{--                    <div data-am-fadeshow="quick-nav prev-next-nav">--}}
-
-{{--                        <!-- Radio -->--}}
-{{--                        @foreach($car->gallery as $galleryItem)--}}
-{{--                            <input type="radio" name="css-fadeshow" id="slide-{{$loop->iteration}}"/>--}}
-{{--                    @endforeach--}}
-
-{{--                    <!-- Slides -->--}}
-{{--                        <div class="fs-slides">--}}
-{{--                            @foreach($car->gallery as $galleryItem)--}}
-{{--                                <div class="fs-slide"--}}
-{{--                                     style="background-image: url({{$galleryItem->image}});">--}}
-{{--                                </div>--}}
-{{--                            @endforeach--}}
-{{--                        </div>--}}
-
-{{--                        <!-- Quick Navigation -->--}}
-{{--                        <div class="fs-quick-nav">--}}
-{{--                            @foreach($car->gallery as $galleryItem)--}}
-{{--                                <label class="fs-quick-btn" for="slide-{{$loop->iteration}}"></label>--}}
-{{--                            @endforeach--}}
-{{--                        </div>--}}
-
-{{--                        <!-- Prev Navigation -->--}}
-{{--                        <div class="fs-prev-nav">--}}
-{{--                            @foreach($car->gallery as $galleryItem)--}}
-{{--                                <label class="fs-prev-btn" for="slide-{{$loop->iteration}}"></label>--}}
-{{--                            @endforeach--}}
-{{--                        </div>--}}
-
-{{--                        <!-- Next Navigation -->--}}
-{{--                        <div class="fs-next-nav">--}}
-{{--                            @foreach($car->gallery as $galleryItem)--}}
-{{--                                <label class="fs-next-btn" for="slide-{{$loop->iteration}}"></label>--}}
-{{--                            @endforeach--}}
-{{--                        </div>--}}
-
-{{--                        <!-- Slide Counter -->--}}
-{{--                        <div class="fs-slide-counter">--}}
-{{--                            <span class="fs-slide-counter-current"></span>/<span class="fs-slide-counter-total"></span>--}}
-{{--                        </div>--}}
-
-{{--                    </div>--}}
-{{--                </div>--}}
                 <div class="col-10">
                     <div class="slideshow-container">
                         @foreach($car->gallery as $galleryItem)
@@ -91,10 +45,29 @@
             </div>
         </div>
     </div>
-    <div class="products">
+    <div class="price-section">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-12 price text-center">
+                    {{$car->price}} {{trans('web.currency_name')}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="products cars">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 mb-5">
+                    <div>
+                        <div class="car-subtitle heading-font pull-left">
+                            <div class="car-name">{{$car->name}}</div>
+                        </div>
+                    </div>
+                    <a href="{{route('compare')}}">
+                        <button class="btn draw-border pull-right">{{trans('web.car_details.compare')}}</button>
+                    </a>
+                </div>
+                <div class="col-md-12">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
                             <div class="clearfix">
@@ -199,11 +172,6 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-6">
-                    <a href="{{route('compare')}}">
-                        <button class="btn draw-border pull-right">{{trans('web.car_details.compare')}}</button>
-                    </a>
-                </div>
             </div>
         </div>
     </div>
@@ -216,7 +184,7 @@
                         <h2>{{trans('web.car_details.additional_information')}}</h2>
                     </div>
 
-                    <div class="left-content">
+                    <div class="text-center">
                         <p>{{$car->additional_information}}</p>
                     </div>
                 </div>

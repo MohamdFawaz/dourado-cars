@@ -45,22 +45,22 @@
                     </h5>
                     <ul>
                         <li>
-                            <a href="#">
+                            <a href="{{url('/')}}">
                                 {{trans('web.menus.home')}}
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{route('list-cars')}}">
                                 {{trans('web.menus.cars')}}
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{route('about')}}">
                                 {{trans('web.menus.about_us')}}
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{route('sell-car')}}">
                                 {{trans('web.menus.sell_a_car')}}
                             </a>
                         </li>

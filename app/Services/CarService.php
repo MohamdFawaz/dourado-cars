@@ -167,7 +167,7 @@ class CarService
     public function toggleFeatured($carId)
     {
         $car = $this->carRepository->find($carId);
-        if ($car->featured == false && $this->getFeaturedCount() == 1) {
+        if ($car->featured == false && $this->getFeaturedCount() == 6) {
             throw new \Exception('You can\'t add more than 6 cars to homepage popular section', 400);
         }
         $car->featured = !$car->featured;
