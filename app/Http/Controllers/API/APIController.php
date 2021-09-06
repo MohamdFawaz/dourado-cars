@@ -11,6 +11,8 @@ use Illuminate\Validation\ValidationException;
 
 class APIController extends Controller
 {
+    const FAIL_STATUS = 0;
+    const SUCCESS_STATUS = 1;
     /**
      * @var int Status Code.
      */
@@ -106,7 +108,7 @@ class APIController extends Controller
         return response()->json($data, $this->getStatusCode(), $headers);
     }
 
-    public function respondData($data, $message = "", $status = true)
+    public function respondData($data, $message = "", $status = self::SUCCESS_STATUS)
     {
         return $this->respond([
             'status' => $status,
@@ -137,7 +139,7 @@ class APIController extends Controller
     {
         return $this->setStatusCode(IlluminateResponse::HTTP_OK)
             ->respond([
-                'status' => false,
+                'status' => self::FAIL_STATUS,
                 'message' => $message,
                 'data' => []
             ]);
@@ -175,7 +177,7 @@ class APIController extends Controller
     protected function respondWithPagination(LengthAwarePaginator $paginatedEntity, $message = '')
     {
         $response = [
-            'status' => true,
+            'status' => self::SUCCESS_STATUS,
             'message' => $message,
             'total_count' => $paginatedEntity->total(),
             'pages' => $paginatedEntity->lastPage(),
@@ -192,7 +194,7 @@ class APIController extends Controller
     protected function respondWithCollectionResourcePagination(AnonymousResourceCollection $paginatedEntity, $message = '')
     {
         $response = [
-            'status' => true,
+            'status' => self::SUCCESS_STATUS,
             'message' => $message,
             'total_count' => $paginatedEntity->total(),
             'pages' => $paginatedEntity->lastPage(),
@@ -210,7 +212,7 @@ class APIController extends Controller
     {
         return $this->setStatusCode(IlluminateResponse::HTTP_OK)
             ->respond([
-                'status' => false,
+                'status' => self::FAIL_STATUS,
                 'message' => $validatorException->getMessage(),
                 'data' => $validatorException->errors()
             ]);
