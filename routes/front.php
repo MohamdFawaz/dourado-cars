@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/cars', [HomeController::class, 'cars'])->name('list-cars');
 Route::get('/cars/{id}', [HomeController::class, 'showCar'])->name('show-car');
-Route::get('/sell-car', [HomeController::class, 'home'])->name('sell-car');
+Route::get('/sell-a-car', [HomeController::class, 'sellCar'])->name('sell-car');
 Route::get('/compare', [HomeController::class, 'home'])->name('compare');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 
@@ -18,5 +18,6 @@ Route::group(['prefix' => 'car-model'],function () {
 });
 
 Route::group(['prefix' => 'car-make'],function () {
+   Route::get('/',[CarMakeController::class,'getCarMakes']);
    Route::get('/years/{id}',[CarMakeController::class,'getCarMakeYears']);
 });

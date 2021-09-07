@@ -48,4 +48,9 @@ class HomeController extends Controller
     {
         return view('front.pages.about');
     }
+
+    public function sellCar()
+    {
+        return view('front.pages.sell_car');
+    }
 }

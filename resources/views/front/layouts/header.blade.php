@@ -45,7 +45,9 @@
                 </ul>
             </div>
             <div class="custom-button">
-                <button class="btn draw-border">{{trans('web.menus.sell_a_car')}}</button>
+                <a href="{{route('sell-car')}}">
+                    <button class="btn draw-border">{{trans('web.menus.sell_a_car')}}</button>
+                </a>
             </div>
         </div>
     </nav>
