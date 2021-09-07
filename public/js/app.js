@@ -2225,8 +2225,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -2251,7 +2249,7 @@ __webpack_require__.r(__webpack_exports__);
         number_of_doors: '',
         number_of_cylinders: '',
         horse_power: '',
-        car_make_id: null,
+        make: '',
         model: '',
         condition: {
           exterior: '',
@@ -6815,7 +6813,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.step-progress .bar {\n    background-color: #d4af37;\n}\n.vue-step-wizard {\n    background-color: #f7f8fc;\n    width: 100%;\n    margin: auto;\n    padding: 40px;\n}\n.step-body, .step-footer {\n    margin-top: 15px\n}\n.step-pills .step-item {\n    border-radius: 2px;\n}\n.step-pills .step-item.active {\n    border: 1px solid #d4af37\n}\n.step-pills .step-item a {\n    color: #000;\n}\n.tabStatus {\n    background: #000;\n}\n.car-info-tab .form-group {\n    margin-top: 15px;\n}\n@media only screen and (max-width: 768px) {\n.step-pills {\n        display: block;\n}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.step-progress .bar {\n    background-color: #d4af37;\n}\n.vue-step-wizard {\n    background-color: #f7f8fc;\n    width: 100%;\n    margin: auto;\n    padding: 40px;\n}\n.step-body, .step-footer {\n    margin-top: 15px\n}\n.step-pills .step-item {\n    border-radius: 2px;\n}\n.step-pills .step-item.active {\n    border: 1px solid #d4af37\n}\n.step-pills .step-item a {\n    color: #000;\n}\n.tabStatus {\n    background: #000;\n}\n.car-info-tab .form-group {\n    margin-top: 15px;\n}\n.step-button {\n    border-radius: 3px;\n}\n.step-button-next, .step-button-submit {\n    background-color: #d4af37;\n}\n.step-button-previous {\n    background-color: #000;\n}\n@media only screen and (max-width: 768px) {\n.step-pills {\n        display: block;\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -23442,85 +23440,63 @@ var render = function() {
           _c("div", { staticClass: "row car-info-tab" }, [
             _c("div", { staticClass: "col-lg-6 col-md-12 col-sm-12" }, [
               _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "price" } }, [_vm._v("Car Make")]),
+                _c("label", { attrs: { for: "make" } }, [_vm._v("Make")]),
                 _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.car.car_make_id,
-                        expression: "car.car_make_id"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.car,
-                          "car_make_id",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      }
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.car.make,
+                      expression: "car.make"
                     }
-                  },
-                  [
-                    _c(
-                      "option",
-                      { attrs: { disabled: "", value: "", selected: "" } },
-                      [_vm._v("Please select one")]
-                    ),
-                    _vm._v(" "),
-                    _vm._l(_vm.carMakes, function(make) {
-                      return _c("option", { domProps: { value: make.id } }, [
-                        _vm._v(_vm._s(make.name))
-                      ])
-                    })
                   ],
-                  2
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "price" } }, [_vm._v("Model")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.car.model,
-                        expression: "car.model"
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    id: "make",
+                    placeholder: "Enter car make"
+                  },
+                  domProps: { value: _vm.car.make },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
                       }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      id: "model",
-                      placeholder: "Enter car model"
-                    },
-                    domProps: { value: _vm.car.model },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.car, "model", $event.target.value)
-                      }
+                      _vm.$set(_vm.car, "make", $event.target.value)
                     }
-                  })
-                ])
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "model" } }, [_vm._v("Model")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.car.model,
+                      expression: "car.model"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    id: "model",
+                    placeholder: "Enter car model"
+                  },
+                  domProps: { value: _vm.car.model },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.car, "model", $event.target.value)
+                    }
+                  }
+                })
               ])
             ]),
             _vm._v(" "),

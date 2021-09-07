@@ -4,16 +4,14 @@
             <div class="row car-info-tab">
                 <div class="col-lg-6 col-md-12 col-sm-12">
                     <div class="form-group">
-                        <label for="price">Car Make</label>
-                        <select v-model="car.car_make_id" class="form-control">
-                            <option disabled value="" selected>Please select one</option>
-                            <option v-for="make of carMakes" :value="make.id">{{ make.name }}</option>
-                        </select>
-                        <div class="form-group">
-                            <label for="price">Model</label>
-                            <input type="text" id="model" class="form-control" placeholder="Enter car model"
-                                   v-model="car.model">
-                        </div>
+                        <label for="make">Make</label>
+                        <input type="text" id="make" class="form-control" placeholder="Enter car make"
+                               v-model="car.make">
+                    </div>
+                    <div class="form-group">
+                        <label for="model">Model</label>
+                        <input type="text" id="model" class="form-control" placeholder="Enter car model"
+                               v-model="car.model">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12">
@@ -170,7 +168,7 @@ export default {
                 number_of_doors: '',
                 number_of_cylinders: '',
                 horse_power: '',
-                car_make_id: null,
+                make: '',
                 model: '',
                 condition: {
                     exterior: '',
@@ -238,7 +236,15 @@ export default {
 .car-info-tab .form-group {
     margin-top: 15px;
 }
-
+.step-button {
+    border-radius: 3px;
+}
+.step-button-next, .step-button-submit {
+    background-color: #d4af37;
+}
+.step-button-previous {
+    background-color: #000;
+}
 @media only screen and (max-width: 768px) {
     .step-pills {
         display: block;
