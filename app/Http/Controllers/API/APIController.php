@@ -117,6 +117,16 @@ class APIController extends Controller
         ]);
     }
 
+    public function respondDataWithProperty($data, $recommendedCars, $message = "", $status = self::SUCCESS_STATUS)
+    {
+        return $this->respond([
+            'status' => $status,
+            'message' => $message,
+            'data' => $data,
+            'recommended_cars' => $recommendedCars
+        ]);
+    }
+
     /**
      * Function to return a generic response.
      *
