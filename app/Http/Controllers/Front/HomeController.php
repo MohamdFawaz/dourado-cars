@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Front;
 
 
 use App\Http\Controllers\Controller;
+use App\Mail\SellCarMail;
 use App\Services\CarMakeService;
 use App\Services\CarService;
 use App\Services\HomepageBannerService;
 use Illuminate\Http\Request;
+use KgBot\LaravelLocalization\Facades\ExportLocalizations as ExportLocalization;
 
 class HomeController extends Controller
 {
@@ -51,6 +53,25 @@ class HomeController extends Controller
 
     public function sellCar()
     {
-        return view('front.pages.sell_car');
+        $messages = ExportLocalization::export()->toFlat();
+        return view('front.pages.sell_car', compact('messages'));
+    }
+
+    public function getCarConditionOptions()
+    {
+        $conditions = [trans('web.sell_a_car.condition_options.extra_clean'),trans('web.sell_a_car.condition_options.clean'),trans('web.sell_a_car.condition_options.average'),trans('web.sell_a_car.condition_options.below_average'),trans('web.sell_a_car.condition_options.i_dont_know')];
+        $accidentOptions = [trans('web.sell_a_car.accident_options.yes'),trans('web.sell_a_car.accident_options.no'),trans('web.sell_a_car.accident_options.i_dont_know')];
+        return response()->json(compact('conditions','accidentOptions'));
+    }
+
+    public function submitSellCar(Request $request)
+    {
+        try {
+            \Mail::to('mohamdfawaz93@gmail.com')->send(new SellCarMail($request->all()));
+            return response()->json(['message' => trans('web.sell_a_car.success_message')]);
+        } catch (\Exception $e) {
+            reportException($e);
+            return response()->json(['message' => trans('web.sell_a_car.failed_message')]);
+        }
     }
 }

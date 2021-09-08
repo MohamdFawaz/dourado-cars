@@ -8,6 +8,11 @@
 <!-- Additional Scripts -->
 <script src="{{asset('js/custom.js?v=1.2')}}"></script>
 <script src="{{asset('js/owl.js')}}"></script>
+<script>
+    window.default_locale = `{{ config('app.locale') }}`;
+    window.fallback_locale = `{{ config('app.fallback_locale') }}`;
+    window.messages = @if(isset($messages)) `@json($messages)` @endif;
+</script>
 <script src="{{asset('js/app.js')}}"></script>
 @yield('js')
 </body>

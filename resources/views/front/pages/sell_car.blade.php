@@ -1,7 +1,7 @@
 @extends('front.layouts.app')
 
 @section('title')
-    <title>{{trans('web.title.about_us')}} | {{trans('web.title.site_name')}}</title>
+    <title>{{trans('web.title.sell_a_car')}} | {{trans('web.title.site_name')}}</title>
 @endsection
 
 @section('content')
@@ -13,8 +13,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="text-content">
-                        <h4>{{trans('web.pages.about.upper_title')}}</h4>
-                        <h2>{{trans('web.pages.about.lower_title')}}</h2>
+                        <h4>{{trans('web.pages.sell_a_car.upper_title')}}</h4>
+                        <h2>{{trans('web.pages.sell_a_car.lower_title')}}</h2>
                     </div>
                 </div>
             </div>
@@ -35,9 +35,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-heading">
-                        <h2>{{trans('web.page.sall_a_car.section_1_heading')}}</h2>
+                        <h2>{{trans('web.page.sell_a_car.section_1_heading')}}</h2>
                     </div>
-                    <p class="text-center">{{trans('web.page.sall_a_car.section_1_content')}}</p>
+                    <p class="text-center">{{trans('web.page.sell_a_car.section_1_content')}}</p>
                 </div>
             </div>
         </div>

@@ -25,6 +25,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "lang.js": "^1.1.14",
         "vue-i18n": "^8.25.0",
         "vue-step-wizard": "^0.1.17"
     }

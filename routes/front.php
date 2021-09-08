@@ -16,8 +16,14 @@ Route::group(['prefix' => 'car-model'],function () {
     Route::get('/car-make/{id}',[CarModelController::class, 'getCarMakeModels']);
     Route::get('/years/{id}',[CarModelController::class, 'getCarModelYears']);
 });
+Route::get('/conditions', [HomeController::class, 'getCarConditionOptions'])->name('sell-car.conditions');
+Route::post('/sell-a-call', [HomeController::class, 'submitSellCar'])->name('sell-car.submit');
 
 Route::group(['prefix' => 'car-make'],function () {
    Route::get('/',[CarMakeController::class,'getCarMakes']);
    Route::get('/years/{id}',[CarMakeController::class,'getCarMakeYears']);
+});
+
+Route::group(['prefix' => 'locale'], function() {
+   Route::get('/meta', [HomeController::class, 'getLocaleMeta']);
 });
