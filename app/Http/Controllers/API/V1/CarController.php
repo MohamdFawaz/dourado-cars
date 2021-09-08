@@ -38,7 +38,7 @@ class CarController extends APIController
                 return $this->respondNotFound();
             }
 
-            return $this->respondData(CarResource::showMake($car));
+            return $this->respondDataWithProperty(CarResource::showMake($car), $this->recommended($id)->original);
         } catch (\Exception $exception) {
             reportException($exception);
             return $this->respondInternalError();
