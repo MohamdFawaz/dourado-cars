@@ -1,3 +1,5 @@
+@include('front.components.sections.visit_our_showroom')
+
 <footer class="footer mt-5">
     <div class="container">
         <div class="row">

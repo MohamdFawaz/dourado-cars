@@ -2,7 +2,6 @@
 
 @section('css')
     <link rel="stylesheet" href="{{asset('vendors/jquery-nice-select-1.1.0/css/nice-select.css')}}">
-    <link rel="stylesheet" href="{{asset('vendors/jquery-ui-1.12.1/jquery-ui.css')}}">
 @endsection
 
 @section('title')
@@ -55,9 +54,7 @@
 @endsection
 
 @section('js')
-    <script src="{{asset('vendors/jquery-ui-1.12.1/jquery-ui.js')}}"></script>
     <script src="{{asset('vendors/jquery-nice-select-1.1.0/js/jquery.nice-select.min.js')}}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         $(document).ready(function () {
             $('select').niceSelect();

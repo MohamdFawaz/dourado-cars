@@ -85,7 +85,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'name' => env('MAIL_FROM_NAME', 'Dourado Cars'),
     ],
 
     /*
@@ -99,6 +99,10 @@ return [
     |
     */
 
+    'to' => [
+        'address' => env('MAIL_TO_ADDRESS', 'mohamdfawaz93@gmail.com'),
+        'name' => env('MAIL_TO_NAME', 'Dourado Cars'),
+    ],
     'markdown' => [
         'theme' => 'default',
 

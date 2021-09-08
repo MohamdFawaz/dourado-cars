@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div class="row col-12">
         <div :class="messageClass" style="height: 50px; padding-top: 15px; margin: 15px 215px;">{{ message }}</div>
         <div ref="wixForm">
-            <form-wizard @onComplete="submit">
+            <form-wizard  @onComplete="submit">
                 <tab-content :title="trans.get('web.sell_a_car.car_information_title')" :selected="true"
                              class="col-sm-12">
                     <div class="row car-info-tab">

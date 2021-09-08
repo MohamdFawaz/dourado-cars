@@ -44,7 +44,12 @@
                         <span>Homepage Banner</span>
                     </a>
                 </li>
-
+                <li class="sidebar-item  @if(Request::segment(2) == 'video-link') active @endif">
+                    <a href="{{route('video_link.index')}}" class='sidebar-link'>
+                        <i class="bi bi-camera-video"></i>
+                        <span>Video Link</span>
+                    </a>
+                </li>
                 <li class="sidebar-item">
                     <a href="{{url('/translations')}}" class='sidebar-link'>
                         <i class="bi bi-wrench"></i>

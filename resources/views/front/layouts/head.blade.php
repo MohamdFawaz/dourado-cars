@@ -19,13 +19,14 @@
     @else
         <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
     @endif
+    <link rel="stylesheet" href="{{asset('vendors/jquery-ui-1.12.1/jquery-ui.css')}}">
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{{asset('css/fontawesome.css')}}">
     @if(app()->getLocale() == 'ar')
         <link rel="stylesheet" href="{{asset('css/style.rtl.css?v=1.2')}}">
     @else
-        <link rel="stylesheet" href="{{asset('css/style.css?v=1.6')}}">
+        <link rel="stylesheet" href="{{asset('css/style.css?v=1.7')}}">
     @endif
 
     <link rel="stylesheet" href="{{asset('css/owl.css')}}">

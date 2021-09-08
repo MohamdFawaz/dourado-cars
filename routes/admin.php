@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CarController;
 use App\Http\Controllers\Admin\CarMakeController;
 use App\Http\Controllers\Admin\CarModelController;
 use App\Http\Controllers\Admin\HomepageBannerController;
+use App\Http\Controllers\Admin\VideoLinkController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -51,6 +52,15 @@ Route::group(['prefix' => "admin"], function (){
             Route::delete('/delete/{id}',[HomepageBannerController::class, 'destroy'])->name('homepage_banner.delete');
         });
 
+
+        Route::group(['prefix' => 'video-link'],function () {
+            Route::get('/',[VideoLinkController::class, 'index'])->name('video_link.index');
+            Route::get('/create',[VideoLinkController::class, 'create'])->name('video_link.create');
+            Route::post('/',[VideoLinkController::class, 'store'])->name('video_link.store');
+            Route::get('/edit/{id}',[VideoLinkController::class, 'edit'])->name('video_link.edit');
+            Route::put('/update/{id}',[VideoLinkController::class, 'update'])->name('video_link.update');
+            Route::delete('/delete/{id}',[VideoLinkController::class, 'destroy'])->name('video_link.delete');
+        });
 
     });
 });
