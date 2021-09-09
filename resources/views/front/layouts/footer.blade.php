@@ -1,5 +1,7 @@
 @include('front.components.sections.visit_our_showroom')
-
+<a href="{{url('support')}}" class="float" target="_blank">
+    <i class="fa fa-comment my-float"></i>
+</a>
 <footer class="footer mt-5">
     <div class="container">
         <div class="row">

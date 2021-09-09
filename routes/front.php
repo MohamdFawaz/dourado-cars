@@ -31,3 +31,4 @@ Route::group(['prefix' => 'car-make'],function () {
 Route::group(['prefix' => 'locale'], function() {
    Route::get('/meta', [HomeController::class, 'getLocaleMeta']);
 });
+Route::post('/chat/login', [\App\Http\Controllers\vendor\Chatify\User\MessagesController::class,'userLogin'])->name('chat.login-user');

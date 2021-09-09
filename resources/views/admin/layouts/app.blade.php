@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="{{asset('vendors/perfect-scrollbar/perfect-scrollbar.css')}}">
     <link rel="stylesheet" href="{{asset('vendors/bootstrap-icons/bootstrap-icons.css')}}">
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('css/admin/app.css')}}">
         <link rel="shortcut icon" href="{{asset('images/logo.png')}}" type="image/x-icon">
     @yield('css')
 </head>
