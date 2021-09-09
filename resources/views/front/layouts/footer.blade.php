@@ -61,11 +61,6 @@
                                 {{trans('web.menus.about_us')}}
                             </a>
                         </li>
-                        <li>
-                            <a href="{{route('sell-car')}}">
-                                {{trans('web.menus.sell_a_car')}}
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </div>

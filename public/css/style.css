@@ -308,6 +308,7 @@ header {
     color: #ffffff;
     -webkit-transition: 0.5s;
     transition: 0.5s;
+    margin-top: 10px;
 }
 
 .social-style-one a:hover i {
@@ -721,6 +722,14 @@ input[type=search]:focus {
 }
 .car-details-icon-holder span {
     margin: 0 -8px;
+    font-size: 12px;
+}
+.get-in-touch {
+    background: #f1f1f1;
+    padding: 5px 5px;
+}
+.case-details {
+    padding-top: 150px;
 }
 .social-icon-holder {
     border: 1px solid #eee;

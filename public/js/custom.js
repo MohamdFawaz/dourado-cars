@@ -35,7 +35,7 @@ jQuery(document).ready(function ($) {
     function handleCompare() {
         if ($('.compare-nav-item').length) {
             let comparisonCars = JSON.parse(window.localStorage.getItem('compareCarIds'));
-            if (comparisonCars.length) {
+            if (comparisonCars != undefined && comparisonCars.length) {
                 $('.compare-nav-item .badge').text(comparisonCars.length);
                 $('.compare-nav-item .badge').css({"display": "block"});
                 let queryParams = '';

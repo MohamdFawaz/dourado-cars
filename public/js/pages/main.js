@@ -109,13 +109,13 @@ jQuery(document).ready(function($){
 	productsTable.prototype.updateTopScrolling = function(scrollTop) {
 		var offsetTop = this.table.offset().top,
 			tableScrollLeft = this.productsWrapper.scrollLeft();
-		
+
 		if ( offsetTop <= scrollTop && offsetTop + this.tableHeight - this.topInfoHeight >= scrollTop ) {
 			//fix products top-info && arrows navigation
-			if( !this.table.hasClass('top-fixed') && $(document).height() > offsetTop + $(window).height() + 200) { 
+			if( !this.table.hasClass('top-fixed') && $(document).height() > offsetTop + $(window).height() + 200) {
 				this.table.addClass('top-fixed').removeClass('top-scrolling');
 				if( checkMQ() == 'desktop' ) {
-					this.productsTopInfo.css('top', '0');
+					this.productsTopInfo.css('top', '5');
 					this.navigation.find('a').css('top', '0px');
 				}
 			}
@@ -166,7 +166,7 @@ jQuery(document).ready(function($){
 			var product = $(this),
 				leftTranslate = containerOffsetLeft + index*self.productWidth + scrollLeft - product.offset().left;
 			setTranformX(product, leftTranslate);
-			
+
 			if(index == numberProducts - 1 ) {
 				product.one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
 					setTimeout(function(){
@@ -193,7 +193,7 @@ jQuery(document).ready(function($){
 			self.updateNavigationVisibility(0);
 		}
 	}
-	
+
 	productsTable.prototype.resetProductsVisibility = function() {
 		var self = this,
 			containerOffsetLeft = self.tableColumns.offset().left,
@@ -226,7 +226,7 @@ jQuery(document).ready(function($){
 
 		if( scrollLeft < 0 ) scrollLeft = 0;
 		if( scrollLeft > this.tableColumns.outerWidth(true) - this.productsWrapper.width() ) scrollLeft = this.tableColumns.outerWidth(true) - this.productsWrapper.width();
-		
+
 		this.productsWrapper.animate( {scrollLeft: scrollLeft}, 200 );
 	}
 
@@ -235,7 +235,7 @@ jQuery(document).ready(function($){
 		//create a productsTable object for each .cd-products-comparison-table
 		comparisonTables.push(new productsTable($(this)));
 	});
-	
+
 	var windowScrolling = false;
 	//detect window scroll - fix product top-info on scrolling
 	$(window).on('scroll', function(){

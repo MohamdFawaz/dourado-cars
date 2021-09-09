@@ -12,6 +12,7 @@ Route::get('/sell-a-car', [HomeController::class, 'sellCar'])->name('sell-car');
 Route::get('/compare', [HomeController::class, 'home'])->name('compare');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/compare', [HomeController::class, 'compare'])->name('compare');
+Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact-us');
 
 Route::post('/get-in-touch', [HomeController::class, 'getInTouch'])->name('get-in-touch');
 

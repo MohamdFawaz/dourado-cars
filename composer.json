@@ -10,11 +10,12 @@
         "barryvdh/laravel-translation-manager": "master",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
-        "guzzlehttp/guzzle": "^6.0.0",
+        "guzzlehttp/guzzle": "^7.3",
         "kg-bot/laravel-localization-to-vue": "^1.7",
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "^3.3"
+        "laravel/ui": "^3.3",
+        "munafio/chatify": "^1.2"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.10",

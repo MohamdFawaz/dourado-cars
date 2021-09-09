@@ -3,7 +3,9 @@
         <div class="container">
             <div class="top-inner">
                 <ul class="top-left">
-                    <li><i class="fa fa-phone"></i> <a href="tel:{{trans('web.header.contact_number')}}">{{trans('web.header.contact_number')}}</a></li>
+                    <li><i class="fa fa-phone"></i> <a
+                            href="tel:{{trans('web.header.contact_number')}}">{{trans('web.header.contact_number')}}</a>
+                    </li>
                 </ul>
 
                 <div class="top-right ml-auto">
@@ -23,7 +25,8 @@
             <a class="navbar-brand" href="{{route('home')}}">
                 <img src="{{asset('images/logoWText-min.png')}}" alt="header-logo">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -38,14 +41,23 @@
                         <a class="nav-link" href="{{route('list-cars')}}">{{trans('web.menus.cars')}}</a>
                     </li>
                     <li class="nav-item compare-nav-item @if(Request::segment(1) == 'compare') active @endif">
-                        <span class="badge badge-pill badge-primary" style="float:right;margin-bottom:-10px;background: #d4af37; display: none">1</span> <!-- your badge -->
+                        <span class="badge badge-pill badge-primary"
+                              style="float:right;margin-bottom:-10px;background: #d4af37; display: none">1</span>
                         <a class="nav-link" href="{{route('compare')}}">{{trans('web.menus.compare')}}</a>
                     </li>
 
-                    <li class="nav-item @if(Request::segment(1) == 'about') active @endif"><a class="nav-link" href="{{route('about')}}">{{trans('web.menus.about_us')}}</a></li>
+                    <li class="nav-item @if(Request::segment(1) == 'about') active @endif">
+                        <a class="nav-link" href="{{route('about')}}">
+                            {{trans('web.menus.about_us')}}
+                        </a>
+                    </li>
 
 
-                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)">{{trans('web.menus.contact_us')}}</a></li>
+                    <li class="nav-item @if(Request::segment(1) == 'contact-us') active @endif">
+                        <a class="nav-link" href="{{route('contact-us')}}">
+                            {{trans('web.menus.contact_us')}}
+                        </a>
+                    </li>
                 </ul>
             </div>
             <div class="custom-button">

@@ -27,6 +27,21 @@ Main Components
 .cd-products-comparison-table .actions {
     float: right;
 }
+.actions {
+    margin-top: 10px;
+}
+.actions .reset {
+    padding: .6em 1.5em;
+    color: #ffff;
+    background-color: #d4af37;
+    border-radius: 3px;
+    margin-left: 1em;
+    -webkit-transition: background-color 0.3s;
+    -moz-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+    float: right;
+    margin-top: 20px;
+}
 .cd-products-comparison-table .reset, .cd-products-comparison-table .filter {
     font-size: 1.4rem;
 }
@@ -282,14 +297,14 @@ Main Components
     -moz-transition: -moz-transform 0.3s;
     transition: transform 0.3s;
 }
-.cd-products-table .top-info .check {
+.cd-products-table .top-info .cross {
     position: relative;
     display: inline-block;
     height: 16px;
     width: 16px;
     margin: 0 auto 1em;
 }
-.cd-products-table .top-info .check::after, .cd-products-table .top-info .check::before {
+.cd-products-table .top-info .cross::after, .cd-products-table .top-info .cross::before {
     /* used to create the check icon and green circle dot - visible when product is selected */
     position: absolute;
     top: 0;
@@ -298,7 +313,7 @@ Main Components
     height: 100%;
     width: 100%;
 }
-.cd-products-table .top-info .check::before {
+.cd-products-table .top-info .cross::before {
     /* green circle dot */
     border-radius: 50%;
     border: 1px solid #e6e6e6;
@@ -307,11 +322,11 @@ Main Components
     -moz-transition: background-color 0.3s, -moz-transform 0.3s, border-color 0.3s;
     transition: background-color 0.3s, transform 0.3s, border-color 0.3s;
 }
-.cd-products-table .top-info .check::after {
+.cd-products-table .top-info .cross::after {
     /* check icon */
-    background: url(../img/cd-check.svg) no-repeat center center;
+    background: url(../img/cd-cross.svg) no-repeat center center;
     background-size: 24px 24px;
-    opacity: 0;
+    opacity: 1;
     -webkit-transition: opacity 0.3s;
     -moz-transition: opacity 0.3s;
     transition: opacity 0.3s;
@@ -325,7 +340,7 @@ Main Components
         padding-top: 0.4em;
         font-size: 1.6rem;
     }
-    .cd-products-table .top-info .check {
+    .cd-products-table .top-info .cross {
         margin-bottom: 1.5em;
     }
 }
@@ -342,10 +357,10 @@ Main Components
     }
 }
 
-.cd-products-table .selected .top-info .check::before {
+.cd-products-table .selected .top-info .cross::before {
     /* green circle dot */
-    background: #9dc997;
-    border-color: #9dc997;
+    background: #c99797;
+    border-color: #c99797;
     -webkit-transform: scale(1.5);
     -moz-transform: scale(1.5);
     -ms-transform: scale(1.5);
@@ -401,7 +416,7 @@ Main Components
         transform: scale(1.5);
     }
 }
-.cd-products-table .selected .top-info .check::after {
+.cd-products-table .selected .top-info .cross::after {
     /* check icon */
     opacity: 1;
 }
@@ -418,7 +433,7 @@ Main Components
     .cd-products-table.top-scrolling .top-info {
         height: 160px;
         position: fixed;
-        top: 0;
+        top: 90px;
     }
     .no-cssgradients .cd-products-table.top-fixed .top-info, .no-cssgradients
     .cd-products-table.top-scrolling .top-info {
@@ -541,6 +556,6 @@ No JS
     }
 }
 
-.no-js .cd-products-columns .check {
+.no-js .cd-products-columns .cross {
     display: none;
 }
