@@ -63,7 +63,7 @@
                             <div class="car-name">{{$car->name}}</div>
                         </div>
                     </div>
-                    <a href="{{route('compare')}}">
+                    <a href="javascript:void(0)" class="compare" data-car-id="{{$car->id}}">
                         <button class="btn draw-border pull-right">{{trans('web.car_details.compare')}}</button>
                     </a>
                 </div>
@@ -194,9 +194,48 @@
 @endsection
 
 @section('js')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
 
     <script>
+        function handleCompareHeaderNav() {
+            if ($('.compare-nav-item').length) {
+                let comparisonCars = JSON.parse(window.localStorage.getItem('compareCarIds'));
+                if (comparisonCars.length) {
+                    $('.compare-nav-item .badge').text(comparisonCars.length);
+                    $('.compare-nav-item .badge').css({"display": "block"});
+                    let queryParams = '';
+                    comparisonCars.forEach(function (carId, idx){
+                        queryParams += 'car_id[]=' + carId
+                        if (idx != comparisonCars.length - 1){
+                            queryParams += "&";
+                        }
+                    });
+                    $('.compare-nav-item a').attr("href", "/compare?"+ queryParams +"");
+                    if(comparisonCars.length != 0 && comparisonCars.indexOf($('.compare').data('car-id'))) {
+                        $('.compare button').text(`{{trans('web.page.car_details.added_to_compare')}}`);
+                    }else{
+                        $('.compare button').text(`{{trans('web.car_details.compare')}}`);
+                    }
+                } else {
+                    $('.compare-nav-item .badge').css({"display": "none"});
+                    $('.compare-nav-item a').attr("href", "/compare");
+                }
+            }
+        }
+
+        $('.compare').on('click',function () {
+            let carId = $(this).attr('data-car-id');
+            var compareCarIds = [];
+            compareCarIds = JSON.parse(localStorage.getItem('compareCarIds')) || [];
+
+            let idx = compareCarIds.indexOf(carId);
+            if (idx >= 0){
+                compareCarIds.splice(idx, 1);
+            }else {
+                compareCarIds.push(carId);
+            }
+            localStorage.setItem('compareCarIds', JSON.stringify(compareCarIds));
+            handleCompareHeaderNav();
+        })
         var slideIndex = 1;
         showSlides(slideIndex);
 

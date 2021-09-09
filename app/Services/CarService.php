@@ -28,6 +28,10 @@ class CarService
         return $this->carRepository->query()->activated()->get();
     }
 
+    public function getForCompare($carIds)
+    {
+        return $this->carRepository->query()->with(['carMake','carModel'])->whereIn('id', $carIds)->get();
+    }
     public function getActivatePaginated($perPage = 10)
     {
         $filters = $this->formatGetCarFilters();
@@ -127,7 +131,7 @@ class CarService
             });
             $query->whereBetween('price', [$priceRanges[0], $priceRanges[1]]);
         }
-        return $query->activated()->latest()->paginate(6);
+        return $query->activated()->latest()->paginate(10);
     }
 
     public function formatGetCarFilters()

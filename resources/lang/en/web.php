@@ -8,6 +8,7 @@ return array (
     'footer_sell_a_car_first_number' => '5555555555555',
     'footer_sell_a_car_second_number' => '666666666666',
     'footer_sell_a_car_third_number' => '7777777777777',
+    'kilometers' => 'Km',
     'footer' =>
         array (
             'get_a' => 'Get A',

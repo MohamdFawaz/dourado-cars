@@ -671,6 +671,7 @@ input[type=search]:focus {
 .product-item {
     border: 1px solid #eee;
     margin-bottom: 30px;
+    padding: 5px;
 }
 
 .product-item .down-content {
@@ -705,6 +706,45 @@ input[type=search]:focus {
     max-height: 15rem;
     min-height: 15rem;
 }
+.product-item .car-details-icon-holder img {
+    max-height: none;
+    min-height: 20px;
+    width: 20px;
+    display: block;
+    margin: auto;
+}
+.car-details-icon-holder {
+    width: 70px;
+    padding: 15px 10px;
+    height: 70px;
+    margin: 3px;
+}
+.car-details-icon-holder span {
+    margin: 0 -8px;
+}
+.social-icon-holder {
+    border: 1px solid #eee;
+    margin: 3px 5px;
+}
+.product-item .more-details {
+    color: #000;
+    border-radius: 50px;
+}
+.social-icon-holder i {
+    margin: 5px -5px;
+}
+.social-icon-holder a {
+    color: #000;
+}
+.social-super-holder {
+    margin: 2px 0px;
+    display: grid;
+    grid-gap: 1.75em;
+    grid-template-columns: repeat(4,0);
+}
+.product-item .car-details-icon-holder {
+    border: 1px solid #eee
+}
 
 .product-item .down-content h4 {
     font-size: 17px;
@@ -713,21 +753,21 @@ input[type=search]:focus {
     text-transform: capitalize;
 }
 
-.product-item .price {
+.price {
     background: #d4af37;
     position: relative;
     font-size: 1.3em;
-    padding: 4px 13px;
-    top: -15px;
-    text-align: right;
-    width: fit-content;
-    float: right;
+    top: 30px;
+    text-align: center;
+    width: 120px;
     color: #000;
-    right: -5px;
+    right: -235px;
+    z-index: 1;
 }
 
-.price {
+.price-section .price {
     background: #d4af37;
+    position: inherit;
     width: 100%;
     color: #000;
     padding: 4px 13px;
@@ -1477,7 +1517,7 @@ span.ui-slider-handle.ui-state-default.ui-corner-all {
     border-radius: 10px;
 }
 .gallery {
-    height: 185px;
+    height: 60px;
 }
 .gallery__item {
     align-items: center;
