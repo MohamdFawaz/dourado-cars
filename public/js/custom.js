@@ -32,6 +32,33 @@ jQuery(document).ready(function ($) {
 
     headerStyle();
 
+    function handleCompare() {
+        if ($('.compare-nav-item').length) {
+            let comparisonCars = JSON.parse(window.localStorage.getItem('compareCarIds'));
+            if (comparisonCars.length) {
+                $('.compare-nav-item .badge').text(comparisonCars.length);
+                $('.compare-nav-item .badge').css({"display": "block"});
+                let queryParams = '';
+                comparisonCars.forEach(function (carId, idx){
+                    queryParams += queryParams + 'car_id[]=' + carId
+                    if (idx != comparisonCars.length - 1){
+                        queryParams += "&";
+                    }
+                    if($('.compare').length && $('.compare').data('car-id') == carId) {
+                        $('.compare button').text(`{{trans('web.page.car_details.added_to_compare')}}`);
+                    }
+                });
+
+                $('.compare-nav-item a').attr("href", "/compare?"+ queryParams +"");
+
+            } else {
+                $('.compare-nav-item .badge').css({"display": "none"});
+                $('.compare-nav-item a').attr("href", "/compare");
+            }
+        }
+    }
+
+    handleCompare();
 
     $(window).on('scroll', function () {
 

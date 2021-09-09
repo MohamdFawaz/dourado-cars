@@ -77,6 +77,13 @@ class HomeController extends Controller
         return view('front.pages.sell_car', compact('messages', 'links'));
     }
 
+    public function compare(Request $request)
+    {
+        $cars = $this->carService->getForCompare($request->get('car_id'));
+
+        $links = $this->links;
+        return view('front.pages.compare', compact('links', 'cars'));
+    }
     public function getCarConditionOptions()
     {
         $conditions = [trans('web.sell_a_car.condition_options.extra_clean'),trans('web.sell_a_car.condition_options.clean'),trans('web.sell_a_car.condition_options.average'),trans('web.sell_a_car.condition_options.below_average'),trans('web.sell_a_car.condition_options.i_dont_know')];

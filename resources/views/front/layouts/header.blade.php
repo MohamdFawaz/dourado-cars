@@ -37,6 +37,10 @@
                     <li class="nav-item @if(Request::segment(1) == 'cars') active @endif">
                         <a class="nav-link" href="{{route('list-cars')}}">{{trans('web.menus.cars')}}</a>
                     </li>
+                    <li class="nav-item compare-nav-item @if(Request::segment(1) == 'compare') active @endif">
+                        <span class="badge badge-pill badge-primary" style="float:right;margin-bottom:-10px;background: #d4af37; display: none">1</span> <!-- your badge -->
+                        <a class="nav-link" href="{{route('compare')}}">{{trans('web.menus.compare')}}</a>
+                    </li>
 
                     <li class="nav-item @if(Request::segment(1) == 'about') active @endif"><a class="nav-link" href="{{route('about')}}">{{trans('web.menus.about_us')}}</a></li>
 
