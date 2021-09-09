@@ -759,9 +759,9 @@ input[type=search]:focus {
     font-size: 1.3em;
     top: 30px;
     text-align: center;
-    width: 120px;
+    width: 150px;
     color: #000;
-    right: -235px;
+    right: -205px;
     z-index: 1;
 }
 
