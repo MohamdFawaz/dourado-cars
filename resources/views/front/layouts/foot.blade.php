@@ -12,10 +12,10 @@
 <script>
     window.default_locale = `{{ config('app.locale') }}`;
     window.fallback_locale = `{{ config('app.fallback_locale') }}`;
-    window.messages = @if(isset($messages)) `{!! json_encode($messages) !!}` @endif;
+    window.messages = [];
 </script>
-<script src="{{asset('js/app.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="{{asset('js/app.js')}}"></script>
 @yield('js')
 <script>
     $(function () {
