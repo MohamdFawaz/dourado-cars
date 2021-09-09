@@ -74,7 +74,8 @@ a.filled-button, button.filled-button {
 button.filled-button {
     border: none;
     padding: 11px 50px;
-    margin-top: 10px;
+    display: flex;
+    margin: auto;
 }
 
 a.filled-button:hover {

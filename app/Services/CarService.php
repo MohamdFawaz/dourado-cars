@@ -120,7 +120,7 @@ class CarService
         if (isset($filters['year']) && $filters['year'] && is_numeric($filters['year'])) {
             $query->where('year', $filters['year']);
         }
-        if (isset($filters['kilometers']) && $filters['kilometers'] && is_numeric($filters['kilometers'])) {
+        if (isset($filters['kilometers']) && $filters['kilometers'] != '') {
             $query->where('kilometers','<=', $filters['kilometers']);
         }
         if (isset($filters['price_range']) && $filters['price_range']) {
