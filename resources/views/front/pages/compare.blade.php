@@ -29,6 +29,7 @@
     <div id="app">
         <div class="container">
             <div class="row">
+                @if(count($cars))
                 <section class="mt-5 cd-products-comparison-table">
                     <div class="cd-products-table">
                         <div class="features">
@@ -77,6 +78,11 @@
                         </ul>
                     </div> <!-- .cd-products-table -->
                 </section> <!-- .cd-products-comparison-table -->
+                @else
+                <section>
+                    <h3 class="text-center mt-5">{{trans('web.page.compare.nothing_to_compare')}}</h3>
+                </section>
+                @endif
             </div>
         </div>
     </div>

@@ -79,8 +79,7 @@ class HomeController extends Controller
 
     public function compare(Request $request)
     {
-        $cars = $this->carService->getForCompare($request->get('car_id'));
-
+        $cars = $this->carService->getForCompare($request->get('car_id') ?? []);
         $links = $this->links;
         return view('front.pages.compare', compact('links', 'cars'));
     }
@@ -94,7 +93,7 @@ class HomeController extends Controller
     public function submitSellCar(Request $request)
     {
         try {
-            \Mail::to('mohamdfawaz93@gmail.com')->send(new SellCarMail($request->all()));
+            \Mail::to(config('mail.to.address'))->send(new SellCarMail($request->all()));
             return response()->json(['message' => trans('web.sell_a_car.success_message')]);
         } catch (\Exception $e) {
             reportException($e);
