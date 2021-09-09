@@ -169,6 +169,7 @@ import Lang from 'lang.js';
 
 const default_locale = window.default_language;
 const fallback_locale = window.fallback_locale;
+console.log(window.messages)
 const messages = JSON.parse(window.messages);
 Vue.prototype.trans = new Lang({messages, locale: default_locale, fallback: fallback_locale});
 export default {
