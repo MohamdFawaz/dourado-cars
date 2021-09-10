@@ -7,12 +7,12 @@
 <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=61333a08495f05001236fe42&product=inline-share-buttons" async="async"></script>
 
 <!-- Additional Scripts -->
-<script src="{{asset('js/custom.js?v=1.5')}}"></script>
+<script src="{{asset('js/custom.js?v=1.6')}}"></script>
 <script src="{{asset('js/owl.js')}}"></script>
 <script>
     window.default_locale = `{{ config('app.locale') }}`;
     window.fallback_locale = `{{ config('app.fallback_locale') }}`;
-    window.messages = @if(isset($messages)) `@json($messages)` @endif;
+    window.messages = @if(isset($messages)) `{!! $messages !!}` @endif;
 </script>
 <script src="{{asset('js/app.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

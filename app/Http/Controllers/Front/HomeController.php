@@ -72,7 +72,7 @@ class HomeController extends Controller
 
     public function sellCar()
     {
-        $messages = ExportLocalization::export()->toFlat();
+        $messages = json_encode(ExportLocalization::export()->toFlat());
         $links = $this->links;
         return view('front.pages.sell_car', compact('messages', 'links'));
     }
