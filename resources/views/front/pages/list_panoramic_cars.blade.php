@@ -16,8 +16,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="text-content">
-                        <h4>{{trans('web.pages.list_cars.upper_title')}}</h4>
-                        <h2>{{trans('web.pages.list_cars.lower_title')}}</h2>
+                        <h4>{{trans('web.pages.list_panoramic_cars.upper_title')}}</h4>
+                        <h2>{{trans('web.pages.list_panoramic_cars.lower_title')}}</h2>
                     </div>
                 </div>
             </div>
@@ -29,11 +29,11 @@
                 @if(true)
                     <div class="col-md-12">
                         <div class="row">
-{{--                            @foreach($cars->items() as $car)--}}
+                            @foreach($cars as $car)
                                 <div class="col-md-4">
-                                    @include('front.components.panoramic_car_item')
+                                    @include('front.components.panoramic_car_item', $car)
                                 </div>
-{{--                            @endforeach--}}
+                            @endforeach
                         </div>
                     </div>
                 @else

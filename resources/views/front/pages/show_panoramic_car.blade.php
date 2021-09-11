@@ -3,7 +3,7 @@
 </head>
 <a-scene>
     <a-assets>
-        <img id="panorama" src="{{asset('images/360 picture 1.jpg')}}" crossorigin />
+        <img id="panorama" src="{{$car->image}}" crossorigin />
     </a-assets>
     <a-sky src="#panorama" rotation="0 -90 0"></a-sky>
 </a-scene>
