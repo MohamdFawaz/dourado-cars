@@ -52,7 +52,7 @@
                 </li>
                 <li class="sidebar-item">
                     <a href="{{url('/admin/support')}}" class='sidebar-link'>
-                        <i class="bi bi-wrench"></i>
+                        <i class="bi bi-chat"></i>
                         <span>Chat</span>
                     </a>
                 </li>
