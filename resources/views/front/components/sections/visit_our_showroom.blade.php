@@ -40,7 +40,7 @@
                             </div>
                             <div class="form-group">
                                 <input class="form-control" maxlength="15"
-                                       pattern="^(?:\+971)(?:2|3|4|6|7|9|50|51|52|55|56)[0-9]{7}" name="mobile_number"
+                                       name="mobile_number"
                                        id="mobile_number" type="text"
                                        placeholder="{{trans('web.footer.visit_our_showroom.form.mobile_number_placeholder')}}"
                                        autocomplete="off" required>

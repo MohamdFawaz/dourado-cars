@@ -1,8 +1,15 @@
 <template>
     <div class="row col-12">
-        <div :class="messageClass" style="height: 50px; padding-top: 15px; margin: 15px 215px;">{{ message }}</div>
+        <div :class="messageClass" style="height: 50px; padding-top: 15px; margin-top: 30px;">
+            {{ message }}
+            <ul v-if="validationErrors.length">
+                <li v-for="error in validationErrors">
+                    {{ error }}
+                </li>
+            </ul>
+        </div>
         <div ref="wixForm">
-            <form-wizard  @onComplete="submit">
+            <form-wizard @onComplete="submit">
                 <tab-content :title="trans.get('web.sell_a_car.car_information_title')" :selected="true"
                              class="col-sm-12">
                     <div class="row car-info-tab">
@@ -208,7 +215,8 @@ export default {
             },
             formClasses: 'row col-12',
             message: '',
-            messageClass: 'hidden'
+            messageClass: 'hidden',
+            validationErrors: []
         }
     },
     mounted() {
@@ -224,10 +232,14 @@ export default {
                 error => console.error(error));
         },
         submit: function () {
-            axios.post('/sell-a-call', this.car)
-                .then(response => this.setMessage(response.data.message, 'success'), error => this.setMessage(error, 'error'));
+                axios.post('/sell-a-call', this.car)
+                    .then(response => this.setMessage(response.data.message, 'success'),
+                          error => this.setMessage(error.response.data.message, 'error', error.response.data.errors));
+
         },
-        setMessage: function (message, type) {
+        setMessage: function (message, type, errors) {
+            this.validationErrors = [];
+            window.scrollTo(500, 0);
             this.message = message;
             if (type === 'success') {
                 this.messageClass = 'bg-success text-center text-white';

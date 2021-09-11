@@ -2506,3 +2506,6 @@ span.ui-slider-handle.ui-state-default.ui-corner-all {
     margin-top:16px;
     color: white;
 }
+#app {
+    width: 100%;
+}

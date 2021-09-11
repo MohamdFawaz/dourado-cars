@@ -5,39 +5,39 @@
 @endsection
 
 @section('content')
+    <div id="app">
 
-    <!-- Page Content -->
-    <div class="page-heading about-heading header-text"
-         style="background-image: url({{asset('images/about-us.jpeg')}});">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="text-content">
-                        <h4>{{trans('web.pages.sell_a_car.upper_title')}}</h4>
-                        <h2>{{trans('web.pages.sell_a_car.lower_title')}}</h2>
+        <!-- Page Content -->
+        <div class="page-heading about-heading header-text"
+             style="background-image: url({{asset('images/about-us.jpeg')}});">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="text-content">
+                            <h4>{{trans('web.pages.sell_a_car.upper_title')}}</h4>
+                            <h2>{{trans('web.pages.sell_a_car.lower_title')}}</h2>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
-    <div id="app">
         <div class="row">
-            <div class="container">
+            <div class="container" style="margin-right: inherit">
                 <stepper-form></stepper-form>
             </div>
         </div>
-    </div>
 
-    <div class="team-members">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-heading">
-                        <h2>{{trans('web.page.sell_a_car.section_1_heading')}}</h2>
+        <div class="team-members">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-heading">
+                            <h2>{{trans('web.page.sell_a_car.section_1_heading')}}</h2>
+                        </div>
+                        <p class="text-center">{{trans('web.page.sell_a_car.section_1_content')}}</p>
                     </div>
-                    <p class="text-center">{{trans('web.page.sell_a_car.section_1_content')}}</p>
                 </div>
             </div>
         </div>

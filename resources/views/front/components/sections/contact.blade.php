@@ -9,7 +9,7 @@
                             <p>{{trans('web.home.contact.content')}}</p>
                         </div>
                         <div class="col-lg-4 col-md-6 text-right">
-                            <a href="javascript:void(0)" class="filled-button">{{trans('web.home.contact.button_text')}}</a>
+                            <a href="{{route('contact-us')}}" class="filled-button">{{trans('web.home.contact.button_text')}}</a>
                         </div>
                     </div>
                 </div>

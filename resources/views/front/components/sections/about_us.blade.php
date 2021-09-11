@@ -9,7 +9,7 @@
             <div class="col-md-6">
                 <div class="left-content">
                     <p>{{trans('web.home.about_us_content')}}</p>
-                    <a href="javascript:void(0)" class="filled-button">{{trans('web.home.about_us_see_more')}}</a>
+                    <a href="{{route('about')}}" class="filled-button">{{trans('web.home.about_us_see_more')}}</a>
                 </div>
             </div>
             <div class="col-md-6">

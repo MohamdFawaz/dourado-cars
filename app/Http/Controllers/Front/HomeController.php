@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SellCarRequest;
 use App\Mail\GetInTouchMail;
 use App\Mail\SellCarMail;
 use App\Services\CarMakeService;
@@ -98,14 +99,14 @@ class HomeController extends Controller
         return response()->json(compact('conditions','accidentOptions'));
     }
 
-    public function submitSellCar(Request $request)
+    public function submitSellCar(SellCarRequest $request)
     {
         try {
             \Mail::to(config('mail.to.address'))->send(new SellCarMail($request->all()));
             return response()->json(['message' => trans('web.sell_a_car.success_message')]);
         } catch (\Exception $e) {
             reportException($e);
-            return response()->json(['message' => trans('web.sell_a_car.failed_message')]);
+            return response()->json(['message' => trans('web.sell_a_car.failed_message')], 400);
         }
     }
 }
