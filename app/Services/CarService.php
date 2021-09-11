@@ -3,6 +3,7 @@
 namespace App\Services;
 
 
+use App\Models\CarGallery;
 use App\Repositories\CarRepository;
 
 class CarService
@@ -27,16 +28,20 @@ class CarService
         return $this->carRepository->query()->activated()->get();
     }
 
+    public function getForCompare($carIds)
+    {
+        return $this->carRepository->query()->with(['carMake','carModel'])->whereIn('id', $carIds)->get();
+    }
     public function getActivatePaginated($perPage = 10)
     {
         $filters = $this->formatGetCarFilters();
-        $query =  $this->carRepository->query()->with('carMake:id,name');
+        $query = $this->carRepository->query()->with('carMake:id,name');
         if (count($filters)) {
             foreach ($filters as $filter) {
                 if ($filter[1] == 'in') {
-                    $query->whereIn($filter[0],$filter[2]);
-                }else{
-                    $query->where($filter[0],$filter[1],$filter[2]);
+                    $query->whereIn($filter[0], $filter[2]);
+                } else {
+                    $query->where($filter[0], $filter[1], $filter[2]);
                 }
             }
         }
@@ -50,6 +55,17 @@ class CarService
             $query->with($with);
         }
         return $query->find($id);
+    }
+
+
+    public function showCarById($id)
+    {
+        $car = $this->findById($id, ['gallery','carMake','carModel']);
+        if (!$car) {
+            abort(404);
+        }
+        $car->gallery->prepend(new CarGallery(['image' => $car->image]));
+        return $car;
     }
 
     public function findByIdWithGallery($id)
@@ -87,9 +103,35 @@ class CarService
         return $this->carRepository->query()->count();
     }
 
-    public function getHomepageCars($limit = 6)
+    public function getHomepageCars(int $limit = 6)
     {
-        return $this->carRepository->query()->limit($limit)->get();
+        return $this->carRepository->query()->limit($limit)->orderBy('featured','DESC')->get();
+    }
+
+    public function listCars(array $filters)
+    {
+        $query = $this->carRepository->query();
+        if (isset($filters['car_make_id']) && $filters['car_make_id']) {
+            $query->where('car_make_id', $filters['car_make_id']);
+        }
+        if (isset($filters['car_model_id']) && $filters['car_model_id'] && is_numeric($filters['car_model_id'])) {
+            $query->where('car_model_id', $filters['car_model_id']);
+        }
+        if (isset($filters['year']) && $filters['year'] && is_numeric($filters['year'])) {
+            $query->where('year', $filters['year']);
+        }
+        if (isset($filters['kilometers']) && $filters['kilometers'] != '') {
+            $query->where('kilometers','<=', $filters['kilometers']);
+        }
+        if (isset($filters['price_range']) && $filters['price_range']) {
+            $priceRanges = explode('-', $filters['price_range']);
+            collect($priceRanges)->map(function ($range, $key) use (&$priceRanges){
+               $priceRanges[$key] = str_replace(trans('web.currency_name'),'',$priceRanges[$key]);
+               $priceRanges[$key] = trim($priceRanges[$key]);
+            });
+            $query->whereBetween('price', [$priceRanges[0], $priceRanges[1]]);
+        }
+        return $query->activated()->latest()->paginate(10);
     }
 
     public function formatGetCarFilters()
@@ -114,14 +156,34 @@ class CarService
     public function getCarMakeYears($carMakeId)
     {
         return $this->carRepository->query()->select('year')
-            ->where('car_make_id',$carMakeId)
+            ->where('car_make_id', $carMakeId)
             ->groupBy('year')->get();
     }
 
     public function getCarModelYears($carModelId)
     {
         return $this->carRepository->query()->select('year')
-            ->where('car_model_id',$carModelId)
+            ->where('car_model_id', $carModelId)
             ->groupBy('year')->get();
+    }
+    public function getFeaturedCount()
+    {
+        return $this->carRepository->query()->where('featured',true)->get()->count();
+    }
+
+    public function toggleFeatured($carId)
+    {
+        $car = $this->carRepository->find($carId);
+        if ($car->featured == false && $this->getFeaturedCount() == 6) {
+            throw new \Exception('You can\'t add more than 6 cars to homepage popular section', 400);
+        }
+        $car->featured = !$car->featured;
+        $car->save();
+        return $car;
+    }
+
+    public function getPriceRange()
+    {
+        return \DB::query()->from('cars')->selectRaw('MIN(price) as min_price, MAX(price) as max_price')->first();
     }
 }

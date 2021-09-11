@@ -2,7 +2,8 @@
 @section('css')
     <link rel="stylesheet" href="{{asset('vendors/choices.js/choices.min.css')}}">
     <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
-    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
+          rel="stylesheet">
 @endsection
 @section('content')
     <div id="main">
@@ -52,7 +53,8 @@
                                                             name="car_make_id" id="car_make_id" required>
                                                         <option>-- Choose Car Make --</option>
                                                         @foreach($car_makes as $make)
-                                                            <option value="{{$make->id}}" @if($car->car_make_id == $make->id) selected @endif>{{$make->name}}</option>
+                                                            <option value="{{$make->id}}"
+                                                                    @if($car->car_make_id == $make->id) selected @endif>{{$make->name}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -67,7 +69,8 @@
                                                         <option>-- Choose Car Model --</option>
                                                         @if($car_models)
                                                             @foreach($car_models as $model)
-                                                                <option value="{{$model->id}}" @if($car->car_model_id == $model->id) selected @endif>{{$model->name}}</option>
+                                                                <option value="{{$model->id}}"
+                                                                        @if($car->car_model_id == $model->id) selected @endif>{{$model->name}}</option>
                                                             @endforeach
                                                         @endif
                                                     </select>
@@ -79,7 +82,8 @@
                                                 <label for="kilometers">Kilometers</label>
                                                 <input type="number" id="kilometers"
                                                        class="form-control"
-                                                       name="kilometers" placeholder="Car Kilometers" required value="{{$car->kilometers}}">
+                                                       name="kilometers" placeholder="Car Kilometers" required
+                                                       value="{{$car->kilometers}}">
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -95,13 +99,16 @@
                                                 <label for="price">Price</label>
                                                 <input type="text" id="price"
                                                        class="form-control"
-                                                       name="price" placeholder="Price" required value="{{$car->price}}">
+                                                       name="price" placeholder="Price" required
+                                                       value="{{$car->price}}">
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-check">
                                                 <div class="checkbox">
-                                                    <input type="checkbox" @if($car->warranty == true) checked @endif class="form-check-input" id="warranty" name="warranty">
+                                                    <input type="checkbox" @if($car->warranty == true) checked
+                                                           @endif class="form-check-input" id="warranty"
+                                                           name="warranty">
                                                     <label for="warranty">Has Warranty?</label>
 
                                                 </div>
@@ -112,7 +119,8 @@
                                                 <label for="color">Color</label>
                                                 <input type="text" id="color"
                                                        class="form-control"
-                                                       name="color" placeholder="Color" required value="{{$car->color}}">
+                                                       name="color" placeholder="Color" required
+                                                       value="{{$car->color}}">
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -120,7 +128,8 @@
                                                 <label for="number_of_doors">Number of Doors</label>
                                                 <input type="number" id="number_of_doors"
                                                        class="form-control"
-                                                       name="number_of_doors" placeholder="Number of Doors" value="{{$car->number_of_doors}}">
+                                                       name="number_of_doors" placeholder="Number of Doors"
+                                                       value="{{$car->number_of_doors}}">
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -137,7 +146,8 @@
                                                 <label for="horse_power">Horse Power</label>
                                                 <input type="text" id="horse_power"
                                                        class="form-control"
-                                                       name="horse_power" placeholder="Horse Power" required value="{{$car->horse_power}}">
+                                                       name="horse_power" placeholder="Horse Power" required
+                                                       value="{{$car->horse_power}}">
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -146,7 +156,8 @@
                                                 <input class="form-control" type="file" id="image" name="image">
                                             </div>
                                             @if($car->image)
-                                                <img class="mb-2" style="width: 200px" src="{{$car->image}}" alt="{{$car->name}}-image">
+                                                <img class="mb-2" style="width: 200px" src="{{$car->image}}"
+                                                     alt="{{$car->name}}-image">
                                             @endif
                                         </div>
                                     </div>
@@ -206,7 +217,8 @@
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="form-group">
-                                                                <label for="transmission-type-{{$locale}}">Car Transmission Type</label>
+                                                                <label for="transmission-type-{{$locale}}">Car
+                                                                    Transmission Type</label>
                                                                 <input type="text" id="transmission-type-{{$locale}}"
                                                                        class="form-control"
                                                                        name="transmission_type[{{$locale}}]"
@@ -239,7 +251,8 @@
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="form-group">
-                                                                <label for="additional-information-{{$locale}}">Car Additional Information</label>
+                                                                <label for="additional-information-{{$locale}}">Car
+                                                                    Additional Information</label>
                                                                 <textarea class="form-control"
                                                                           id="additional-information-{{$locale}}"
                                                                           name="additional_information[{{$locale}}]"
@@ -264,16 +277,18 @@
                                         <div class="card-content">
                                             <div class="card-body">
                                                 <!-- File uploader with multiple files upload -->
-                                                <input type="file" name="car_gallery[]" class="multiple-files-filepond" multiple>
+                                                <input type="file" name="car_gallery[]" class="multiple-files-filepond"
+                                                       multiple>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row" >
+                                <div class="row">
                                     @foreach($car->gallery as $gallery)
-                                    <div class="col d-flex justify-content-center">
-                                        <img  class="img-fluid" width="200" src="{{$gallery->image}}">
-                                    </div>
+                                        <div class="col d-flex justify-content-center">
+                                            <img onclick="deleteImage(this,{{$gallery->id}})" class="img-fluid" width="200"
+                                                 src="{{$gallery->image}}" style="cursor: pointer">
+                                        </div>
                                     @endforeach
                                 </div>
                             </div>
@@ -300,8 +315,10 @@
     <script src="{{asset('js/pages/form-element-select.js')}}"></script>
 
     <!-- filepond validation -->
-    <script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
-    <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+    <script
+        src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
+    <script
+        src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
     <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
 
     <!-- filepond -->
@@ -330,6 +347,15 @@
                 alert('Please Choose a Car Make First')
             }
         }
+
+        deleteImage = (el,imageId) => {
+            if (confirm("Are you sure you want to delete?")) {
+                axios.delete("/admin/car/delete/image/" + imageId)
+                    .then(response => $(el).remove(),
+                        error => console.error(error)
+                    );
+            }
+        }
         // register desired plugins...
         FilePond.registerPlugin(
             // validates the size of the file...
@@ -338,7 +364,6 @@
             FilePondPluginFileValidateType,
             // preview the image file type...
             FilePondPluginImagePreview,
-
         );
 
         // Filepond: Multiple Files

@@ -38,6 +38,36 @@
                         <span>Car</span>
                     </a>
                 </li>
+                <li class="sidebar-item  @if(Request::segment(2) == 'homepage-banner') active @endif">
+                    <a href="{{route('homepage_banner.index')}}" class='sidebar-link'>
+                        <i class="bi bi-image"></i>
+                        <span>Homepage Banner</span>
+                    </a>
+                </li>
+                <li class="sidebar-item  @if(Request::segment(2) == 'video-link') active @endif">
+                    <a href="{{route('video_link.index')}}" class='sidebar-link'>
+                        <i class="bi bi-camera-video"></i>
+                        <span>Video Link</span>
+                    </a>
+                </li>
+                <li class="sidebar-item  @if(Request::segment(2) == 'settings') active @endif">
+                    <a href="{{route('settings.index')}}" class='sidebar-link'>
+                        <i class="bi bi-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+                <li class="sidebar-item  @if(Request::segment(2) == 'panoramic-car') active @endif">
+                    <a href="{{route('panoramic_car.index')}}" class='sidebar-link'>
+                        <i class="bi bi-pin-angle"></i>
+                        <span>Panoramic Car</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{{url('/admin/support')}}" class='sidebar-link'>
+                        <i class="bi bi-chat"></i>
+                        <span>Chat</span>
+                    </a>
+                </li>
                 <li class="sidebar-item">
                     <a href="{{url('/translations')}}" class='sidebar-link'>
                         <i class="bi bi-wrench"></i>

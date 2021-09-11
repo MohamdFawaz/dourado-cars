@@ -23,6 +23,10 @@ class CarMakeService
     {
         return $this->carMakeRepository->query()->select('id', 'name','image')->activated()->get();
     }
+    public function getHomepageCarMakes()
+    {
+        return $this->carMakeRepository->query()->select('id', 'name','image')->whereHas('cars')->activated()->get();
+    }
 
     public function findById($id)
     {

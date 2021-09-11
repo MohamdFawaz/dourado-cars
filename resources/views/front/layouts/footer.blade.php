@@ -1,3 +1,7 @@
+@include('front.components.sections.visit_our_showroom')
+<a href="{{url('support')}}" class="float" target="_blank">
+    <i class="fa fa-comment my-float"></i>
+</a>
 <footer class="footer mt-5">
     <div class="container">
         <div class="row">
@@ -15,13 +19,23 @@
                     <div class="social-links">
                         <ul>
                             <li>
-                                <a href="#">
+                                <a href="{{trans('web.header.social_media.facebook')}}">
                                     <i class="fa fa-facebook-f"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{trans('web.header.social_media.instagram')}}">
+                                    <i class="fa fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{trans('web.header.social_media.twitter')}}">
                                     <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{trans('web.header.social_media.youtube')}}">
+                                    <i class="fa fa-youtube"></i>
                                 </a>
                             </li>
                         </ul>
@@ -35,22 +49,22 @@
                     </h5>
                     <ul>
                         <li>
-                            <a href="#">
+                            <a href="{{url('/')}}">
                                 {{trans('web.menus.home')}}
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{route('list-cars')}}">
                                 {{trans('web.menus.cars')}}
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{route('about')}}">
                                 {{trans('web.menus.about_us')}}
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{route('sell-car')}}">
                                 {{trans('web.menus.sell_a_car')}}
                             </a>
                         </li>
@@ -64,18 +78,23 @@
                     </h5>
                     <ul>
                         <li>
-                            <a href="tel:{{trans('web.footer_contact_us_first_number')}}">
-                                {{trans('web.footer_contact_us_first_number')}}
+                            <a href="{{trans('web.footer_contact_us_first_address_link')}}">
+                                {{trans('web.footer_contact_us_first_address')}}
                             </a>
                         </li>
                         <li>
-                            <a href="tel:{{trans('web.footer_contact_us_second_number')}}">
-                                {{trans('web.footer_contact_us_second_number')}}
+                            <a href="{{trans('web.footer_contact_us_second_address_link')}}">
+                                {{trans('web.footer_contact_us_second_address')}}
                             </a>
                         </li>
                         <li>
-                            <a href="tel:{{trans('web.footer_contact_us_third_number')}}">
-                                {{trans('web.footer_contact_us_third_number')}}
+                            <a href="tel:{{trans('web.footer_contact_us_number')}}">
+                                {{trans('web.footer_contact_us_number')}}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:{{trans('web.footer_contact_us_mail')}}">
+                                {{trans('web.footer_contact_us_mail')}}
                             </a>
                         </li>
                     </ul>
@@ -87,21 +106,6 @@
                         {{trans('web.footer.sell_a_car_header')}}
                     </h5>
                     <ul>
-                        <li>
-                            <a href="tel:{{trans('web.footer_sell_a_car_first_number')}}">
-                                {{trans('web.footer_sell_a_car_first_number')}}
-                            </a>
-                        </li>
-                        <li>
-                            <a href="tel:{{trans('web.footer_sell_a_car_second_number')}}">
-                                {{trans('web.footer_sell_a_car_second_number')}}
-                            </a>
-                        </li>
-                        <li>
-                            <a href="tel:{{trans('web.footer_sell_a_car_third_number')}}">
-                                {{trans('web.footer_sell_a_car_third_number')}}
-                            </a>
-                        </li>
                         {{trans('web.footer.get_a')}} <a href="{{route('sell-car')}}">{{trans('web.footer.quote')}}</a>
                     </ul>
                 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Resources\YearResource;
+use App\Models\CarMake;
 use App\Models\CarModel;
 use App\Services\CarMakeService;
 use App\Services\CarModelService;
@@ -19,11 +20,12 @@ use Illuminate\Http\Response;
 class CarMakeController extends Controller
 {
 
-    private $carService;
+    private $service,$carService;
 
-    public function __construct(CarService $carService)
+    public function __construct(CarService $carService, CarMakeService $service)
     {
         $this->carService = $carService;
+        $this->service = $service;
     }
 
 
@@ -31,5 +33,11 @@ class CarMakeController extends Controller
     {
         $carMakeYears = $this->carService->getCarMakeYears($carMakeId);
         return \response()->json(['data' => YearResource::collection($carMakeYears)]);
+    }
+
+    public function getCarMakes()
+    {
+        $makes = $this->service->get();
+        return \response()->json($makes);
     }
 }
