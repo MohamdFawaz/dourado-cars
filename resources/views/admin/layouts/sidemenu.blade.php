@@ -50,6 +50,12 @@
                         <span>Video Link</span>
                     </a>
                 </li>
+                <li class="sidebar-item  @if(Request::segment(2) == 'settings') active @endif">
+                    <a href="{{route('settings.index')}}" class='sidebar-link'>
+                        <i class="bi bi-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
                 <li class="sidebar-item">
                     <a href="{{url('/admin/support')}}" class='sidebar-link'>
                         <i class="bi bi-chat"></i>

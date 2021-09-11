@@ -10,6 +10,7 @@ use App\Mail\SellCarMail;
 use App\Services\CarMakeService;
 use App\Services\CarService;
 use App\Services\HomepageBannerService;
+use App\Services\SettingService;
 use App\Services\VideoLinkService;
 use Illuminate\Http\Request;
 use KgBot\LaravelLocalization\Facades\ExportLocalizations as ExportLocalization;
@@ -17,14 +18,19 @@ use KgBot\LaravelLocalization\Facades\ExportLocalizations as ExportLocalization;
 class HomeController extends Controller
 {
 
-    private $carMakeService, $carService, $homeBannerService, $videoLinkService, $links;
+    private $carMakeService, $carService, $homeBannerService, $videoLinkService, $settingService, $links;
 
-    public function __construct(CarMakeService $carMakeService, CarService $carService, HomepageBannerService $homepageBannerService, VideoLinkService $videoLinkService)
+    public function __construct(CarMakeService $carMakeService,
+                                CarService $carService,
+                                HomepageBannerService $homepageBannerService,
+                                VideoLinkService $videoLinkService,
+                                SettingService $settingService)
     {
         $this->carMakeService = $carMakeService;
         $this->carService = $carService;
         $this->homeBannerService = $homepageBannerService;
         $this->videoLinkService = $videoLinkService;
+        $this->settingService = $settingService;
         $this->links = $this->videoLinkService->get();
     }
 
@@ -44,7 +50,8 @@ class HomeController extends Controller
         $carMakes = $this->carMakeService->getActivated();
         $priceRange = $this->carService->getPriceRange();
         $links = $this->links;
-        return view('front.pages.list_cars', compact('cars', 'carMakes', 'priceRange', 'links'));
+        $coverImage = $this->settingService->getImageValues(SettingService::$listCarCoverKey);
+        return view('front.pages.list_cars', compact('cars', 'carMakes', 'priceRange', 'links', 'coverImage'));
     }
 
     public function showCar($carId)
@@ -57,7 +64,8 @@ class HomeController extends Controller
     public function about()
     {
         $links = $this->links;
-        return view('front.pages.about',compact('links'));
+        $coverImage = $this->settingService->getImageValues(SettingService::$aboutCoverKey);
+        return view('front.pages.about',compact('links','coverImage'));
     }
 
     public function getInTouch(Request $request)
@@ -83,13 +91,15 @@ class HomeController extends Controller
     {
         $cars = $this->carService->getForCompare($request->get('car_id') ?? []);
         $links = $this->links;
-        return view('front.pages.compare', compact('links', 'cars'));
+        $coverImage = $this->settingService->getImageValues(SettingService::$compareCoverKey);
+        return view('front.pages.compare', compact('links', 'cars', 'coverImage'));
     }
 
     public function contactUs()
     {
         $links = $this->links;
-        return view('front.pages.contact', compact('links'));
+        $coverImage = $this->settingService->getImageValues(SettingService::$contactCoverKey);
+        return view('front.pages.contact', compact('links', 'coverImage'));
     }
 
     public function getCarConditionOptions()

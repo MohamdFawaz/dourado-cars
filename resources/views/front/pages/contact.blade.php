@@ -7,7 +7,7 @@
 @section('content')
 
     <!-- Page Content -->
-    <div class="page-heading about-heading header-text" style="background-image: url({{asset('images/cars.jpg')}});">
+    <div class="page-heading about-heading header-text" style="background-image: @if(isset($coverImage)) url({{$coverImage}}) @else url({{asset('images/cars.jpg')}}); @endif">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
