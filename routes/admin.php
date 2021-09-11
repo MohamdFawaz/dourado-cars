@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CarController;
 use App\Http\Controllers\Admin\CarMakeController;
 use App\Http\Controllers\Admin\CarModelController;
 use App\Http\Controllers\Admin\HomepageBannerController;
+use App\Http\Controllers\Admin\PanoramicCarController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\VideoLinkController;
 use Illuminate\Support\Facades\Route;
@@ -70,6 +71,15 @@ Route::group(['prefix' => "admin"], function (){
             Route::get('/edit/{id}',[SettingController::class, 'edit'])->name('settings.edit');
             Route::put('/update/{id}',[SettingController::class, 'update'])->name('settings.update');
             Route::delete('/delete/{id}',[SettingController::class, 'destroy'])->name('settings.delete');
+        });
+
+        Route::group(['prefix' => 'panoramic-car'],function () {
+            Route::get('/',[PanoramicCarController::class, 'index'])->name('panoramic_car.index');
+            Route::get('/create',[PanoramicCarController::class, 'create'])->name('panoramic_car.create');
+            Route::post('/',[PanoramicCarController::class, 'store'])->name('panoramic_car.store');
+            Route::get('/edit/{id}',[PanoramicCarController::class, 'edit'])->name('panoramic_car.edit');
+            Route::put('/update/{id}',[PanoramicCarController::class, 'update'])->name('panoramic_car.update');
+            Route::delete('/delete/{id}',[PanoramicCarController::class, 'destroy'])->name('panoramic_car.delete');
         });
 
     });

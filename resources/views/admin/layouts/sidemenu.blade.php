@@ -56,6 +56,12 @@
                         <span>Settings</span>
                     </a>
                 </li>
+                <li class="sidebar-item  @if(Request::segment(2) == 'panoramic-car') active @endif">
+                    <a href="{{route('panoramic_car.index')}}" class='sidebar-link'>
+                        <i class="bi bi-pin-angle"></i>
+                        <span>Panoramic Car</span>
+                    </a>
+                </li>
                 <li class="sidebar-item">
                     <a href="{{url('/admin/support')}}" class='sidebar-link'>
                         <i class="bi bi-chat"></i>

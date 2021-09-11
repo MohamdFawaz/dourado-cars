@@ -58,6 +58,11 @@
                             {{trans('web.menus.contact_us')}}
                         </a>
                     </li>
+                    <li class="nav-item @if(Request::segment(1) == 'panoramic-cars') active @endif">
+                        <a class="nav-link" href="{{route('list-panoramic-cars')}}">
+                            {{trans('web.menus.panoramic-cars')}}
+                        </a>
+                    </li>
                 </ul>
             </div>
             <div class="custom-button">

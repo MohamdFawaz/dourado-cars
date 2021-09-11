@@ -10,6 +10,7 @@ use App\Mail\SellCarMail;
 use App\Services\CarMakeService;
 use App\Services\CarService;
 use App\Services\HomepageBannerService;
+use App\Services\PanoramicCarService;
 use App\Services\SettingService;
 use App\Services\VideoLinkService;
 use Illuminate\Http\Request;
@@ -18,19 +19,21 @@ use KgBot\LaravelLocalization\Facades\ExportLocalizations as ExportLocalization;
 class HomeController extends Controller
 {
 
-    private $carMakeService, $carService, $homeBannerService, $videoLinkService, $settingService, $links;
+    private $carMakeService, $carService, $homeBannerService, $videoLinkService, $settingService, $panoramicCarService, $links;
 
     public function __construct(CarMakeService $carMakeService,
                                 CarService $carService,
                                 HomepageBannerService $homepageBannerService,
                                 VideoLinkService $videoLinkService,
-                                SettingService $settingService)
+                                SettingService $settingService,
+                                PanoramicCarService $panoramicCarService)
     {
         $this->carMakeService = $carMakeService;
         $this->carService = $carService;
         $this->homeBannerService = $homepageBannerService;
         $this->videoLinkService = $videoLinkService;
         $this->settingService = $settingService;
+        $this->panoramicCarService = $panoramicCarService;
         $this->links = $this->videoLinkService->get();
     }
 
@@ -118,5 +121,19 @@ class HomeController extends Controller
             reportException($e);
             return response()->json(['message' => trans('web.sell_a_car.failed_message')], 400);
         }
+    }
+
+    public function getPanoramicCars()
+    {
+        $links = $this->links;
+        $cars = $this->panoramicCarService->get();
+        return view('front.pages.list_panoramic_cars', compact('links', 'cars'));
+    }
+
+    public function showPanoramicCar($id)
+    {
+        $links = $this->links;
+        $car = $this->panoramicCarService->findById($id);
+        return view('front.pages.show_panoramic_car', compact('links', 'car'));
     }
 }
