@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/cars', [HomeController::class, 'cars'])->name('list-cars');
+Route::get('/panoramic-cars', [HomeController::class, 'getPanoramicCars'])->name('list-panoramic-cars');
+Route::get('/panoramic-cars/{id}', [HomeController::class, 'showPanoramicCar'])->name('show-panoramic-car');
 Route::get('/cars/{id}', [HomeController::class, 'showCar'])->name('show-car');
 Route::get('/sell-a-car', [HomeController::class, 'sellCar'])->name('sell-car');
 Route::get('/compare', [HomeController::class, 'home'])->name('compare');

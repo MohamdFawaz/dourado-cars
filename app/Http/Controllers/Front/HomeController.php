@@ -119,4 +119,16 @@ class HomeController extends Controller
             return response()->json(['message' => trans('web.sell_a_car.failed_message')], 400);
         }
     }
+
+    public function getPanoramicCars()
+    {
+        $links = $this->links;
+        return view('front.pages.list_panoramic_cars', compact('links'));
+    }
+
+    public function showPanoramicCar($id)
+    {
+        $links = $this->links;
+        return view('front.pages.show_panoramic_car', compact('links'));
+    }
 }
