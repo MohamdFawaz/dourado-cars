@@ -37,7 +37,7 @@
                                 <div class="col-6 text-left">
                                     {{trans('web.page.contact.saturday_name')}}
                                 </div>
-                                <div class="col-6 text-center">
+                                <div class="col-6 text-center" style="font-size: smaller">
                                     {{trans('web.page.contact.saturday_time_range')}}
                                 </div>
                             </li>
@@ -45,7 +45,7 @@
                                 <div class="col-6 text-left">
                                     {{trans('web.page.contact.sunday_name')}}
                                 </div>
-                                <div class="col-6 text-center">
+                                <div class="col-6 text-center" style="font-size: smaller">
                                     {{trans('web.page.contact.sunday_time_range')}}
                                 </div>
                             </li>
@@ -53,7 +53,7 @@
                                 <div class="col-6 text-left">
                                     {{trans('web.page.contact.monday_name')}}
                                 </div>
-                                <div class="col-6 text-center">
+                                <div class="col-6 text-center" style="font-size: smaller">
                                     {{trans('web.page.contact.monday_time_range')}}
                                 </div>
                             </li>
@@ -61,7 +61,7 @@
                                 <div class="col-6 text-left">
                                     {{trans('web.page.contact.tuesday_name')}}
                                 </div>
-                                <div class="col-6 text-center">
+                                <div class="col-6 text-center" style="font-size: smaller">
                                     {{trans('web.page.contact.tuesday_time_range')}}
                                 </div>
                             </li>
@@ -69,7 +69,7 @@
                                 <div class="col-6 text-left">
                                     {{trans('web.page.contact.wednesday_name')}}
                                 </div>
-                                <div class="col-6 text-center">
+                                <div class="col-6 text-center" style="font-size: smaller">
                                     {{trans('web.page.contact.wednesday_time_range')}}
                                 </div>
                             </li>
@@ -77,7 +77,7 @@
                                 <div class="col-6 text-left">
                                     {{trans('web.page.contact.thursday_name')}}
                                 </div>
-                                <div class="col-6 text-center">
+                                <div class="col-6 text-center" style="font-size: smaller">
                                     {{trans('web.page.contact.thursday_time_range')}}
                                 </div>
                             </li>
@@ -85,7 +85,7 @@
                                 <div class="col-6 text-left">
                                     {{trans('web.page.contact.friday_name')}}
                                 </div>
-                                <div class="col-6 text-center">
+                                <div class="col-6 text-center" style="font-size: smaller">
                                     {{trans('web.page.contact.friday_time_range')}}
                                 </div>
                             </li>
