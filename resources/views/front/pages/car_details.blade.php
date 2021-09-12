@@ -5,9 +5,7 @@
 @endsection
 
 @section('css')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css">
-    <link rel="stylesheet" href="{{asset('css/css-fadeshow.min.css')}}">
-
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 @endsection
 @section('content')
     <div class="page-heading about-heading header-text" style="background-image: url({{$car->image}});">
@@ -24,25 +22,78 @@
     </div>
     <div class="products">
         <div class="container">
-            <div class="row">
-                <div class="col-10">
-                    <div class="slideshow-container">
-                        @foreach($car->gallery as $galleryItem)
-                        <div class="mySlides fade show">
-                            <img src="{{$galleryItem->image}}" class="slider-car-image" >
-                        </div>
-                        @endforeach
+        {{--            <div class="row">--}}
+        {{--                <div class="col-10">--}}
+        {{--                    <div class="slideshow-container">--}}
+        {{--                        @foreach($car->gallery as $galleryItem)--}}
+        {{--                        <div class="mySlides fade show">--}}
+        {{--                            <img src="{{$galleryItem->image}}" class="slider-car-image" >--}}
+        {{--                        </div>--}}
+        {{--                        @endforeach--}}
 
-                        <a class="prev" onclick="plusSlides(-1)">❮</a>
-                        <a class="next" onclick="plusSlides(1)">❯</a>
+        {{--                        <a class="prev" onclick="plusSlides(-1)">❮</a>--}}
+        {{--                        <a class="next" onclick="plusSlides(1)">❯</a>--}}
+        {{--                    </div>--}}
+        {{--                </div>--}}
+        {{--                <div class="col-2 slider-gallery-images">--}}
+        {{--                    @foreach($car->gallery as $galleryItem)--}}
+        {{--                        <img src="{{$galleryItem->image}}" class="slider-side-images" onclick="currentSlide({{$loop->iteration}})">--}}
+        {{--                    @endforeach--}}
+        {{--                </div>--}}
+        {{--            </div>--}}
+        <!-- .gallery-slider -->
+            <div class="gallery-slider">
+
+                <!-- __images -->
+                <div class="gallery-slider__images">
+                    <div>
+                    @foreach($car->gallery as $galleryItem)
+                        <!-- .item -->
+                            <div class="item">
+                                <div class="img-fill">
+                                    <a href="{{$galleryItem->image}}" target="_blank">
+                                        <img src="{{$galleryItem->image}}" alt="{{$galleryItem->id}}-slider-image">
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- /.item -->
+                        @endforeach
                     </div>
                 </div>
-                <div class="col-2 slider-gallery-images">
+                <!-- /__images -->
+
+
+                <!-- __thumbnails -->
+                <div class="gallery-slider__thumbnails">
+                    <div>
                     @foreach($car->gallery as $galleryItem)
-                        <img src="{{$galleryItem->image}}" class="slider-side-images" onclick="currentSlide({{$loop->iteration}})">
-                    @endforeach
+                        <!-- .item -->
+                            <div class="item">
+                                <div class="img-fill">
+                                    <img src="{{$galleryItem->image}}" alt="{{$galleryItem->id}}-slider-image">
+                                </div>
+                            </div>
+                            <!-- /.item -->
+                        @endforeach
+                    </div>
+
+                    <button class="prev-arrow slick-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 1792">
+                            <path fill="#fff"
+                                  d="M1171 301L640 832l531 531q19 19 19 45t-19 45l-166 166q-19 19-45 19t-45-19L173 877q-19-19-19-45t19-45L915 45q19-19 45-19t45 19l166 166q19 19 19 45t-19 45z"/>
+                        </svg>
+                    </button>
+                    <button class="next-arrow slick-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 1792">
+                            <path fill="#fff"
+                                  d="M1107 877l-742 742q-19 19-45 19t-45-19l-166-166q-19-19-19-45t19-45l531-531-531-531q-19-19-19-45t19-45L275 45q19-19 45-19t45 19l742 742q19 19 19 45t-19 45z"/>
+                        </svg>
+                    </button>
                 </div>
+                <!-- /__thumbnails -->
+
             </div>
+            <!-- /.gallery-slider -->
         </div>
     </div>
     <div class="price-section">
@@ -111,7 +162,8 @@
                             <div class="clearfix">
                                 <span class="pull-left">{{trans('web.car_details.has_warranty_label')}}</span>
 
-                                <strong class="pull-right">{{$car->warranty ? trans('web.car_details.has_warranty.yes') : trans('web.car_details.has_warranty.no')}}</strong>
+                                <strong
+                                    class="pull-right">{{$car->warranty ? trans('web.car_details.has_warranty.yes') : trans('web.car_details.has_warranty.no')}}</strong>
                             </div>
                         </li>
                         <li class="list-group-item">
@@ -194,7 +246,7 @@
 @endsection
 
 @section('js')
-
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script>
         function handleCompareHeaderNav() {
             if ($('.compare-nav-item').length) {
@@ -203,16 +255,16 @@
                     $('.compare-nav-item .badge').text(comparisonCars.length);
                     $('.compare-nav-item .badge').css({"display": "block"});
                     let queryParams = '';
-                    comparisonCars.forEach(function (carId, idx){
+                    comparisonCars.forEach(function (carId, idx) {
                         queryParams += 'car_id[]=' + carId
-                        if (idx != comparisonCars.length - 1){
+                        if (idx != comparisonCars.length - 1) {
                             queryParams += "&";
                         }
                     });
-                    $('.compare-nav-item a').attr("href", "/compare?"+ queryParams +"");
-                    if(comparisonCars.length != 0 && comparisonCars.indexOf($('.compare').data('car-id'))) {
+                    $('.compare-nav-item a').attr("href", "/compare?" + queryParams + "");
+                    if (comparisonCars.length != 0 && comparisonCars.indexOf($('.compare').data('car-id'))) {
                         $('.compare button').text(`{{trans('web.page.car_details.added_to_compare')}}`);
-                    }else{
+                    } else {
                         $('.compare button').text(`{{trans('web.car_details.compare')}}`);
                     }
                 } else {
@@ -222,41 +274,119 @@
             }
         }
 
-        $('.compare').on('click',function () {
+        $('.compare').on('click', function () {
             let carId = $(this).attr('data-car-id');
             var compareCarIds = [];
             compareCarIds = JSON.parse(localStorage.getItem('compareCarIds')) || [];
 
             let idx = compareCarIds.indexOf(carId);
-            if (idx >= 0){
+            if (idx >= 0) {
                 compareCarIds.splice(idx, 1);
-            }else {
+            } else {
                 compareCarIds.push(carId);
             }
             localStorage.setItem('compareCarIds', JSON.stringify(compareCarIds));
             handleCompareHeaderNav();
         })
-        var slideIndex = 1;
-        showSlides(slideIndex);
+        // var slideIndex = 1;
+        // showSlides(slideIndex);
+        //
+        // function plusSlides(n) {
+        //     showSlides(slideIndex += n);
+        // }
+        //
+        // function currentSlide(n) {
+        //     showSlides(slideIndex = n);
+        // }
+        //
+        // function showSlides(n) {
+        //     var i;
+        //     var slides = $('.mySlides')
+        //     if (n > slides.length) {
+        //         slideIndex = 1
+        //     }
+        //     if (n < 1) {
+        //         slideIndex = slides.length
+        //     }
+        //     for (i = 0; i < slides.length; i++) {
+        //         slides[i].style.display = "none";
+        //     }
+        //     slides[slideIndex - 1].style.display = "block";
+        // }
 
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
+        /*
+        variables
+        */
+        var $imagesSlider = $(".gallery-slider .gallery-slider__images>div"),
+            $thumbnailsSlider = $(".gallery-slider__thumbnails>div");
 
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-        }
+        /*
+            sliders
+        */
 
-        function showSlides(n) {
-            var i;
-            var slides = $('.mySlides')
-            if (n > slides.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = slides.length}
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slides[slideIndex-1].style.display = "block";
-        }
+        // images options
+        $imagesSlider.slick({
+            speed: 300,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            cssEase: 'linear',
+            fade: true,
+            draggable: false,
+            asNavFor: ".gallery-slider__thumbnails>div",
+            prevArrow: '.gallery-slider__images .prev-arrow',
+            nextArrow: '.gallery-slider__images .next-arrow'
+        });
+
+        // thumbnails options
+        $thumbnailsSlider.slick({
+            speed: 300,
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            cssEase: 'linear',
+            centerMode: true,
+            draggable: false,
+            focusOnSelect: true,
+            asNavFor: ".gallery-slider .gallery-slider__images>div",
+            prevArrow: '.gallery-slider__thumbnails .prev-arrow',
+            nextArrow: '.gallery-slider__thumbnails .next-arrow',
+            responsive: [
+                {
+                    breakpoint: 720,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 4
+                    }
+                },
+                {
+                    breakpoint: 576,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3
+                    }
+                },
+                {
+                    breakpoint: 350,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                }
+            ]
+        });
+
+
+        // // hide the caption before the image is changed
+        // $imagesSlider.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+        //     $caption.addClass('hide');
+        // });
+
+        // // update the caption after the image is changed
+        // $imagesSlider.on('afterChange', function (event, slick, currentSlide, nextSlide) {
+        //     captionText = $('.gallery-slider__images .slick-current img').attr('alt');
+        //     updateCaption(captionText);
+        // });
+
+
 
     </script>
 @endsection
