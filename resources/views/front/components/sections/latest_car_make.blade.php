@@ -9,7 +9,7 @@
             </div>
             <div class="car-makes-slider owl-carousel">
                 @foreach($carMakes as $carMake)
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="service-item">
                             <a href="{{route('list-cars',['car_make_id' => $carMake->id])}}"
                                class="services-item-image">

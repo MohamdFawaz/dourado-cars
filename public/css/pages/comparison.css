@@ -211,10 +211,7 @@ Main Components
     background: url(../img/cd-star.svg);
     color: transparent;
 }
-.product img {
-    width: 100%;
-    height: 150px;
-}
+
 @media only screen and (min-width: 1170px) {
     .cd-features-list li {
         font-size: 1.6rem;
@@ -224,7 +221,6 @@ Main Components
     }
 }
 
-.features .cd-features-list li,
 .cd-products-table .features .top-info {
     /* fixed left column - items */
     font-size: 1.2rem;
@@ -234,15 +230,7 @@ Main Components
     padding: 25px 10px;
     text-align: left;
 }
-@media only screen and (min-width: 1170px) {
-    .features .cd-features-list li,
-    .cd-products-table .features .top-info {
-        text-transform: uppercase;
-        line-height: 38px;
-        padding: 25px 20px;
-        letter-spacing: 1px;
-    }
-}
+
 
 .features .cd-features-list li {
     /* truncate text with dots */

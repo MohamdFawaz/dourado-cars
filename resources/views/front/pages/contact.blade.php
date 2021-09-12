@@ -23,7 +23,7 @@
     <section class="case-details pt-150 rpt-100">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-md-3 col-sm-12">
                     <div class="case-details-content">
                         <div class="section-title text-center">
                             <img src="{{asset('images/1000x-1.jpg')}}" class="img-fluid" style="width: 300px">
@@ -92,8 +92,8 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-9">
-                    <img src="{{asset('images/showroom.jpg')}}">
+                <div class="col-lg-9 col-md-9 col-sm-12">
+                    <img src="{{asset('images/showroom.jpg')}}" class="img-fluid">
                 </div>
             </div>
         </div>

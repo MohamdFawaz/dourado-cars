@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="section-heading">
                     <h2>{{trans('web.home.most_popular_title')}}</h2>
-                    <a href="javascript:void(0)">{{trans('web.home.view_more_title')}}<i class="fa fa-angle-right"></i></a>
+                    <a class="d-none d-sm-none d-lg-block d-md-block" href="{{route('list-cars')}}">{{trans('web.home.view_more_title')}}<i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
             @foreach($featuredCars as $car)

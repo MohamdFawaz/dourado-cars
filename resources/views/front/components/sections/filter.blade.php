@@ -4,7 +4,7 @@
             <div class="search-block clearfix box top white-bg" data-empty-lbl="--Select--">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="row sort-filters-box">
-                        <div class="col-4">
+                        <div class="col-lg-4 col-md-4 col-sm-12">
                             <span>{{trans('web.home.filter.car_make.label')}}</span>
                             <div class="selected-box">
                                 <select name="car_make_id" class="selectpicker wide"
@@ -16,7 +16,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-lg-4 col-md-4 col-sm-12">
                             <span>{{trans('web.home.filter.car_model.label')}}</span>
                             <div class="selected-box">
                                 <select name="car_model_id" class="selectpicker wide" id="car_model_id" onchange="loadRelatedModelYears(this);">
@@ -24,7 +24,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-lg-4 col-md-4 col-sm-12">
                             <span>{{trans('web.home.filter.year.label')}}</span>
                             <div class="selected-box">
                                 <select name="year" class="selectpicker wide" id="year">

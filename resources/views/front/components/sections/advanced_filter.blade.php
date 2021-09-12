@@ -5,7 +5,7 @@
                 <div class="search-block clearfix box top white-bg" data-empty-lbl="--Select--">
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <div class="row sort-filters-box">
-                            <div class="col-4">
+                            <div class="col-lg-4 col-md-4 col-sm-12">
                                 <span>{{trans('web.home.advanced_filter.car_make.label')}}</span>
                                 <div class="selected-box">
                                     <select name="car_make_id" class="selectpicker wide"
@@ -18,7 +18,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-4">
+                            <div class="col-lg-4 col-md-4 col-sm-12">
                                 <span>{{trans('web.home.advanced_filter.car_model.label')}}</span>
                                 <div class="selected-box">
                                     <select name="car_model_id" class="selectpicker wide" id="car_model_id"
@@ -28,7 +28,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-4">
+                            <div class="col-lg-4 col-md-4 col-sm-12">
                                 <span>{{trans('web.home.advanced_filter.year.label')}}</span>
                                 <div class="selected-box">
                                     <select name="year" class="selectpicker wide" id="year">
@@ -37,14 +37,14 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-4">
+                            <div class="col-lg-4 col-md-4 col-sm-12">
                                 <span>{{trans('web.home.advanced_filter.mileage.label')}}</span>
                                 <div class="selected-box">
                                     <input name="kilometers" type="number" class="form-control"
                                            placeholder="{{trans('web.home.advanced_filter.mileage.placeholder')}}">
                                 </div>
                             </div>
-                            <div class="col-8">
+                            <div class="col-lg-4 col-md-4 col-sm-12">
                                 <span>{{trans('web.home.advanced_filter.price')}}</span>
                                 <div class="price-range-slider">
                                     <p class="range-value">
@@ -54,7 +54,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-4 m-auto">
+                            <div class="col-lg-4 col-md-4 col-sm-12 m-auto">
                                 <div class="selected-box">
                                     <button
                                         class="filled-button">{{trans('web.home.advanced_filter.search_button')}}</button>

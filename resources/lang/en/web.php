@@ -41,6 +41,7 @@ return array (
             'sell_a_car' => 'Sell a Car',
             'contact_us' => 'Contact Us',
             'compare' => 'Compare',
+            'panoramic-cars' => 'Car 360',
         ),
     'home' =>
         array (

@@ -63,9 +63,14 @@
                             {{trans('web.menus.panoramic-cars')}}
                         </a>
                     </li>
+                    <li class="nav-item d-xl-none d-lg-none d-md-none d-sm-block">
+                        <a class="nav-link" href="{{route('sell-car')}}">
+                            {{trans('web.menus.sell_a_car')}}
+                        </a>
+                    </li>
                 </ul>
             </div>
-            <div class="custom-button">
+            <div class="custom-button d-lg-block d-md-none d-sm-none d-none">
                 <a href="{{route('sell-car')}}">
                     <button class="btn draw-border">{{trans('web.menus.sell_a_car')}}</button>
                 </a>
