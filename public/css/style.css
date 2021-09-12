@@ -2604,7 +2604,7 @@ and (-webkit-device-pixel-ratio : 3) {
         flex-flow: column;
         margin: 3px 0px 0px 0px;
     }
-    .owl-carousel.owl-drag .owl-item {
+    .latest-car-make .owl-carousel.owl-drag .owl-item {
         margin-left: .2%;
     }
     .owl-carousel.owl-loaded {
