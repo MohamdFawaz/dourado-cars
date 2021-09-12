@@ -10,19 +10,19 @@
         <a href="{{route('show-car',$car->id)}}"><h4>{{$car->title}}</h4></a>
 
         <div class="row">
-            <div class="col-lg-3 col-md-4 car-details-icon-holder text-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 car-details-icon-holder text-center">
                 <img src="{{asset('speedometer.png')}}" alt="speedometer-icon" class="img-fluid">
                 <span>{{$car->kilometers}} {{trans('web.kilometers')}}</span>
             </div>
-            <div class="col-lg-3 col-md-4 car-details-icon-holder text-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 car-details-icon-holder text-center">
                 <img src="{{asset('calendar.png')}}" alt="calendar-icon" class="img-fluid">
                 <span>{{$car->year}}</span>
             </div>
-            <div class="col-lg-3 col-md-4 car-details-icon-holder text-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 car-details-icon-holder text-center">
                 <img src="{{asset('car_engine.png')}}" alt="car-engine-icon" class="img-fluid">
                 <span>{{$car->horse_power}}</span>
             </div>
-            <div class="col-lg-3 col-md-4 social-super-holder text-center">
+            <div class="col-lg-3 col-md-4 col-sm-12 social-super-holder text-center">
                 <div class="row">
                     <div class="col-6 social-icon-holder">
                         <a href="https://www.facebook.com/sharer/sharer.php?u={{route('show-car',$car->id)}}"
