@@ -4,18 +4,19 @@ namespace App\Http\Controllers\API\V1;
 
 use App\Http\Controllers\API\APIController;
 use App\Http\Resources\CarResource;
-use App\Services\CarMakeService;
+use App\Http\Resources\PanoramicCarResource;
 use App\Services\CarService;
+use App\Services\PanoramicCarService;
 use Illuminate\Validation\ValidationException;
-use function PHPUnit\Framework\assertGreaterThanOrEqual;
 
 class CarController extends APIController
 {
-    private $carService;
+    private $carService, $panoramicCarService;
 
-    public function __construct(CarService $carService)
+    public function __construct(CarService $carService, PanoramicCarService $panoramicCarService)
     {
         $this->carService = $carService;
+        $this->panoramicCarService = $panoramicCarService;
     }
 
     public function index()
@@ -49,7 +50,8 @@ class CarController extends APIController
     {
         try {
             $this->carService->validateCompareRequest();
-            return redirect()->to('/');
+            $params = $this->carService->constructCompareCarIds(request()->get('car_ids'));
+            return redirect()->to(route('compare',$params));
         } catch (ValidationException $exception) {
                 return $this->respondValidationErrors($exception);
         } catch (\Exception $e) {
@@ -73,8 +75,8 @@ class CarController extends APIController
     {
 
         try {
-            $cars = [];
-            return $this->respondData($cars);
+            $cars = $this->panoramicCarService->get();
+            return $this->respondData(PanoramicCarResource::collection($cars));
         } catch (\Exception $exception) {
             reportException($exception);
             return $this->respondInternalError();

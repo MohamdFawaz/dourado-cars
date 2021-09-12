@@ -31,5 +31,13 @@ if (!function_exists('reportException')) {
         // And finally, we log the exception!
         \Log::error('@here' . PHP_EOL . ':warning: :x: :warning: :x: ' . PHP_EOL . '**Error:** ' . $exception->getMessage() . PHP_EOL . '**Line:** ' . $exception->getLine() . PHP_EOL . '**File:** ' . $exception->getFile() . PHP_EOL . '**Trace:**' . PHP_EOL . $backtrace);
     }
+}
 
+if (!function_exists('isMobileWebviewSource'))
+{
+    function isMobileWebviewSource(): bool
+    {
+        //check for mobile webview query parameter to hide header and footer
+        return Request::get('source') == 'mobile-webview';
+    }
 }

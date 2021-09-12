@@ -1,8 +1,10 @@
 @include('front.layouts.head')
-@include('front.layouts.header')
-
+@if(!isMobileWebviewSource())
+    @include('front.layouts.header')
+@endif
 @yield('content')
 
-@include('front.layouts.footer')
-
+@if(!isMobileWebviewSource())
+    @include('front.layouts.footer')
+@endif
 @include('front.layouts.foot')

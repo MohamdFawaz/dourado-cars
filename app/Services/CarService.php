@@ -153,6 +153,15 @@ class CarService
         ])->validate();
     }
 
+    public function constructCompareCarIds($carIds)
+    {
+        $carIdsParam = '';
+        foreach ($carIds as $carId) {
+            $carIdsParam .= 'car_id[]=' . $carId . '&';
+        }
+        $carIdsParam .= 'source=mobile-webview';
+        return $carIdsParam;
+    }
     public function getCarMakeYears($carMakeId)
     {
         return $this->carRepository->query()->select('year')

@@ -81,7 +81,6 @@ class SettingController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\Models\Setting $setting
-     * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
