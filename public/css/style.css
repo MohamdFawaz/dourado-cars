@@ -2373,7 +2373,7 @@ span.ui-slider-handle.ui-state-default.ui-corner-all {
 }
 @media screen and (min-width: 576px) {
     .gallery-slider__images .item .img-fill {
-        height: 300px;
+        height: 550px;
     }
 }
 
