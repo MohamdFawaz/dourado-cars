@@ -53,6 +53,7 @@
                                             {{$setting->value}}
                                         @endif
                                     </td>
+                                    <td>{{$setting->type}}</td>
                                     <td>
                                         <a href="{{route('settings.edit', $setting->id)}}" class="float-start m-2">
                                             <div class="icon dripicons-pencil"></div>

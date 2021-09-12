@@ -30,7 +30,19 @@ class SettingService
 
     public function getFormatSettings()
     {
-        return $this->settingRepository->query()->select('key', 'value')->get();
+        $data = [];
+        $settings = $this->settingRepository->query()->where('type','mobile')->get()->toArray();
+        foreach ($settings as $setting) {
+            if ($setting['key'] == 'address') {
+                $location = json_decode($setting['value']);
+                $data['location']['address'] = $location->address;
+                $data['location']['lat'] = $location->lat;
+                $data['location']['lng'] = $location->lng;
+            }else{
+                $data[$setting['key']] = $setting['value'];
+            }
+        }
+        return $data;
     }
 
     public function updateForWeb($updatedSetting, $setting)
@@ -48,7 +60,6 @@ class SettingService
 
     public function updateForMobile($updatedSetting, $setting)
     {
-        $setting->key = $updatedSetting->key;
         $setting->value = $updatedSetting->value;
         $setting->type = 'mobile';
         $setting->save();

@@ -11,13 +11,13 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h3>Edit Video Link</h3>
+                        <h3>Edit {{$setting->key}} Settings</h3>
                     </div>
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Video Link</li>
+                                <li class="breadcrumb-item active" aria-current="page">Settings</li>
                             </ol>
                         </nav>
                     </div>
@@ -27,28 +27,23 @@
             <section id="basic-vertical-layouts">
                 <div class="col-md-12">
                     <form class="form form-vertical" method="post"
-                          action="{{route('video_link.update', $link->id)}}"
+                          action="{{route('settings.update', $setting->id)}}"
                           enctype="multipart/form-data">
                         @csrf
                         @method('put')
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-title">Video Link</h5>
+                                <h5 class="card-title">Setting</h5>
                             </div>
                             <div class="card-body">
                                 <div class="form-body">
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="mb-3">
-                                                <label for="link" class="form-label">Link</label>
-                                                <input placeholder="Youtube Link" class="form-control" type="text"
-                                                       id="link" name="link" value="https://www.youtube.com/watch?v={{$link->link}}">
+                                                <label for="value" class="form-label">Value</label>
+                                                <input class="form-control" type="text" id="value" name="value" value="{{$setting->value}}">
                                             </div>
                                         </div>
-                                        <iframe id="current-video" width="560" height="315"
-                                                src="https://www.youtube.com/embed/{{$link->link}}" frameborder="0"
-                                                allow="autoplay; encrypted-media" allowfullscreen>
-                                        </iframe>
                                     </div>
                                 </div>
                             </div>
