@@ -15,8 +15,9 @@ class PanoramicCarResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'name'  => $this->name,
             'image' => $this->image,
-            'name'  => $this->name
+            'panoramic_image' => $this->image,
         ];
     }
 }

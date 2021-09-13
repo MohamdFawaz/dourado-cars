@@ -38,6 +38,7 @@ class SettingService
                 $data['location']['address'] = $location->address;
                 $data['location']['lat'] = $location->lat;
                 $data['location']['lng'] = $location->lng;
+                $data['location']['image'] = asset('images/location.png');
             }else{
                 $data[$setting['key']] = $setting['value'];
             }

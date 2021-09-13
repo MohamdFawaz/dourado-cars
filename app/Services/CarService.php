@@ -191,6 +191,14 @@ class CarService
         return $car;
     }
 
+    public function toggleSold($carId)
+    {
+        $car = $this->carRepository->find($carId);
+        $car->is_sold = !$car->is_sold;
+        $car->save();
+        return $car;
+    }
+
     public function getPriceRange()
     {
         return \DB::query()->from('cars')->selectRaw('MIN(price) as min_price, MAX(price) as max_price')->first();
