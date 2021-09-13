@@ -23,9 +23,9 @@ Route::group(['prefix' => 'v1'], function() {
     });
 
     Route::group(['prefix' => 'car'],function () {
-        Route::get('/',[CarController::class, 'index']);
+        Route::post('/',[CarController::class, 'index']);
         Route::get('/{id}',[CarController::class, 'show'])->where(['id' => '^[0-9]*$']);
-        Route::get('/compare',[CarController::class, 'compare']);
+        Route::post('/compare',[CarController::class, 'compare']);
         Route::get('/{id}/recommended',[CarController::class, 'recommended']);
         Route::get('/panoramic',[CarController::class, 'carPanoramic']);
     });

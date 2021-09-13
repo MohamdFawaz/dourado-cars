@@ -139,4 +139,14 @@ class CarController extends Controller
             return $this->errorJsonResponse($e, $message);
         }
     }
+
+    public function toggleSold(Request $request)
+    {
+        try {
+            $car = $this->carService->toggleSold($request->car_id);
+            return response()->json($car);
+        } catch (\Exception $e) {
+            return $this->errorJsonResponse($e);
+        }
+    }
 }
