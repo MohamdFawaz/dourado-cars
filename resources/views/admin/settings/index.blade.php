@@ -39,6 +39,7 @@
                             <tr>
                                 <th>Key</th>
                                 <th>Value</th>
+                                <th>Type</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>

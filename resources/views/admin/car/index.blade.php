@@ -46,6 +46,7 @@
                                 <th>Image</th>
                                 <th>Car Make - Car Model</th>
                                 <th>Most Popular</th>
+                                <th>Sold</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
@@ -63,6 +64,13 @@
                                             <input class="form-check-input" type="checkbox"
                                                    onchange="toggleFeatured(this,{{$car->id}})" id="flexSwitchCheckChecked"
                                                    @if($car->featured) checked @endif/>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox"
+                                                   onchange="toggleSold(this,{{$car->id}})"
+                                                   @if($car->is_sold) checked @endif/>
                                         </div>
                                     </td>
                                     <td>
@@ -105,6 +113,14 @@
 
         toggleFeatured = (e,carId) => {
             axios.put(`{{route('car.toggle-featured')}}`, {car_id: carId})
+                .then(response => console.log(response),
+                    error => {
+                        toastr.error(error.response.data.error);
+                        $(e).prop('checked', !e.checked);
+                    });
+        }
+        toggleSold = (e,carId) => {
+            axios.put(`{{route('car.toggle-sold')}}`, {car_id: carId})
                 .then(response => console.log(response),
                     error => {
                         toastr.error(error.response.data.error);

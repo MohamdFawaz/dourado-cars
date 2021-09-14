@@ -5,6 +5,7 @@ namespace App\Services;
 
 use App\Models\CarGallery;
 use App\Repositories\CarRepository;
+use Intervention\Image\Facades\Image;
 
 class CarService
 {
@@ -193,10 +194,26 @@ class CarService
 
     public function toggleSold($carId)
     {
-        $car = $this->carRepository->find($carId);
-        $car->is_sold = !$car->is_sold;
-        $car->save();
-        return $car;
+        try {
+            $car = $this->carRepository->find($carId);
+            $car->is_sold = !$car->is_sold;
+            $car->save();
+
+            if ($car->is_sold) {
+               $this->addSoldWatermark($car);
+            }
+            return $car;
+        }catch (\Exception $e) {
+            reportException($e);
+        }
+    }
+
+    private function addSoldWatermark($car)
+    {
+        $image = Image::make(\File::get($car->getRawOriginal('image')));
+        $imageName = str_replace('images/cars/', '', $car->getRawOriginal('image'));
+        $image->insert(\File::get('NicePng_sold-png_4393961.png'))
+            ->save(public_path('/images/cars') . '/' . 'sold_' . $imageName);
     }
 
     public function getPriceRange()
