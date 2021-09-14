@@ -43,6 +43,7 @@ Route::group(['prefix' => "admin"], function (){
             Route::delete('/delete/{id}',[CarController::class, 'destroy'])->name('car.delete');
             Route::delete('/delete/image/{id}',[CarController::class, 'deleteImage'])->name('car.image.delete');
             Route::put('/toggle-featured',[CarController::class, 'toggleFeatured'])->name('car.toggle-featured');
+            Route::put('/toggle-sold',[CarController::class, 'toggleSold'])->name('car.toggle-sold');
         });
 
         Route::group(['prefix' => 'homepage-banner'],function () {

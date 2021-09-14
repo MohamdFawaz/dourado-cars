@@ -41,3 +41,15 @@ if (!function_exists('isMobileWebviewSource'))
         return Request::get('source') == 'mobile-webview';
     }
 }
+
+if (!function_exists('getImagesFolder'))
+{
+    function getImagesFolder($type = '')
+    {
+        if (File::isDirectory('images/'. $type) or File::makeDirectory('images/'. $type, 0777, true, true))
+        {
+            return 'images/' . $type;
+        }
+        return '';
+    }
+}

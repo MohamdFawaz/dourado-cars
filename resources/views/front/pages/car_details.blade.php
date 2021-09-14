@@ -22,28 +22,8 @@
     </div>
     <div class="products">
         <div class="container">
-        {{--            <div class="row">--}}
-        {{--                <div class="col-10">--}}
-        {{--                    <div class="slideshow-container">--}}
-        {{--                        @foreach($car->gallery as $galleryItem)--}}
-        {{--                        <div class="mySlides fade show">--}}
-        {{--                            <img src="{{$galleryItem->image}}" class="slider-car-image" >--}}
-        {{--                        </div>--}}
-        {{--                        @endforeach--}}
-
-        {{--                        <a class="prev" onclick="plusSlides(-1)">❮</a>--}}
-        {{--                        <a class="next" onclick="plusSlides(1)">❯</a>--}}
-        {{--                    </div>--}}
-        {{--                </div>--}}
-        {{--                <div class="col-2 slider-gallery-images">--}}
-        {{--                    @foreach($car->gallery as $galleryItem)--}}
-        {{--                        <img src="{{$galleryItem->image}}" class="slider-side-images" onclick="currentSlide({{$loop->iteration}})">--}}
-        {{--                    @endforeach--}}
-        {{--                </div>--}}
-        {{--            </div>--}}
         <!-- .gallery-slider -->
             <div class="gallery-slider">
-
                 <!-- __images -->
                 <div class="gallery-slider__images">
                     <div>
@@ -61,8 +41,6 @@
                     </div>
                 </div>
                 <!-- /__images -->
-
-
                 <!-- __thumbnails -->
                 <div class="gallery-slider__thumbnails">
                     <div>
@@ -76,7 +54,6 @@
                             <!-- /.item -->
                         @endforeach
                     </div>
-
                     <button class="prev-arrow slick-arrow">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 1792">
                             <path fill="#fff"
@@ -91,7 +68,6 @@
                     </button>
                 </div>
                 <!-- /__thumbnails -->
-
             </div>
             <!-- /.gallery-slider -->
         </div>

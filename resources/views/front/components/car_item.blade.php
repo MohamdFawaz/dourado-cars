@@ -1,7 +1,7 @@
 <div class="price">{{$car->price}} {{trans('web.currency_name')}}</div>
 <div class="product-item">
     <a href="{{route('show-car',$car->id)}}" class="car-anchor">
-        <img src="{{$car->image}}" alt="" class="car-image">
+        <img src="{{$car->is_sold ? $car->sold_image : $car->image}}" alt="" class="car-image">
     </a>
     <div class="down-content">
         <div class="car-subtitle heading-font">
@@ -38,7 +38,8 @@
                 </div>
                 <div class="row">
                     <div class="col-6 social-icon-holder">
-                        <a href="http://pinterest.com/pin/create/button/?url={{route('show-car',$car->id)}}" target="_blank">
+                        <a href="http://pinterest.com/pin/create/button/?url={{route('show-car',$car->id)}}"
+                           target="_blank">
                             <i class="fa fa-pinterest"></i>
                         </a>
                     </div>

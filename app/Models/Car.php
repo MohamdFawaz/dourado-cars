@@ -12,13 +12,23 @@ class Car extends Model
     use HasFactory, Translatable, SoftDeletes;
 
     protected $fillable = ['kilometers', 'year', 'price', 'activation', 'warranty', 'featured', 'image', 'color',
-        'number_of_doors', 'number_of_cylinders', 'horse_power', 'car_make_id', 'car_model_id'];
+        'number_of_doors', 'number_of_cylinders', 'horse_power', 'car_make_id', 'car_model_id', 'is_sold'];
     public $translatedAttributes = ['name', 'title', 'specs', 'transmission_type', 'body_type', 'fuel_type', 'additional_information'];
 
 
     public function scopeActivated($query)
     {
         return $query->whereActivation(true);
+    }
+
+    public function getSoldImageAttribute()
+    {
+        $imageName = str_replace('images/cars/','', $this->getRawOriginal('image'));
+        if (\File::exists('images/cars/sold_'. $imageName)) {
+            return asset('images/cars/sold_' . $imageName);
+        }else{
+            return $this->getImageAttribute($this->image);
+        }
     }
 
     public function getImageAttribute($image)
