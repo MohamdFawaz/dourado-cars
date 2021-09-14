@@ -212,7 +212,7 @@ class CarService
 
     private function addSoldWatermark($car)
     {
-        $soldImage = Image::make(\File::get('NicePng_sold-png_4393961.png'))->resize(250,250);
+        $soldImage = Image::make(\File::get('NicePng_sold-png_4393961.png'));
         $image = Image::make(\File::get($car->getRawOriginal('image')));
         $imageName = str_replace('images/cars/', '', $car->getRawOriginal('image'));
         $image->insert($soldImage)
