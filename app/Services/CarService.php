@@ -201,6 +201,8 @@ class CarService
 
             if ($car->is_sold) {
                $this->addSoldWatermark($car);
+            }else{
+                $this->deleteSoldImage($car);
             }
             return $car;
         }catch (\Exception $e) {
@@ -210,10 +212,19 @@ class CarService
 
     private function addSoldWatermark($car)
     {
+        $soldImage = Image::make(\File::get('NicePng_sold-png_4393961.png'))->resize(250,250);
         $image = Image::make(\File::get($car->getRawOriginal('image')));
         $imageName = str_replace('images/cars/', '', $car->getRawOriginal('image'));
-        $image->insert(\File::get('NicePng_sold-png_4393961.png'))
+        $image->insert($soldImage)
             ->save(public_path('/images/cars') . '/' . 'sold_' . $imageName);
+    }
+
+    private function deleteSoldImage($car)
+    {
+        $imageName = str_replace('images/cars/', '', $car->getRawOriginal('image'));
+        if(\File::exists('images/cars/sold_'. $imageName))  {
+            \File::delete('images/cars/sold_'. $imageName);
+        }
     }
 
     public function getPriceRange()
