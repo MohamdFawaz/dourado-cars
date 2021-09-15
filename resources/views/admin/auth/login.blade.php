@@ -19,7 +19,7 @@
         <div class="col-lg-5 col-12">
             <div id="auth-left">
                 <div class="auth-logo">
-                    <img src="{{asset('images/logoWText.png')}}" alt="Logo">
+                    <img src="{{asset('images/logoWText-min.png')}}" alt="Logo">
                 </div>
                 <h1 class="auth-title">{{ __('Login') }}</h1>
                 <p class="auth-subtitle mb-5">Log in to Dourado Cars Admin Portal</p>
@@ -31,9 +31,6 @@
                         <input id="email" type="email" placeholder="{{ __('E-Mail Address') }}"
                                class="form-control form-control-xl" name="email" value="{{ old('email') }}" required
                                autocomplete="email" autofocus>
-                        <div class="form-control-icon">
-                            <i class="bi bi-person"></i>
-                        </div>
                     </div>
                     @error('email')
                     <div class="invalid-feedback" style="display: block">
@@ -46,9 +43,6 @@
                         <input id="password" type="password" placeholder="{{ __('Password') }}"
                                class="form-control form-control-xl" name="password" required
                                autocomplete="current-password">
-                        <div class="form-control-icon">
-                            <i class="bi bi-shield-lock"></i>
-                        </div>
                     </div>
 
                     @error('password')
