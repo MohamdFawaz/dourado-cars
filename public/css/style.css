@@ -2622,7 +2622,7 @@ and (-webkit-device-pixel-ratio : 3) {
         margin: 3px 0px 0px 0px;
     }
     .latest-car-make .owl-carousel.owl-drag .owl-item {
-        margin-left: .2%;
+        /*margin-left: .2%;*/
     }
     .owl-carousel.owl-loaded {
         max-height: 350px;
