@@ -238,8 +238,10 @@
           "200" : {
             "description" : "Successful operation",
             "content" : {
-              "text/html" : {
-                "example" : "<html><body>Compare Car Page</body></html>"
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CompareResponse"
+                }
               }
             }
           }
@@ -475,6 +477,27 @@
             "type" : "string"
           }
         }
+      },
+      "CompareLink" : {
+        "type" : "object",
+        "properties" : {
+          "link" : {
+            "type" : "string"
+          }
+        }
+      },
+      "CompareResponse" : {
+        "properties" : {
+          "data" : {
+            "type" : "object",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/CompareLink"
+            } ]
+          }
+        },
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ApiResponse"
+        } ]
       },
       "car_body" : {
         "type" : "object",
