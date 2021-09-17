@@ -51,7 +51,7 @@ class CarController extends APIController
         try {
             $this->carService->validateCompareRequest();
             $params = $this->carService->constructCompareCarIds(request()->get('car_ids'));
-            return redirect()->to(route('compare',$params));
+            return $this->respondData(['link' => urldecode(route('compare', $params))],);
         } catch (ValidationException $exception) {
                 return $this->respondValidationErrors($exception);
         } catch (\Exception $e) {
