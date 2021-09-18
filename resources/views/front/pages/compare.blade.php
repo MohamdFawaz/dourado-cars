@@ -1,7 +1,7 @@
 @extends('front.layouts.app')
 @section('css')
     <link rel="stylesheet" href="{{asset('css/pages/reset.css')}}">
-    <link rel="stylesheet" href="{{asset('css/pages/comparison.css?v=1.1')}}">
+    <link rel="stylesheet" href="{{asset('css/pages/comparison.css?v=1.2')}}">
     <script src="{{asset('js/pages/modernizr.js')}}"></script>
 @endsection
 @section('title')

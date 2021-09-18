@@ -199,6 +199,9 @@ Main Components
     border-style: solid;
     border-top-width: 1px;
     border-right-width: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .cd-features-list li.rate {
     /* rating stars */
