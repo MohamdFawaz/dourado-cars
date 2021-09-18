@@ -2588,6 +2588,18 @@ and (-webkit-device-pixel-ratio : 3) {
         right: -180px;
     }
 }
+@media only screen and (min-width: 360px) and (max-width: 375px) {
+    .product img {
+        display: none;
+    }
+    .header-top .top-left {
+        font-size: 12px;
+    }
+    .page-heading .text-content h2 {
+        font-size: 25px;
+    }
+}
+
 @media (min-width: 376px) and (max-width: 767px) {
     .cd-products-table.top-fixed .top-info,
     .cd-products-table.top-scrolling .top-info {
