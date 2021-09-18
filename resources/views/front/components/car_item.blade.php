@@ -55,7 +55,7 @@
     </div>
     <div class="row">
         <div class="col-12 text-center mb-3">
-            <a href="{{route('show-car', $car->id)}}" class="filled-button more-details">More Info</a>
+            <a href="{{route('show-car', $car->id)}}" class="filled-button more-details">{{trans('web.page.more_info')}}</a>
         </div>
     </div>
 </div>

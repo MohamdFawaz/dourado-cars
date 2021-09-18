@@ -33,7 +33,7 @@
                 @if(count($cars))
                     @if(!isMobileWebviewSource())
                         <div class="col-12 actions">
-                            <a href="javascript:void(0)" onclick="resetAll()" class="reset">Reset</a>
+                            <a href="javascript:void(0)" onclick="resetAll()" class="reset">{{trans('web.page.compare.reset')}}</a>
                         </div>
                     @endif
                     <section class="mt-5 cd-products-comparison-table">

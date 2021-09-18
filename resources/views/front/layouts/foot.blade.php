@@ -7,7 +7,7 @@
         async="async"></script>
 
 <!-- Additional Scripts -->
-<script src="{{asset('js/custom.js?v=1.6')}}"></script>
+<script src="{{asset('js/custom.js?v=1.7')}}"></script>
 <script src="{{asset('js/owl.js')}}"></script>
 <script>
     window.default_locale = `{{ config('app.locale') }}`;
@@ -19,7 +19,6 @@
 @yield('js')
 <script>
     $(function () {
-
         $('#visitForm').on('submit', function (e) {
             e.preventDefault();
             let data = $('#visitForm').serialize();

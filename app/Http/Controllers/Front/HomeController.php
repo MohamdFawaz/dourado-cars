@@ -136,4 +136,10 @@ class HomeController extends Controller
         $car = $this->panoramicCarService->findById($id);
         return view('front.pages.show_panoramic_car', compact('links', 'car'));
     }
+
+    public function setCurrentLocale($locale)
+    {
+        \Session::put('locale', $locale);
+        return redirect()->to(url('/'));
+    }
 }

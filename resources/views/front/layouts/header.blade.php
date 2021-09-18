@@ -14,6 +14,13 @@
                         <a href="{{trans('web.header.social_media.instagram')}}"><i class="fa fa-instagram"></i></a>
                         <a href="{{trans('web.header.social_media.twitter')}}"><i class="fa fa-twitter"></i></a>
                         <a href="{{trans('web.header.social_media.youtube')}}"><i class="fa fa-youtube"></i></a>
+                        <a @if(app()->getLocale() == 'ar') href="{{route('switch-locale', 'en')}}" @else href="{{route('switch-locale','ar')}}" @endif>{{app()->getLocale()}}</a>
+{{--                        <div>--}}
+{{--                            <select class="selectpicker" data-width="fit">--}}
+{{--                                <option data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>--}}
+{{--                                <option data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Español</option>--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>
