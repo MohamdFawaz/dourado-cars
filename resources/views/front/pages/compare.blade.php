@@ -1,7 +1,7 @@
 @extends('front.layouts.app')
 @section('css')
     <link rel="stylesheet" href="{{asset('css/pages/reset.css')}}">
-    <link rel="stylesheet" href="{{asset('css/pages/comparison.css?v=1.3')}}">
+    <link rel="stylesheet" href="{{asset('css/pages/comparison.css?v=1.4')}}">
     <script src="{{asset('js/pages/modernizr.js')}}"></script>
 @endsection
 @section('title')
@@ -50,7 +50,7 @@
                                     <li>{{trans('web.page.compare.color')}}</li>
                                     <li>{{trans('web.page.compare.number_of_doors')}}</li>
                                     <li>{{trans('web.page.compare.number_of_cylinders')}}</li>
-                                    <li>{{trans('web.page.compare.horse_power')}}</li>
+                                    <li title="{{trans('web.page.compare.horse_power')}}">{{trans('web.page.compare.horse_power')}}</li>
                                 </ul>
                             </div> <!-- .features -->
 
@@ -63,7 +63,7 @@
                                                     <div class="cross"
                                                          onclick="deleteCarFromCompare({{$car->id}})"></div>
                                                 @endif
-                                                <img src="{{$car->image}}" alt="product image">
+                                                <img class="d-sm-none d-lg-block d-md-block" src="{{$car->image}}" alt="product image">
                                                 <h3 title="{{$car->title}}"> {{$car->title}} </h3>
                                             </div> <!-- .top-info -->
 
@@ -104,7 +104,6 @@
 
 @section('js')
     <script src="{{asset('js/pages/jquery-2.1.4.js')}}"></script>
-    <script src="{{asset('js/pages/main.js?v=1.0')}}"></script>
     <script>
         deleteCarFromCompare = (carId) => {
             if (confirm(`{{trans('web.page.compare.are_you_sure_you_want_to_delete')}}`)) {

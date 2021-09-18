@@ -192,8 +192,9 @@ Main Components
 }
 
 .cd-features-list li {
-    font-size: 1.4rem;
-    font-weight: bold;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 33px;
     padding: 25px 40px;
     border-color: #e6e6e6;
     border-style: solid;
@@ -226,8 +227,8 @@ Main Components
 
 .cd-products-table .features .top-info {
     /* fixed left column - items */
-    font-size: 1.2rem;
-    font-weight: bold;
+    font-size: 1rem;
+    font-weight: 300;
     /* set line-height value equal to font-size of text inside product cells */
     line-height: 30px;
     padding: 25px 10px;
@@ -278,11 +279,11 @@ Main Components
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.cd-products-table .top-info img {
-    display: block;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
+/*.cd-products-table .top-info img {*/
+/*    display: block;*/
+/*    -webkit-backface-visibility: hidden;*/
+/*    backface-visibility: hidden;*/
+/*}*/
 .cd-products-table .top-info h3, .cd-products-table .top-info img {
     -webkit-transition: -webkit-transform 0.3s;
     -moz-transition: -moz-transform 0.3s;

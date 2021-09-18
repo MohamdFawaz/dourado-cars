@@ -2349,7 +2349,7 @@ span.ui-slider-handle.ui-state-default.ui-corner-all {
 .features .cd-features-list li, .cd-products-table .features .top-info {
     font-size: 1.2rem;
     font-weight: bold;
-    line-height: 38px;
+    line-height: 33px;
     padding: 25px 10px;
     text-align: left;
 }
@@ -2571,7 +2571,7 @@ and (-webkit-device-pixel-ratio : 3) {
         text-align: center;
     }
     .product img {
-        height: 50px;
+        display: none;
     }
     .gallery-slider__images .img-fill {
         text-align: center;
@@ -2632,15 +2632,15 @@ and (-webkit-device-pixel-ratio : 3) {
         text-align: center;
     }
     .product img {
-        height: 50px;
+        display: none;
     }
     .banner .text-content {
         width: 90%;
         margin-left: 5%;
     }
     .features .cd-features-list li {
-        font-size: 1.2rem;
-        font-weight: bold;
+        font-size: 1rem;
+        font-weight: 300;
         line-height: 33px;
         padding: 25px 10px;
         text-align: left
