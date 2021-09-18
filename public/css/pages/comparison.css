@@ -551,3 +551,9 @@ No JS
 .no-js .cd-products-columns .cross {
     display: none;
 }
+@media only screen and (min-width: 992px) {
+    .product img {
+        height: 40%;
+        width: 100%;
+    }
+}

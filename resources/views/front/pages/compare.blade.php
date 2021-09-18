@@ -1,7 +1,7 @@
 @extends('front.layouts.app')
 @section('css')
     <link rel="stylesheet" href="{{asset('css/pages/reset.css')}}">
-    <link rel="stylesheet" href="{{asset('css/pages/comparison.css?v=1.4')}}">
+    <link rel="stylesheet" href="{{asset('css/pages/comparison.css?v=1.5')}}">
     <script src="{{asset('js/pages/modernizr.js')}}"></script>
 @endsection
 @section('title')
@@ -63,7 +63,7 @@
                                                     <div class="cross"
                                                          onclick="deleteCarFromCompare({{$car->id}})"></div>
                                                 @endif
-                                                <img class="d-sm-none d-lg-block d-md-block" src="{{$car->image}}" alt="product image">
+                                                <img class="d-sm-none d-md-none d-lg-block" src="{{$car->image}}" alt="product image">
                                                 <h3 title="{{$car->title}}"> {{$car->title}} </h3>
                                             </div> <!-- .top-info -->
 
