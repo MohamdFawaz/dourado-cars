@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{app()->getLocale()}}" dir="{{app()->getLocale() == 'ar' ? 'rlt' : 'ltr'}}">
+<html lang="{{app()->getLocale()}}" dir="{{app()->getLocale() == 'ar' ? 'rtl' : 'ltr'}}">
 
 <head>
 
@@ -24,9 +24,9 @@
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{{asset('css/fontawesome.css')}}">
     @if(app()->getLocale() == 'ar')
-        <link rel="stylesheet" href="{{asset('css/style.rtl.min.css?v=1.3')}}">
+        <link rel="stylesheet" href="{{asset('css/style.rtl.min.css?v=1.4')}}">
     @else
-        <link rel="stylesheet" href="{{asset('css/style.min.css?v=1.25')}}">
+        <link rel="stylesheet" href="{{asset('css/style.min.css?v=1.26')}}">
     @endif
 
     <link rel="stylesheet" href="{{asset('css/owl.css')}}">

@@ -552,7 +552,7 @@ header .navbar{
     color: #d4af37;
     font-size: 62px;
     text-transform: uppercase;
-    letter-spacing: 5px;
+    letter-spacing: 2px;
 }
 
 .owl-banner .owl-dots .owl-dot{
@@ -640,6 +640,15 @@ input[type=search]{
     margin-bottom: 10px;
     display: block;
     font-size: 13px;
+    text-align: right;
+}
+
+.nice-select .option {
+    text-align: right !important;
+}
+
+.nice-select:after {
+    left: 12px !important;
 }
 
 .search-block .selectpicker{
@@ -1486,6 +1495,7 @@ span.ui-slider-handle.ui-state-default.ui-corner-all{
 .get-in-touch-box .form-select{
     background-image: none;
     line-height: 30px;
+    text-align: right;
 }
 
 .get-in-touch-box .form-control:focus{
@@ -1497,7 +1507,6 @@ span.ui-slider-handle.ui-state-default.ui-corner-all{
     color: #1f2734;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 3px;
     margin-top: 10px;
 }
 
@@ -2468,7 +2477,15 @@ span.ui-slider-handle.ui-state-default.ui-corner-all{
 .gallery-slider__images .caption.hide{
     opacity: 0;
 }
-
+.cd-products-comparison-table div {
+    direction: ltr;
+}
+.cd-table-navigation {
+    display: none;
+}
+.vue-step-wizard {
+    margin: 10px 30px !important;
+}
 .gallery-slider__thumbnails{
     position: relative;
     top: auto;
@@ -2707,7 +2724,7 @@ span.ui-slider-handle.ui-state-default.ui-corner-all{
     }
 
     .latest-car-make .owl-carousel.owl-drag .owl-item{
-        margin-right: 5px;
+        margin-right: -7px;
     }
 
     .owl-carousel.owl-loaded{

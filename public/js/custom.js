@@ -45,7 +45,7 @@ jQuery(document).ready(function ($) {
                         queryParams += "&";
                     }
                     if($('.compare').length && $('.compare').data('car-id') == carId) {
-                        $('.compare button').text(`{{trans('web.page.car_details.added_to_compare')}}`);
+                        $('.compare button').text(translations.added_to_compare);
                     }
                 });
 

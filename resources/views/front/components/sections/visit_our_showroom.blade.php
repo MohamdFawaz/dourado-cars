@@ -59,9 +59,9 @@
                             </div>
                             <div class="form-group">
                                 <select name="interested" class="form-select" id="interested" required>
-                                    <option>I’m Interested In</option>
-                                    <option value="Car Viewing">Car Viewing</option>
-                                    <option value="Sell My Car">Sell My Car</option>
+                                    <option>{{trans('web.footer.visit_our_showroom.im_interested_in')}}</option>
+                                    <option value="Car Viewing">{{trans('web.footer.visit_our_showroom.car_viewing')}}</option>
+                                    <option value="Sell My Car">{{trans('web.footer.visit_our_showroom.sell_my_car')}}</option>
                                 </select>
                             </div>
                             <div>

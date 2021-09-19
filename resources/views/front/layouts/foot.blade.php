@@ -6,6 +6,12 @@
         src="https://platform-api.sharethis.com/js/sharethis.js#property=61333a08495f05001236fe42&product=inline-share-buttons"
         async="async"></script>
 
+<script>
+    let translations = {
+        added_to_compare: "@lang('web.page.car_details.added_to_compare')",
+        compare: "@lang('web.car_details.compare')",
+    }
+</script>
 <!-- Additional Scripts -->
 <script src="{{asset('js/custom.js?v=1.7')}}"></script>
 <script src="{{asset('js/owl.js')}}"></script>
@@ -23,7 +29,6 @@
             e.preventDefault();
             let data = $('#visitForm').serialize();
             axios.post(`{{route('get-in-touch')}}`, data).then(response => {
-                console.log(response.data);
                 setMessage(response.data.message, 'success');
                 $('#visitForm')[0].reset();
             }, error => {

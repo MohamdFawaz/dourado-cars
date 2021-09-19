@@ -24,7 +24,7 @@
 
 
         <div class="row">
-            <div class="container" style="margin-right: inherit">
+            <div class="container">
                 <stepper-form></stepper-form>
             </div>
         </div>

@@ -2519,6 +2519,12 @@ span.ui-slider-handle.ui-state-default.ui-corner-all {
     padding: 0 7.5px;
     outline: none;
 }
+.cd-table-navigation {
+    display: none;
+}
+.nice-select:after {
+    right: 12px !important;
+}
 
 /*.lte-icons-tags li:after {*/
 /*    content: "";*/

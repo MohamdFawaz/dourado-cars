@@ -263,39 +263,10 @@
             }
             localStorage.setItem('compareCarIds', JSON.stringify(compareCarIds));
             handleCompareHeaderNav();
-        })
-        // var slideIndex = 1;
-        // showSlides(slideIndex);
-        //
-        // function plusSlides(n) {
-        //     showSlides(slideIndex += n);
-        // }
-        //
-        // function currentSlide(n) {
-        //     showSlides(slideIndex = n);
-        // }
-        //
-        // function showSlides(n) {
-        //     var i;
-        //     var slides = $('.mySlides')
-        //     if (n > slides.length) {
-        //         slideIndex = 1
-        //     }
-        //     if (n < 1) {
-        //         slideIndex = slides.length
-        //     }
-        //     for (i = 0; i < slides.length; i++) {
-        //         slides[i].style.display = "none";
-        //     }
-        //     slides[slideIndex - 1].style.display = "block";
-        // }
-
-        /*
-        variables
-        */
+        });
         var $imagesSlider = $(".gallery-slider .gallery-slider__images>div"),
-            $thumbnailsSlider = $(".gallery-slider__thumbnails>div");
-
+            $thumbnailsSlider = $(".gallery-slider__thumbnails>div"),
+            $dir = $('html').attr('dir');
         /*
             sliders
         */
@@ -310,7 +281,8 @@
             draggable: false,
             asNavFor: ".gallery-slider__thumbnails>div",
             prevArrow: '.gallery-slider__images .prev-arrow',
-            nextArrow: '.gallery-slider__images .next-arrow'
+            nextArrow: '.gallery-slider__images .next-arrow',
+            rtl: $dir === 'rtl',
         });
 
         // thumbnails options
@@ -325,6 +297,7 @@
             asNavFor: ".gallery-slider .gallery-slider__images>div",
             prevArrow: '.gallery-slider__thumbnails .prev-arrow',
             nextArrow: '.gallery-slider__thumbnails .next-arrow',
+            rtl: $dir === 'rtl',
             responsive: [
                 {
                     breakpoint: 720,
