@@ -14,6 +14,14 @@
                         <a href="{{trans('web.header.social_media.instagram')}}"><i class="fa fa-instagram"></i></a>
                         <a href="{{trans('web.header.social_media.twitter')}}"><i class="fa fa-twitter"></i></a>
                         <a href="{{trans('web.header.social_media.youtube')}}"><i class="fa fa-youtube"></i></a>
+                        <a class="dropdown-toggle d-none d-lg-inline-block d-xl-inline-block" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-language"></i></a>
+                        <div class="dropdown-menu">
+                            @foreach(getLocales() as $locale)
+                                @if(app()->getLocale() != $locale)
+                                    <a class="dropdown-item active" href="{{route('switch-locale', $locale)}}">{{$locale == 'ar' ? trans('web.header.language.arabic') : trans('web.header.language.english') }}</a>
+                                @endif
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
@@ -68,7 +76,7 @@
                             {{trans('web.menus.sell_a_car')}}
                         </a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown d-xl-none d-lg-none d-md-block d-sm-block">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{trans('web.header.language_title')}}</a>
 
                         <div class="dropdown-menu">
