@@ -2831,3 +2831,15 @@ and (-webkit-device-pixel-ratio : 3) {
 #app {
     width: 100%;
 }
+
+.top-right .dropdown-toggle::after {
+    display: none;
+}
+.top-right .dropdown-menu  a  {
+    display: block;
+    padding-top: 0;
+}
+.top-right .dropdown-item.active {
+    color: #000;
+    background-color: #fff;
+}
