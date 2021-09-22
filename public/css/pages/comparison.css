@@ -108,6 +108,10 @@ Main Components
     border-bottom-width: 1px;
     background-color: #fafafa;
     opacity: .95;
+    transition: .3ms;
+}
+.cd-products-table .features.collapse-side {
+    left: -120px;
 }
 .cd-products-table .features::after {
     /* color gradient on the right of .features -  visible while scrolling inside the .cd-products-table */

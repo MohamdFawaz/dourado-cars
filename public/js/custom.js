@@ -59,7 +59,20 @@ jQuery(document).ready(function ($) {
     }
 
     handleCompare();
+    var lastPos = 0;
+    $('.cd-products-wrapper').scroll(function() {
+        var currPos = $('.cd-products-wrapper').scrollLeft();
 
+        if (lastPos < currPos) {
+            $('.cd-products-table .features').addClass('collapse-side');
+        }
+        if (currPos < 20)
+        {
+            $('.cd-products-table .features').removeClass('collapse-side');
+        }
+
+        lastPos = currPos;
+    });
     $(window).on('scroll', function () {
 
         // Header Style and Scroll to Top

@@ -2607,6 +2607,9 @@ and (-webkit-device-pixel-ratio : 3) {
 }
 
 @media (min-width: 376px) and (max-width: 767px) {
+    .cd-products-comparison-table {
+        zoom: .5;
+    }
     .cd-products-table.top-fixed .top-info,
     .cd-products-table.top-scrolling .top-info {
         height: 185px;
@@ -2838,6 +2841,9 @@ and (-webkit-device-pixel-ratio : 3) {
 .top-right .dropdown-menu  a  {
     display: block;
     padding-top: 0;
+}
+.dropdown-menu.show {
+    min-width: 90px;
 }
 .top-right .dropdown-item.active {
     color: #000;

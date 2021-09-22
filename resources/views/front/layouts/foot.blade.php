@@ -13,7 +13,7 @@
     }
 </script>
 <!-- Additional Scripts -->
-<script src="{{asset('js/custom.js?v=1.7')}}"></script>
+<script src="{{asset('js/custom.js?v=1.8')}}"></script>
 <script src="{{asset('js/owl.js')}}"></script>
 <script>
     window.default_locale = `{{ config('app.locale') }}`;
