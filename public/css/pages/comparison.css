@@ -111,7 +111,7 @@ Main Components
     transition: .3ms;
 }
 .cd-products-table .features.collapse-side {
-    left: -120px;
+    left: -500px;
 }
 .cd-products-table .features::after {
     /* color gradient on the right of .features -  visible while scrolling inside the .cd-products-table */
