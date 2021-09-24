@@ -19,7 +19,7 @@ class CarSeeder extends Seeder
     {
         $faker = Factory::create();
 
-        for ($i = 0; $i < 100; $i++){
+        for ($i = 0; $i < env('CAR_SEED_LIMIT', 50); $i++){
             $car = Car::create([
                 'car_make_id' => CarMake::query()->inRandomOrder()->first()->id,
                 'car_model_id' => CarModel::query()->inRandomOrder()->first()->id,
@@ -31,6 +31,7 @@ class CarSeeder extends Seeder
                 'number_of_doors' => $faker->numberBetween(1, 5),
                 'number_of_cylinders' => $faker->numberBetween(3, 10),
                 'horse_power' => $faker->numberBetween(300, 500),
+                'image' => 'https://source.unsplash.com/featured/?cars'
             ]);
 
             foreach (getLocales() as $locale) {
