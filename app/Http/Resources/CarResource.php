@@ -39,6 +39,7 @@ class CarResource extends JsonResource
         $data['fuel_type'] = $request->fuel_type;
         $data['horse_power'] = $request->horse_power;
         $data['number_of_doors'] = $request->number_of_doors;
+        $data['share_link'] = route('show-car', $data['id']);
         $request->gallery->prepend(self::createImageInstance($request));
         $data['images'] = CarGalleryResource::collection($request->gallery);
         return $data;
