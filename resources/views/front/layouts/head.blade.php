@@ -24,7 +24,7 @@
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{{asset('css/fontawesome.css')}}">
     @if(app()->getLocale() == 'ar')
-        <link rel="stylesheet" href="{{asset('css/style.rtl.min.css?v=1.7')}}">
+        <link rel="stylesheet" href="{{asset('css/style.rtl.min.css?v=1.8')}}">
     @else
         <link rel="stylesheet" href="{{asset('css/style.min.css?v=1.29')}}">
     @endif
