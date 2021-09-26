@@ -23,12 +23,18 @@ class Car extends Model
 
     public function getSoldImageAttribute()
     {
-        $imageName = str_replace('images/cars/','', $this->getRawOriginal('image'));
-        if (\File::exists('images/cars/sold_'. $imageName)) {
-            return asset('images/cars/sold_' . $imageName);
-        }else{
-            return $this->getImageAttribute($this->image);
+        $imageName = str_replace('images/cars/', '', $this->getRawOriginal('image'));
+        if (app()->getLocale() == 'ar') {
+            if (\File::exists('images/cars/sold_inverted_' . $imageName)) {
+                return asset('images/cars/sold_inverted_' . $imageName);
+            } elseif (\File::exists('images/cars/sold_' . $imageName)) {
+                return asset('images/cars/sold_' . $imageName);
+            } else {
+                return $this->getImageAttribute($this->image);
+            }
         }
+        return $this->getImageAttribute($this->image);
+
     }
 
     public function getImageAttribute($image)
