@@ -14,7 +14,10 @@
                         <a href="{{trans('web.header.social_media.instagram')}}"><i class="fa fa-instagram"></i></a>
                         <a href="{{trans('web.header.social_media.twitter')}}"><i class="fa fa-twitter"></i></a>
                         <a href="{{trans('web.header.social_media.youtube')}}"><i class="fa fa-youtube"></i></a>
-                        <a class="dropdown-toggle d-none d-lg-inline-block d-xl-inline-block" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-language"></i></a>
+                        |
+                        <div class="dropdown-toggle d-none d-lg-inline-block d-xl-inline-block" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            <button class="btn draw-border">{{trans('web.header.language_title')}}</button>
+                        </div>
                         <div class="dropdown-menu">
                             @foreach(getLocales() as $locale)
                                 @if(app()->getLocale() != $locale)

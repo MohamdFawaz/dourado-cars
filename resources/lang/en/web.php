@@ -6,13 +6,19 @@ return array (
         array (
             'social_media' =>
                 array (
-                    'facebook' => 'Facebook',
-                    'instagram' => 'Instagram',
-                    'twitter' => 'Twitter',
+                    'facebook' => 'https://www.facebook.com/Dourado-luxury-cars-240885591182754/',
+                    'instagram' => 'https://www.instagram.com/douradoluxurycars/',
+                    'twitter' => 'https://twitter.com/douradocars',
                     'youtube' => 'https://www.youtube.com/channel/UCwv6lQnBPWciI-BlOuObArA',
                     'linkedin' => 'https://www.linkedin.com/company/douradocars/',
                 ),
             'contact_number' => '+971566655888',
+            'language_title' => 'Language',
+            'language' =>
+                array (
+                    'arabic' => 'Arabic',
+                    'english' => 'English',
+                ),
         ),
     'footer' =>
         array (
@@ -32,6 +38,9 @@ return array (
                             'preferred_date_placeholder' => 'Preferred Date',
                             'preferred_time_placeholder' => 'Submit Request',
                         ),
+                    'im_interested_in' => 'Interested In ?',
+                    'car_viewing' => 'Car Viewing',
+                    'sell_my_car' => 'Sell A Car',
                 ),
             'visit_showroom' =>
                 array (
@@ -149,17 +158,17 @@ Dedicated to finding the best deals on preowned affordable vehicles for you, we 
                 array (
                     'upper_title' => 'Dourado Luxury Cars',
                     'lower_title' => 'Contact Us',
-                    'dourado_cars_location_title' => 'Location title',
+                    'dourado_cars_location_title' => 'Location',
                 ),
             'compare' =>
                 array (
                     'upper_title' => 'Dourado Luxury Cars',
-                    'lower_title' => 'Compare Between Your Favorite Cars',
+                    'lower_title' => 'Compare Between Luxury Cars',
                 ),
             'list_cars' =>
                 array (
                     'upper_title' => 'Dourado Luxury Cars',
-                    'lower_title' => 'Explore Our Collection',
+                    'lower_title' => 'Check Our Cars',
                 ),
             'sell_a_car' =>
                 array (
@@ -174,7 +183,7 @@ Dedicated to finding the best deals on preowned affordable vehicles for you, we 
                     'section_1_heading' => 'Dourado Cars Showroom',
                     'section_1_content' => 'Our showroom is a wide space where clients get introduced to the top luxury cars from all over the world.
 Dedicated to finding the best deals on preowned affordable vehicles for you, we provide our prebuying advising services to find the best choice that matches their personality within their budgets.
- With a huge inventory of every luxury vehicle under the sun, such as Lamborghini, Infiniti, Porsche, Ferrari, Koenigsegg, Mclaren, Maserati, Rolls-Royce, Maybach, Bentely and Pagani,
+ With a huge inventory of every luxury vehicle under the sun, such as Lamborghini, Porsche, Ferrari, Koenigsegg, Mclaren, Maserati, Rolls-Royce, Maybach, Bentely and Pagani,
 With the wide range of iconic vehicle options at the Dourado showroom, you’ll find the one that perfectly suits your lifestyle, personality and budget.
 Get in touch to find out more!',
                     'section_2_heading' => 'Vision',
@@ -217,9 +226,10 @@ Get in touch to find out more!',
                     'horse_power' => 'Horse Power',
                     'warranty_yes' => 'Yes',
                     'warranty_no' => 'No',
-                    'nothing_to_compare' => 'Nothing To Compare',
+                    'nothing_to_compare' => 'Choose Some Cars To Compare',
                     'are_you_sure_you_want_to_delete' => 'Are you sure you want to remove from compare list ?',
                     'are_you_sure_you_want_to_delete_all' => 'Are your sure you want to remove all from compare list ?',
+                    'reset' => 'Reset',
                 ),
             'car_details' =>
                 array (
@@ -230,6 +240,7 @@ Get in touch to find out more!',
                     'section_1_heading' => 'Sell A Car',
                     'section_1_content' => 'If you want to sell a car and you are asking yourself “how do I sell it in Dubai?”, then you are in the right place, our experts have the experience to inspect, price your vehicle and offer you a fair market price.',
                 ),
+            'more_info' => 'More Info',
         ),
     'car_details' =>
         array (
@@ -310,7 +321,7 @@ Get in touch to find out more!',
         ),
     'cylinders' => 'Cylinders',
     'footer_contact_us_first_number' => '+97145786888',
-    'footer_contact_us_second_number' => '+9715666558888',
+    'footer_contact_us_second_number' => '+971566655888',
     'footer_contact_us_third_number' => 'info@douradocars.com',
     'footer_sell_a_car_first_number' => '.',
     'footer_sell_a_car_second_number' => '.',
