@@ -213,10 +213,14 @@ class CarService
     private function addSoldWatermark($car)
     {
         $soldImage = Image::make(\File::get('sold_watermark.png'));
-        $image = Image::make(\File::get($car->getRawOriginal('image')));
+        $soldImageRotated = Image::make(\File::get('sold_watermark_rotated.png'));
         $imageName = str_replace('images/cars/', '', $car->getRawOriginal('image'));
+        $image = Image::make(\File::get($car->getRawOriginal('image')));
         $image->insert($soldImage)
             ->save(public_path('/images/cars') . '/' . 'sold_' . $imageName);
+        $image = Image::make(\File::get($car->getRawOriginal('image')));
+        $image->insert($soldImageRotated, 'top-right')
+            ->save(public_path('/images/cars') . '/' . 'sold_inverted_' . $imageName);
     }
 
     private function deleteSoldImage($car)
@@ -224,6 +228,7 @@ class CarService
         $imageName = str_replace('images/cars/', '', $car->getRawOriginal('image'));
         if(\File::exists('images/cars/sold_'. $imageName))  {
             \File::delete('images/cars/sold_'. $imageName);
+            \File::delete('images/cars/sold_inverted_'. $imageName);
         }
     }
 
