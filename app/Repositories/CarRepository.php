@@ -85,7 +85,9 @@ class CarRepository extends Repository
         $car->number_of_doors = $newCar->number_of_doors;
         $car->number_of_cylinders = $newCar->number_of_cylinders;
         $car->horse_power = $newCar->horse_power;
-        $car->image = isset($imageName) ? 'images/cars/' . $imageName : $car->image;
+        if (isset($imageName)) {
+            $car->image =  'images/cars/' . $imageName;
+        }
 
         foreach ($newCar->name as $locale => $value) {
             $car->translateOrNew($locale)->name = $value;

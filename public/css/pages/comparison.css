@@ -148,7 +148,7 @@ Main Components
 
 .cd-products-columns {
     /* products list wrapper */
-    width: 1200px;
+    width: max-content;
     margin-left: 120px;
 }
 .cd-products-columns::after {
@@ -158,7 +158,7 @@ Main Components
 }
 @media only screen and (min-width: 1170px) {
     .cd-products-columns {
-        width: 2480px;
+        width: max-content;
         margin-left: 210px;
     }
 }

@@ -132,7 +132,7 @@ class CarService
             });
             $query->whereBetween('price', [$priceRanges[0], $priceRanges[1]]);
         }
-        return $query->activated()->latest()->paginate(10);
+        return $query->activated()->paginate(12);
     }
 
     public function formatGetCarFilters()
