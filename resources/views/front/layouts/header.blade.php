@@ -21,7 +21,7 @@
                         <div class="dropdown-menu">
                             @foreach(getLocales() as $locale)
                                 @if(app()->getLocale() != $locale)
-                                    <a class="dropdown-item active" href="{{route('switch-locale', $locale)}}">{{$locale == 'ar' ? trans('web.header.language.arabic') : trans('web.header.language.english') }}</a>
+                                    <a class="dropdown-item active" href="{{route('switch-locale', $locale)}}">{{trans('web.header.language.' . $locale .'') }}</a>
                                 @endif
                             @endforeach
                         </div>
