@@ -53,7 +53,7 @@ class CarController extends APIController
             $params = $this->carService->constructCompareCarIds(request()->get('car_ids'));
             return $this->respondData(['link' => urldecode(route('compare', $params))],);
         } catch (ValidationException $exception) {
-                return $this->respondValidationErrors($exception);
+            return $this->respondValidationErrors($exception);
         } catch (\Exception $e) {
             reportException($e);
             return $this->respondInternalError();
@@ -85,7 +85,8 @@ class CarController extends APIController
     public function getInTouch($carId)
     {
         try {
-            return $this->respondData(['link' => route('show-get-in-touch', [$carId, 'source' => 'mobile-webview'])]);
+            return $this->respondData(['link' => route('show-get-in-touch',
+                [$carId, 'locale' => app()->getLocale(), 'source' => 'mobile-webview'])]);
         } catch (\Exception $e) {
             reportException($e);
             return $this->respondInternalError();
