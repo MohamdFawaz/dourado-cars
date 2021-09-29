@@ -74,7 +74,7 @@ class HomeController extends Controller
     public function getInTouch(Request $request)
     {
         try {
-            \Mail::to('mohamdfawaz93@gmail.com')->send(new GetInTouchMail($request->all()));
+            \Mail::to(config('mail.to.address'))->send(new GetInTouchMail($request->all()));
             return response()->json(['message' => trans('web.footer.visit_showroom.success_message')]);
         } catch (\Exception $e) {
             reportException($e);
@@ -103,6 +103,15 @@ class HomeController extends Controller
         $links = $this->links;
         $coverImage = $this->settingService->getImageValues(SettingService::$contactCoverKey);
         return view('front.pages.contact', compact('links', 'coverImage'));
+    }
+
+    public function showGetInTouch($id)
+    {
+        $car = $this->carService->findById($id);
+        if (!$car) {
+            abort(404);
+        }
+        return view('front.pages.get_in_touch', compact('car'));
     }
 
     public function getCarConditionOptions()
