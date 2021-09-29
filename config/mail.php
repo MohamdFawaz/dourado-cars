@@ -100,7 +100,7 @@ return [
     */
 
     'to' => [
-        'address' => env('MAIL_TO_ADDRESS', 'mohamdfawaz93@gmail.com'),
+        'address' => env('MAIL_TO_ADDRESS', 'info@douradocars.com'),
         'name' => env('MAIL_TO_NAME', 'Dourado Cars'),
     ],
     'markdown' => [

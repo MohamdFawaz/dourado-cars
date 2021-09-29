@@ -73,12 +73,21 @@ class CarController extends APIController
 
     public function carPanoramic()
     {
-
         try {
             $cars = $this->panoramicCarService->get();
             return $this->respondData(PanoramicCarResource::collection($cars));
         } catch (\Exception $exception) {
             reportException($exception);
+            return $this->respondInternalError();
+        }
+    }
+
+    public function getInTouch($carId)
+    {
+        try {
+            return $this->respondData(['link' => route('show-get-in-touch', [$carId, 'source' => 'mobile-webview'])]);
+        } catch (\Exception $e) {
+            reportException($e);
             return $this->respondInternalError();
         }
     }
