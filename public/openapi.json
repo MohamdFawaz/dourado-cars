@@ -240,7 +240,50 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/CompareResponse"
+                  "$ref" : "#/components/schemas/LinkResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/car/get-in-touch/{id}" : {
+      "get" : {
+        "tags" : [ "Car" ],
+        "summary" : "Show get in touch car by id",
+        "description" : "Show car by id",
+        "operationId" : "getInTouch",
+        "parameters" : [ {
+          "name" : "locale",
+          "in" : "header",
+          "description" : "Paramter to display data according to selected localization",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "default" : "en",
+            "enum" : [ "ar", "en" ]
+          }
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "car id",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "number"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/LinkResponse"
                 }
               }
             }
@@ -486,7 +529,7 @@
           }
         }
       },
-      "CompareResponse" : {
+      "LinkResponse" : {
         "properties" : {
           "data" : {
             "type" : "object",
@@ -548,9 +591,6 @@
             "type" : "string"
           },
           "horse_power" : {
-            "type" : "string"
-          },
-          "share_link" : {
             "type" : "string"
           },
           "images" : {
