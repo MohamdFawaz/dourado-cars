@@ -22,7 +22,7 @@
     </li>
     @else
     <li>
-        <h2>Interested on Car: {{ $details['car_name'] }}</h2>
+        <h2>Interested in Car: {{ $details['car_name'] }}</h2>
     </li>
     @endif
 </ul>
