@@ -57,11 +57,11 @@
             let data = $('#visitForm').serialize();
             axios.post(`{{route('get-in-touch')}}`, data).then(response => {
                 setMessage(response.data.message, 'success');
-                alert(response.data.message);
                 $('#visitForm')[0].reset();
-                window.location.reload();
+                window.location = '/' + "?status=success";
             }, error => {
                 setMessage(error.response.data.message, 'error');
+                window.location = '/' + "?status=fail";
             });
         });
         setMessage = (message, type) => {
