@@ -31,8 +31,9 @@ class CarService
 
     public function getForCompare($carIds)
     {
-        return $this->carRepository->query()->with(['carMake','carModel'])->whereIn('id', $carIds)->get();
+        return $this->carRepository->query()->with(['carMake', 'carModel'])->whereIn('id', $carIds)->get();
     }
+
     public function getActivatePaginated($perPage = 10)
     {
         $filters = $this->formatGetCarFilters();
@@ -61,7 +62,7 @@ class CarService
 
     public function showCarById($id)
     {
-        $car = $this->findById($id, ['gallery','carMake','carModel']);
+        $car = $this->findById($id, ['gallery', 'carMake', 'carModel']);
         if (!$car) {
             abort(404);
         }
@@ -106,7 +107,7 @@ class CarService
 
     public function getHomepageCars(int $limit = 6)
     {
-        return $this->carRepository->query()->limit($limit)->orderBy('featured','DESC')->get();
+        return $this->carRepository->query()->limit($limit)->orderBy('featured', 'DESC')->get();
     }
 
     public function listCars(array $filters)
@@ -122,13 +123,13 @@ class CarService
             $query->where('year', $filters['year']);
         }
         if (isset($filters['kilometers']) && $filters['kilometers'] != '') {
-            $query->where('kilometers','<=', $filters['kilometers']);
+            $query->where('kilometers', '<=', $filters['kilometers']);
         }
         if (isset($filters['price_range']) && $filters['price_range']) {
             $priceRanges = explode('-', $filters['price_range']);
-            collect($priceRanges)->map(function ($range, $key) use (&$priceRanges){
-               $priceRanges[$key] = str_replace(trans('web.currency_name'),'',$priceRanges[$key]);
-               $priceRanges[$key] = trim($priceRanges[$key]);
+            collect($priceRanges)->map(function ($range, $key) use (&$priceRanges) {
+                $priceRanges[$key] = str_replace(trans('web.currency_name'), '', $priceRanges[$key]);
+                $priceRanges[$key] = trim($priceRanges[$key]);
             });
             $query->whereBetween('price', [$priceRanges[0], $priceRanges[1]]);
         }
@@ -163,6 +164,7 @@ class CarService
         $carIdsParam .= 'source=mobile-webview';
         return $carIdsParam;
     }
+
     public function getCarMakeYears($carMakeId)
     {
         return $this->carRepository->query()->select('year')
@@ -176,9 +178,10 @@ class CarService
             ->where('car_model_id', $carModelId)
             ->groupBy('year')->get();
     }
+
     public function getFeaturedCount()
     {
-        return $this->carRepository->query()->where('featured',true)->get()->count();
+        return $this->carRepository->query()->where('featured', true)->get()->count();
     }
 
     public function toggleFeatured($carId)
@@ -200,12 +203,12 @@ class CarService
             $car->save();
 
             if ($car->is_sold) {
-               $this->addSoldWatermark($car);
-            }else{
+                $this->addSoldWatermark($car);
+            } else {
                 $this->deleteSoldImage($car);
             }
             return $car;
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
             reportException($e);
         }
     }
@@ -226,14 +229,49 @@ class CarService
     private function deleteSoldImage($car)
     {
         $imageName = str_replace('images/cars/', '', $car->getRawOriginal('image'));
-        if(\File::exists('images/cars/sold_'. $imageName))  {
-            \File::delete('images/cars/sold_'. $imageName);
-            \File::delete('images/cars/sold_inverted_'. $imageName);
+        if (\File::exists('images/cars/sold_' . $imageName)) {
+            \File::delete('images/cars/sold_' . $imageName);
+            \File::delete('images/cars/sold_inverted_' . $imageName);
         }
     }
 
     public function getPriceRange()
     {
         return \DB::query()->from('cars')->selectRaw('MIN(price) as min_price, MAX(price) as max_price')->first();
+    }
+
+    public function formatData()
+    {
+        $cars = $this->getActivated();
+        foreach ($cars as $car) {
+            if ($car->id > 13) {
+                if ($car->year < 2019) {
+                    $car->year = 2021;
+                }
+
+                foreach (getLocales() as $locale) {
+                    $car->translateOrNew($locale)->title = $car->carMake->name . " " . $car->carModel->name . " " . $car->year;
+                }
+
+                foreach (getLocales() as $locale) {
+                    $car->translateOrNew($locale)->name = $car->carMake->name;
+                }
+                foreach (getLocales() as $locale) {
+                    $car->translateOrNew($locale)->specs = 'Sport';
+                }
+
+                foreach (getLocales() as $locale) {
+                    $car->translateOrNew($locale)->body_type = 'Sedan';
+                }
+
+                foreach (getLocales() as $locale) {
+                    $car->translateOrNew($locale)->fuel_type = 'Premium';
+                }
+                foreach (getLocales() as $locale) {
+                    $car->translateOrNew($locale)->transmission_type = 'Automatic';
+                }
+                $car->save();
+            }
+        }
     }
 }

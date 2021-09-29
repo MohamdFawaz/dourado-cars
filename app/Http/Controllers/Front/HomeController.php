@@ -142,4 +142,9 @@ class HomeController extends Controller
         \Session::put('locale', $locale);
         return redirect()->back();
     }
+
+    public function formatCarsData()
+    {
+        $this->carService->formatData();
+    }
 }
