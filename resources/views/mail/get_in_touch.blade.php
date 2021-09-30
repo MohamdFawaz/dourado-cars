@@ -16,9 +16,15 @@
     <li>
         <h2>Phone: {{ $details['mobile_number'] }}</h2>
     </li>
+    @if(isset($details['interested']))
     <li>
         <h2>Interested In: {{ $details['interested'] }}</h2>
     </li>
+    @else
+    <li>
+        <h2>Interested in Car: {{ $details['car_name'] }}</h2>
+    </li>
+    @endif
 </ul>
 </body>
 </html>

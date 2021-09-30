@@ -17,6 +17,7 @@ Route::get('/compare', [HomeController::class, 'compare'])->name('compare');
 Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact-us');
 
 Route::post('/get-in-touch', [HomeController::class, 'getInTouch'])->name('get-in-touch');
+Route::get('/get-in-touch/{id}', [HomeController::class, 'showGetInTouch'])->name('show-get-in-touch');
 
 Route::group(['prefix' => 'car-model'],function () {
     Route::get('/car-make/{id}',[CarModelController::class, 'getCarMakeModels']);

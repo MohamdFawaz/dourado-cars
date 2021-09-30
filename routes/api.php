@@ -28,6 +28,7 @@ Route::group(['prefix' => 'v1'], function() {
         Route::post('/compare',[CarController::class, 'compare']);
         Route::get('/{id}/recommended',[CarController::class, 'recommended']);
         Route::get('/panoramic',[CarController::class, 'carPanoramic']);
+        Route::get('/get-in-touch/{id}',[CarController::class, 'getInTouch'])->where(['id' => '^[0-9]*$']);
     });
 
     Route::group(['prefix' => 'setting'],function () {
