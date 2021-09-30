@@ -279,7 +279,7 @@ Main Components
     padding: 1.25em 0 0.625em;
     font-weight: bold;
     font-size: 1.4rem;
-    white-space: nowrap;
+    white-space: pre-line;
     overflow: hidden;
     text-overflow: ellipsis;
 }

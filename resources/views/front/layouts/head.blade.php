@@ -26,7 +26,7 @@
     @if(app()->getLocale() == 'ar')
         <link rel="stylesheet" href="{{asset('css/style.rtl.min.css?v=1.8')}}">
     @else
-        <link rel="stylesheet" href="{{asset('css/style.min.css?v=1.29')}}">
+        <link rel="stylesheet" href="{{asset('css/style.min.css?v=1.30')}}">
     @endif
 
     <link rel="stylesheet" href="{{asset('css/owl.css')}}">
