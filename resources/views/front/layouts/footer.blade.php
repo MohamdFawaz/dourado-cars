@@ -1,7 +1,5 @@
 @include('front.components.sections.visit_our_showroom')
-@if(Request::segment(1) == "")
-    @include('front.components.sections.download_application')
-@endif
+@include('front.components.sections.download_application')
 <a href="{{url('support')}}" class="float" target="_blank">
     <i class="fa fa-comment my-float"></i>
 </a>
