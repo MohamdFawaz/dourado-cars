@@ -65,7 +65,7 @@
                                 </select>
                             </div>
                             <div>
-                                <button type="submit" class="btn btn-primary">{{trans('web.footer.visit_our_showroom.form.preferred_time_placeholder')}}</button>
+                                <button type="submit" class="btn btn-primary col-12">{{trans('web.footer.visit_our_showroom.form.preferred_time_placeholder')}}</button>
                             </div>
                         </div>
                     </form>

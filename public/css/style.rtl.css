@@ -2931,3 +2931,61 @@ span.ui-slider-handle.ui-state-default.ui-corner-all{
     color: #000;
     background-color: #fff;
 }
+
+.download-application ul {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.download-application li {
+    display: inline-block;
+    margin: 10px;
+}
+.download-application h3 {
+    display: inline-block;
+    text-align: center;
+    word-break: break-word;
+}
+.download {
+    width: 200px;
+    height: 75px;
+    background: black;
+    float: left;
+    border-radius: 5px;
+    position: relative;
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid #fff;
+}
+
+.download > .fa {
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+}
+
+.df,
+.dfn {
+    position: absolute;
+    left: 70px;
+}
+
+.df {
+    top: 20px;
+    font-size: .68em;
+}
+
+.dfn {
+    top: 25px;
+    font-size: 1.08em;
+}
+
+.download:hover {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
