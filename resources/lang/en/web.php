@@ -18,19 +18,21 @@ return array (
                 array (
                     'arabic' => 'Arabic',
                     'english' => 'English',
+                    'ar' => 'Arabic',
+                    'en' => 'English',
                 ),
         ),
     'footer' =>
         array (
             'links_header' => 'Links',
-            'contact_us_header' => 'Contact Us',
+            'contact_us_header' => 'Get In Touch',
             'sell_a_car_header' => 'Sell Your Car',
             'get_a' => 'Get A',
             'quote' => 'Quote',
             'visit_our_showroom' =>
                 array (
                     'title' => 'Our Latest Videos',
-                    'get_in_touch_title' => 'Get In Touch',
+                    'get_in_touch_title' => 'Fill The Form',
                     'form' =>
                         array (
                             'full_name_placeholder' => 'Full Name',
@@ -55,7 +57,7 @@ return array (
             'about_us' => 'About Us',
             'sell_a_car' => 'Sell a Car',
             'compare' => 'Compare',
-            'contact_us' => 'Contact Us',
+            'contact_us' => 'Get In Touch',
             'panoramic-cars' => 'Cars 360°',
         ),
     'footer_contact_us_first_address_link' => 'https://douradocars.com/contact-us',
@@ -77,9 +79,9 @@ return array (
                 ),
             'contact' =>
                 array (
-                    'title' => 'Contact Us',
+                    'title' => 'Get In Touch',
                     'content' => 'Fill Out the Form Below And We Will Call You Back As Soon As we can',
-                    'button_text' => 'Contact Us',
+                    'button_text' => 'Get In Touch',
                 ),
             'advanced_filter' =>
                 array (
@@ -157,7 +159,7 @@ Dedicated to finding the best deals on preowned affordable vehicles for you, we 
             'contact' =>
                 array (
                     'upper_title' => 'Dourado Luxury Cars',
-                    'lower_title' => 'Contact Us',
+                    'lower_title' => 'Get In Touch',
                     'dourado_cars_location_title' => 'Location',
                 ),
             'compare' =>
@@ -205,7 +207,7 @@ Get in touch to find out more!',
                     'thursday_time_range' => '9:00am - 8:00pm',
                     'friday_name' => 'Friday',
                     'friday_time_range' => '9:00am - 8:00pm',
-                    'let_get_in_touch_title' => 'Call Us',
+                    'let_get_in_touch_title' => 'Get In Touch',
                     'get_in_touch_title_list_item_1' => 'Call Us On Our Number : +97145786888',
                     'get_in_touch_title_list_item_2' => 'Fill Out the Form Below And We Will Call You Back As Soon As we can',
                     'get_in_touch_title_list_item_3' => 'Send An Email To : info@douradocars.com With Your Inquiry',
@@ -241,6 +243,10 @@ Get in touch to find out more!',
                     'section_1_content' => 'If you want to sell a car and you are asking yourself “how do I sell it in Dubai?”, then you are in the right place, our experts have the experience to inspect, price your vehicle and offer you a fair market price.',
                 ),
             'more_info' => 'More Info',
+            'home' =>
+                array (
+                    'download_application_title' => 'Download Our App',
+                ),
         ),
     'car_details' =>
         array (

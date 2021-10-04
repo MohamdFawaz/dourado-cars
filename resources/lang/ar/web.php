@@ -87,6 +87,8 @@ return array (
                 array (
                     'arabic' => 'العربيه',
                     'english' => 'الانجليزيه',
+                    'ar' => 'العربيه',
+                    'en' => 'الانجليزيه',
                 ),
             'language_title' => 'اللغه',
         ),
@@ -227,6 +229,10 @@ return array (
                     'section_1_heading' => 'بيع سيارة',
                 ),
             'more_info' => 'المزيد من المعلومات',
+            'home' =>
+                array (
+                    'download_application_title' => 'قم بتحميل برنامجنا للمحمول',
+                ),
         ),
     'pages' =>
         array (
