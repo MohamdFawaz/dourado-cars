@@ -15,7 +15,7 @@
                             <div class="form-group">
                                 <input class="form-control" maxlength="15"
                                        name="mobile_number"
-                                       id="mobile_number" type="text"
+                                       id="mobile_number" type="tel" inputmode="numeric"
                                        placeholder="{{trans('web.footer.visit_our_showroom.form.mobile_number_placeholder')}}"
                                        autocomplete="off" required onkeypress="validateMobileNumber(event)">
                             </div>
