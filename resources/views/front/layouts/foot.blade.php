@@ -18,7 +18,7 @@
 <script>
     window.default_locale = `{{ config('app.locale') }}`;
     window.fallback_locale = `{{ config('app.fallback_locale') }}`;
-    window.messages = @if(isset($messages)) @json($messages) @endif;
+    window.messages = @if(isset($messages)) @json($messages) @else @json([]) @endif;
 </script>
 <script src="{{asset('js/app.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -64,7 +64,26 @@
         }
         $message.removeClass('hidden');
     }
+    function validateMobileNumber(evt) {
+        var theEvent = evt || window.event;
+
+        // Handle paste
+        if (theEvent.type === 'paste') {
+            key = event.clipboardData.getData('text/plain');
+        } else {
+            // Handle key press
+            var key = theEvent.keyCode || theEvent.which;
+            key = String.fromCharCode(key);
+        }
+        var regex = /[0-9]|\./;
+        if( !regex.test(key) ) {
+            theEvent.returnValue = false;
+            if(theEvent.preventDefault) theEvent.preventDefault();
+        }
+    }
     $(".datepickers").datepicker({
+        minDate: new Date(),
+        maxDate: 'today',
         format: "mm-yyyy",
         viewMode: "months",
         minViewMode: "months"

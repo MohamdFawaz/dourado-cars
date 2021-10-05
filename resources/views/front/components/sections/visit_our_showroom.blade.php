@@ -43,13 +43,13 @@
                                        name="mobile_number"
                                        id="mobile_number" type="text"
                                        placeholder="{{trans('web.footer.visit_our_showroom.form.mobile_number_placeholder')}}"
-                                       autocomplete="off" required>
+                                       autocomplete="off" required onkeypress="validateMobileNumber(event)">
                             </div>
                             <div class="form-group">
                                 <input name="date" id="date"
                                        class="form-control datepickers prefferedDate hasDatepicker" type="date"
                                        placeholder="{{trans('web.footer.visit_our_showroom.form.preferred_date_placeholder')}}"
-                                       autocomplete="off" required>
+                                       autocomplete="off" required min="{{now()->toDateString()}}" max="{{now()->addMonth()->toDateString()}}">
                             </div>
                             <div class="form-group">
                                 <input name="time" id="time"
