@@ -17,13 +17,13 @@
                                        name="mobile_number"
                                        id="mobile_number" type="text"
                                        placeholder="{{trans('web.footer.visit_our_showroom.form.mobile_number_placeholder')}}"
-                                       autocomplete="off" required>
+                                       autocomplete="off" required onkeypress="validateMobileNumber(event)">
                             </div>
                             <div class="form-group">
                                 <input name="date" id="date"
                                        class="form-control datepickers prefferedDate hasDatepicker" type="date"
                                        placeholder="{{trans('web.footer.visit_our_showroom.form.preferred_date_placeholder')}}"
-                                       autocomplete="off" required>
+                                       autocomplete="off" required min="{{now()->toDateString()}}" max="{{now()->addMonth()->toDateString()}}">
                             </div>
                             <div class="form-group">
                                 <input name="time" id="time"
@@ -93,7 +93,26 @@
         }
         $message.removeClass('hidden');
     }
+    function validateMobileNumber(evt) {
+        var theEvent = evt || window.event;
+
+        // Handle paste
+        if (theEvent.type === 'paste') {
+            key = event.clipboardData.getData('text/plain');
+        } else {
+            // Handle key press
+            var key = theEvent.keyCode || theEvent.which;
+            key = String.fromCharCode(key);
+        }
+        var regex = /[0-9]|\./;
+        if( !regex.test(key) ) {
+            theEvent.returnValue = false;
+            if(theEvent.preventDefault) theEvent.preventDefault();
+        }
+    }
+
     $(".datepickers").datepicker({
+        minDate: 0,
         format: "mm-yyyy",
         viewMode: "months",
         minViewMode: "months"
